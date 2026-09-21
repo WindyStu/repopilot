@@ -1,0 +1,25 @@
+{
+  "dataset": "repopilot-retrieval-v1",
+  "tasks": [
+    {"task_id": "local-json", "issue": "Parse structured JSON from SGLang OpenAI-compatible responses and tolerate markdown fences", "expected_files": ["src/minisweagent/repopilot/local_model.py"]},
+    {"task_id": "local-timeout", "issue": "Map local model connection timeout and truncated output to explicit errors", "expected_files": ["src/minisweagent/repopilot/local_model.py"]},
+    {"task_id": "fallback-traceback", "issue": "Extract Python identifiers file paths and exception names from a traceback fallback", "expected_files": ["src/minisweagent/repopilot/task_analysis.py"]},
+    {"task_id": "fallback-deterministic", "issue": "Make deterministic task analysis query rewriting stable when Qwen is unavailable", "expected_files": ["src/minisweagent/repopilot/task_analysis.py"]},
+    {"task_id": "ast-symbols", "issue": "Index Python AST functions methods signatures docstrings imports and source spans", "expected_files": ["src/minisweagent/repopilot/index.py"]},
+    {"task_id": "index-ignore", "issue": "Honor gitignore exclude env secrets and prevent symlinks escaping the repository", "expected_files": ["src/minisweagent/repopilot/index.py"]},
+    {"task_id": "index-cache", "issue": "Reuse unchanged file records by content hash and rebuild a corrupt index cache", "expected_files": ["src/minisweagent/repopilot/index.py"]},
+    {"task_id": "bm25-symbol", "issue": "Rank exact identifiers above incidental comments using explainable BM25 symbol boosts", "expected_files": ["src/minisweagent/repopilot/retrieval.py"]},
+    {"task_id": "dependency-hop", "issue": "Expand direct imported modules one hop without traversing dependency cycles", "expected_files": ["src/minisweagent/repopilot/retrieval.py"]},
+    {"task_id": "score-breakdown", "issue": "Expose lexical exact path exact symbol and dependency score contributions", "expected_files": ["src/minisweagent/repopilot/retrieval.py"]},
+    {"task_id": "whole-symbol", "issue": "Pack complete code symbol spans with file paths and line numbers", "expected_files": ["src/minisweagent/repopilot/context.py"]},
+    {"task_id": "context-budget", "issue": "Merge overlapping excerpts and stay under the deterministic context character budget", "expected_files": ["src/minisweagent/repopilot/context.py"]},
+    {"task_id": "agent-context", "issue": "Inject retrieved repository context before the first strong model call", "expected_files": ["src/minisweagent/repopilot/agent.py"]},
+    {"task_id": "agent-baseline", "issue": "Disable retrieval in baseline mode while preserving upstream initial messages", "expected_files": ["src/minisweagent/repopilot/agent.py"]},
+    {"task_id": "gemini-secret", "issue": "Build Gemini 3.8 Flash without serializing GEMINI_API_KEY into trajectories", "expected_files": ["src/minisweagent/repopilot/strong_model.py"]},
+    {"task_id": "docker-isolation", "issue": "Run verification in a non-root network-disabled Docker container without credentials", "expected_files": ["src/minisweagent/repopilot/verification.py"]},
+    {"task_id": "output-bounds", "issue": "Bound oversized verification output while retaining useful head and tail evidence", "expected_files": ["src/minisweagent/repopilot/verification.py"]},
+    {"task_id": "repair-retry", "issue": "Feed failed test evidence into a bounded automatic repair retry and retain the final patch", "expected_files": ["src/minisweagent/repopilot/workflow.py"]},
+    {"task_id": "benchmark-denominator", "issue": "Keep failed and skipped tasks in benchmark success rate denominator and compare variants", "expected_files": ["src/minisweagent/repopilot/benchmark.py"]},
+    {"task_id": "safe-copy", "issue": "Create a filtered workspace copy that excludes git env service accounts and agent artifacts", "expected_files": ["src/minisweagent/repopilot/cli.py"]}
+  ]
+}

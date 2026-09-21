@@ -93,6 +93,7 @@ mini-swe-agent = "minisweagent.run.mini:app"
 mini-extra = "minisweagent.run.utilities.mini_extra:main"
 mini-e= "minisweagent.run.utilities.mini_extra:main"
 repopilot-local = "minisweagent.repopilot.local_server:app"
+repopilot = "minisweagent.repopilot.cli:app"
 
 [tool.setuptools]
 include-package-data = true
