@@ -1,0 +1,35 @@
+{
+  "dataset": "repopilot-e2e-v1",
+  "tasks": [
+    {
+      "task_id": "divide_fraction",
+      "issue": "The divide function truncates fractional results. Make it implement normal Python division while preserving division-by-zero behavior.",
+      "repository": "tasks/divide_fraction/repo",
+      "hidden_tests": "tasks/divide_fraction/hidden",
+      "reference_patch": "tasks/divide_fraction/reference.patch",
+      "relevant_files": ["calculator.py"],
+      "allowed_changes": ["calculator.py"],
+      "test_command": "pytest -q /repopilot-hidden"
+    },
+    {
+      "task_id": "normalize_slug",
+      "issue": "slugify should trim surrounding whitespace, lowercase text, and collapse every run of whitespace into one hyphen. Empty or whitespace-only input should return an empty string.",
+      "repository": "tasks/normalize_slug/repo",
+      "hidden_tests": "tasks/normalize_slug/hidden",
+      "reference_patch": "tasks/normalize_slug/reference.patch",
+      "relevant_files": ["text_utils.py"],
+      "allowed_changes": ["text_utils.py"],
+      "test_command": "pytest -q /repopilot-hidden"
+    },
+    {
+      "task_id": "config_override",
+      "issue": "Runtime configuration overrides are being ignored. Fix build_config so caller-provided values win over defaults without mutating either input or the shared defaults.",
+      "repository": "tasks/config_override/repo",
+      "hidden_tests": "tasks/config_override/hidden",
+      "reference_patch": "tasks/config_override/reference.patch",
+      "relevant_files": ["app/config.py", "app/defaults.py"],
+      "allowed_changes": ["app/config.py"],
+      "test_command": "pytest -q /repopilot-hidden"
+    }
+  ]
+}

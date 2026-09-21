@@ -1,0 +1,7 @@
+diff --git a/app/config.py b/app/config.py
+index d188470..ae85b4e 100644
+--- a/app/config.py
++++ b/app/config.py
+@@ -8 +8 @@ def build_config(overrides: dict | None = None) -> dict:
+-    return {**overrides, **DEFAULTS}
++    return {**DEFAULTS, **overrides}

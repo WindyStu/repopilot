@@ -6,12 +6,16 @@ from minisweagent.repopilot.cli import app, build_safe_run_args, prepare_workspa
 def test_cli_exposes_explicit_run_subcommand():
     root = CliRunner().invoke(app, ["--help"])
     result = CliRunner().invoke(app, ["run", "--help"])
+    evaluation = CliRunner().invoke(app, ["evaluate", "--help"])
 
     assert root.exit_code == 0
     assert "Commands" in root.stdout
     assert "run" in root.stdout
     assert result.exit_code == 0
     assert "--repo" in result.stdout
+    assert evaluation.exit_code == 0
+    assert "--manifest" in evaluation.stdout
+    assert "--output-dir" in evaluation.stdout
 
 
 def test_prepare_workspace_copies_source_but_excludes_git_secrets_and_agent_artifacts(tmp_path):

@@ -1,0 +1,7 @@
+diff --git a/text_utils.py b/text_utils.py
+index 67381e4..4e1d919 100644
+--- a/text_utils.py
++++ b/text_utils.py
+@@ -4 +4 @@ def slugify(text: str) -> str:
+-    return text.replace(" ", "-")
++    return "-".join(text.lower().split())

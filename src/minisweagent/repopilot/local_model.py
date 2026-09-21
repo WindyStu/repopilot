@@ -10,6 +10,14 @@ from pydantic import BaseModel, ValidationError
 SchemaT = TypeVar("SchemaT", bound=BaseModel)
 
 
+def local_http_session() -> requests.Session:
+    """Create a client that never routes loopback model traffic through host proxies."""
+
+    session = requests.Session()
+    session.trust_env = False
+    return session
+
+
 class LocalModelError(RuntimeError):
     pass
 
@@ -47,20 +55,21 @@ class SGLangClient:
     def complete(self, prompt: str, schema: type[SchemaT], max_tokens: int = 256) -> LocalModelResult[SchemaT]:
         started_at = time.perf_counter()
         try:
-            response = requests.post(
-                f"{self.base_url.rstrip('/')}/chat/completions",
-                json={
-                    "model": self.model,
-                    "messages": [{"role": "user", "content": prompt}],
-                    "max_tokens": max_tokens,
-                    "temperature": 0,
-                    "response_format": {
-                        "type": "json_schema",
-                        "json_schema": {"name": schema.__name__, "schema": schema.model_json_schema()},
+            with local_http_session() as session:
+                response = session.post(
+                    f"{self.base_url.rstrip('/')}/chat/completions",
+                    json={
+                        "model": self.model,
+                        "messages": [{"role": "user", "content": prompt}],
+                        "max_tokens": max_tokens,
+                        "temperature": 0,
+                        "response_format": {
+                            "type": "json_schema",
+                            "json_schema": {"name": schema.__name__, "schema": schema.model_json_schema()},
+                        },
                     },
-                },
-                timeout=self.timeout,
-            )
+                    timeout=self.timeout,
+                )
         except requests.Timeout as error:
             raise LocalModelTimeoutError(f"Local model request timed out after {self.timeout} seconds") from error
         except requests.ConnectionError as error:

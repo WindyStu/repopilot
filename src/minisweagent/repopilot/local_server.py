@@ -2,11 +2,10 @@ import json
 import subprocess
 from dataclasses import dataclass
 
-import requests
 import typer
 from pydantic import BaseModel
 
-from minisweagent.repopilot.local_model import SGLangClient
+from minisweagent.repopilot.local_model import SGLangClient, local_http_session
 
 
 class _HealthResponse(BaseModel):
@@ -53,7 +52,8 @@ def build_sglang_command(
 
 
 def check_sglang(base_url: str = "http://127.0.0.1:30000/v1", timeout: float = 10) -> HealthCheckResult:
-    response = requests.get(f"{base_url.rstrip('/')}/models", timeout=timeout)
+    with local_http_session() as session:
+        response = session.get(f"{base_url.rstrip('/')}/models", timeout=timeout)
     response.raise_for_status()
     model_ids = [model["id"] for model in response.json()["data"]]
     generation = SGLangClient(base_url=base_url, model=model_ids[0], timeout=timeout).complete(

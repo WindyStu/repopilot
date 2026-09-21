@@ -8,6 +8,7 @@ import shutil
 import subprocess
 from dataclasses import asdict
 from datetime import UTC, datetime
+from decimal import Decimal
 from pathlib import Path
 
 import typer
@@ -15,6 +16,9 @@ from rich.console import Console
 
 from minisweagent.environments.docker import DockerEnvironment
 from minisweagent.repopilot.agent import RepoPilotAgent
+from minisweagent.repopilot.deepseek_provider import BudgetGuard, build_deepseek_model, fetch_cny_balance
+from minisweagent.repopilot.evaluation_dataset import load_dataset
+from minisweagent.repopilot.evaluation_runner import run_paired_evaluation
 from minisweagent.repopilot.retrieval_benchmark import run_retrieval_benchmark
 from minisweagent.repopilot.strong_model import build_gemini_model
 from minisweagent.repopilot.verification import VerificationResult, bound_output
@@ -152,6 +156,59 @@ def benchmark_retrieval(
     baseline = report["variants"]["baseline"]["recall_at_5"]
     hybrid = report["variants"]["hybrid"]["recall_at_5"]
     console.print(f"Retrieval benchmark: baseline={baseline:.1%}, hybrid={hybrid:.1%}, report={output}")
+
+
+@app.command()
+def evaluate(
+    manifest: Path = typer.Option(
+        Path("benchmarks/e2e-v1/manifest.json"),
+        "--manifest",
+        exists=True,
+        dir_okay=False,
+        resolve_path=True,
+    ),
+    output_dir: Path | None = typer.Option(None, "--output-dir"),
+    image: str = typer.Option("repopilot-runner:py312", "--image"),
+    max_spend_cny: float = typer.Option(8.0, "--max-spend-cny", min=0),
+    reserve_cny: float = typer.Option(2.0, "--reserve-cny", min=0),
+    estimated_pair_cost_cny: float = typer.Option(1.5, "--estimated-pair-cost-cny", min=0),
+) -> None:
+    """Run the controlled paired DeepSeek baseline evaluation."""
+
+    dataset = load_dataset(manifest)
+    root = (
+        output_dir
+        or Path("benchmark-results/e2e") / datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
+    ).resolve()
+    starting_balance = fetch_cny_balance()
+    first_query = True
+
+    def balance_fetcher() -> Decimal:
+        nonlocal first_query
+        if first_query:
+            first_query = False
+            return starting_balance
+        return fetch_cny_balance()
+
+    report = run_paired_evaluation(
+        dataset,
+        root,
+        model_factory=build_deepseek_model,
+        balance_fetcher=balance_fetcher,
+        budget=BudgetGuard(
+            starting_balance=starting_balance,
+            max_spend=Decimal(str(max_spend_cny)),
+            reserve=Decimal(str(reserve_cny)),
+        ),
+        estimated_pair_cost=Decimal(str(estimated_pair_cost_cny)),
+        image=image,
+        uid=os.getuid(),
+        gid=os.getgid(),
+    )
+    console.print(
+        f"Controlled evaluation completed {report['completed_pairs']} pairs; "
+        f"measured spend CNY {report['measured_spend_cny']}; artifacts={root}"
+    )
 
 
 @app.command()

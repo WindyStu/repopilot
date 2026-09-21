@@ -5,7 +5,10 @@ from minisweagent.repopilot.verification import (
     DockerSafetyConfig,
     bound_output,
     build_docker_command,
+    build_hidden_test_command,
+    parse_junit_counts,
     run_docker_verification,
+    run_hidden_verification,
 )
 
 
@@ -86,3 +89,79 @@ def test_docker_verifier_maps_timeout_to_bounded_failure(tmp_path, monkeypatch):
     assert result.success is False
     assert "timed out after 1s" in result.output
     assert "partial output" in result.output
+
+
+def test_hidden_test_command_mounts_tests_read_only_and_artifacts_separately(tmp_path):
+    workspace = tmp_path / "workspace"
+    hidden = tmp_path / "hidden"
+    artifacts = tmp_path / "artifacts"
+    workspace.mkdir()
+    hidden.mkdir()
+    artifacts.mkdir()
+
+    command = build_hidden_test_command(
+        workspace,
+        hidden,
+        artifacts,
+        "pytest -q /repopilot-hidden",
+        DockerSafetyConfig(image="repopilot-runner:py312", user="1000:1000"),
+    )
+    joined = " ".join(command)
+
+    assert f"{workspace.resolve()}:/workspace" in joined
+    assert f"{hidden.resolve()}:/repopilot-hidden:ro" in joined
+    assert f"{artifacts.resolve()}:/repopilot-artifacts" in joined
+    assert "PYTHONPATH=/workspace" in joined
+    assert "--network none" in joined
+    assert "GEMINI_API_KEY" not in joined
+    assert "DEEPSEEK_API_KEY" not in joined
+    assert command[-1].endswith("--junitxml=/repopilot-artifacts/junit.xml")
+
+
+def test_parse_junit_counts_passed_failed_error_and_skipped_cases(tmp_path):
+    report = tmp_path / "junit.xml"
+    report.write_text(
+        "<testsuite>"
+        '<testcase name="pass" />'
+        '<testcase name="fail"><failure /></testcase>'
+        '<testcase name="error"><error /></testcase>'
+        '<testcase name="skip"><skipped /></testcase>'
+        "</testsuite>"
+    )
+
+    counts = parse_junit_counts(report)
+
+    assert counts.total == 4
+    assert counts.passed == 1
+    assert counts.failed == 1
+    assert counts.errors == 1
+    assert counts.skipped == 1
+
+
+def test_run_hidden_verification_returns_command_evidence_and_junit_counts(tmp_path, monkeypatch):
+    workspace = tmp_path / "workspace"
+    hidden = tmp_path / "hidden"
+    artifacts = tmp_path / "artifacts"
+    workspace.mkdir()
+    hidden.mkdir()
+    artifacts.mkdir()
+    (artifacts / "junit.xml").write_text('<testsuite><testcase name="pass" /></testsuite>')
+
+    monkeypatch.setattr(
+        "minisweagent.repopilot.verification.subprocess.run",
+        lambda command, **kwargs: CompletedProcess(command, 0, stdout="1 passed\n", stderr=""),
+    )
+
+    outcome = run_hidden_verification(
+        workspace,
+        hidden,
+        artifacts,
+        "pytest -q /repopilot-hidden",
+        DockerSafetyConfig(image="repopilot-runner:py312", user="1000:1000"),
+        timeout=60,
+    )
+
+    assert outcome.result.success is True
+    assert outcome.result.output == "1 passed\n"
+    assert outcome.counts.total == 1
+    assert outcome.counts.passed == 1
