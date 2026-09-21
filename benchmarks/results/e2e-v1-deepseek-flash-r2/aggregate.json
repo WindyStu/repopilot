@@ -1,0 +1,55 @@
+{
+  "dataset": "repopilot-e2e-v1",
+  "paired_tasks": 3,
+  "variants": {
+    "baseline": {
+      "tasks": 3,
+      "task_success": {
+        "passed": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "hidden_tests": {
+        "passed": 9,
+        "total": 9,
+        "rate": 1.0
+      },
+      "retrieval_recall_at_5": null,
+      "total_input_tokens": 18961,
+      "mean_input_tokens": 6320.333333333333,
+      "total_strong_model_calls": 17,
+      "mean_strong_model_calls": 5.666666666666667,
+      "total_active_wall_seconds": 25.24532973900932,
+      "mean_active_wall_seconds": 8.415109913003107,
+      "failure_classes": {}
+    },
+    "enhanced": {
+      "tasks": 3,
+      "task_success": {
+        "passed": 3,
+        "total": 3,
+        "rate": 1.0
+      },
+      "hidden_tests": {
+        "passed": 9,
+        "total": 9,
+        "rate": 1.0
+      },
+      "retrieval_recall_at_5": 1.0,
+      "total_input_tokens": 17542,
+      "mean_input_tokens": 5847.333333333333,
+      "total_strong_model_calls": 15,
+      "mean_strong_model_calls": 5.0,
+      "total_active_wall_seconds": 27.107844618003583,
+      "mean_active_wall_seconds": 9.035948206001194,
+      "failure_classes": {}
+    }
+  },
+  "paired_deltas": {
+    "task_success_rate": 0.0,
+    "hidden_test_pass_rate": 0.0,
+    "mean_input_tokens": -473.0,
+    "mean_strong_model_calls": -0.666666666666667,
+    "mean_active_wall_seconds": 0.6208382929980871
+  }
+}

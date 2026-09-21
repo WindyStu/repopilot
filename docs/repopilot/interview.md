@@ -15,7 +15,7 @@ symbols under a fixed character budget and records why every excerpt was include
 ## 3. Model routing (3 minutes)
 
 Qwen3-0.6B runs locally through SGLang and only performs bounded structured tasks. Invalid JSON, timeout, or downtime falls
-back to deterministic extraction. Gemini 3.8 Flash performs the harder diagnosis and patching through the existing
+back to deterministic extraction. DeepSeek Flash performs the harder diagnosis and patching through the existing
 mini-swe-agent tool-call abstraction. Keys remain process environment only.
 
 ## 4. Safety and recovery (3 minutes)
@@ -31,13 +31,25 @@ Then compare the same task set under baseline and enhanced modes. Be explicit th
 success measures the whole system. Close with limitations: Python-only indexing, prebuilt offline runner dependencies, free
 API quotas, and the small benchmark's uncertainty.
 
-## Resume wording before live benchmark
+## Measured result and trade-off
 
-“Extended mini-swe-agent with explainable Python code retrieval, local Qwen3-0.6B routing, credential-isolated Docker
-execution, bounded test-driven repair, and reproducible baseline comparison; achieved 90% Recall@5 versus a 0% no-context
-baseline on a checked-in 20-task retrieval benchmark.”
+On the checked-in 3-task, single-run paired pilot, both variants solved 3/3 tasks and passed 9/9 hidden tests. Enhanced
+retrieval reached 100% Recall@5, reduced average input tokens by 7.5% and strong-model calls by 11.8%, but increased active
+latency by 7.4%. The correct conclusion is efficiency improved on this pilot; solve rate did not.
 
-Always call this a retrieval benchmark. Do not describe it as a bug-fix success rate.
+## Resume wording
 
-After evaluation, replace generic wording with values copied directly from committed raw results; never invent an
-improvement percentage.
+Chinese:
+
+“基于 mini-swe-agent 开发 RepoPilot：实现 Python AST/BM25/符号与依赖混合检索、本地 Qwen3-0.6B 路由、无网络非 root
+Docker 沙箱及失败自动修复；在 DeepSeek Flash 的 3 题同任务配对实验中，完整系统保持 100% 任务/隐藏测试通过率，
+Recall@5 达 100%，平均输入 Token 降低 7.5%、强模型调用降低 11.8%（单次小样本实验）。”
+
+English:
+
+“Built RepoPilot on mini-swe-agent with explainable Python retrieval, local Qwen3-0.6B routing, credential-isolated Docker
+execution, and bounded repair; on a checked-in 3-task paired DeepSeek Flash pilot, maintained 100% task/hidden-test pass
+rates with 100% Recall@5 while reducing mean input tokens 7.5% and strong-model calls 11.8% (single-run pilot).”
+
+For the separate 20-task smoke check, always call 90% a retrieval-only Recall@5 result. Never describe it as a 90% bug-fix
+success rate. For the end-to-end pilot, always state the 3-task and single-run limitations.

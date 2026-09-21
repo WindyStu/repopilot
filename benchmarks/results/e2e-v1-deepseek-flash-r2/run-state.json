@@ -1,0 +1,12 @@
+{
+  "dataset": "repopilot-e2e-v1",
+  "completed_pairs": 3,
+  "completed_task_ids": [
+    "divide_fraction",
+    "normalize_slug",
+    "config_override"
+  ],
+  "starting_balance_cny": "9.07",
+  "current_balance_cny": "9.07",
+  "measured_spend_cny": "0"
+}

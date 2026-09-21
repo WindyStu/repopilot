@@ -262,3 +262,5 @@ def test_paired_scheduler_alternates_order_checks_balance_after_complete_pairs_a
     assert report["ending_balance_cny"] == "8.20"
     assert (tmp_path / "experiment/run-state.json").is_file()
     assert len((tmp_path / "experiment/sessions.jsonl").read_text().splitlines()) == 6
+    assert (tmp_path / "experiment/aggregate.json").is_file()
+    assert (tmp_path / "experiment/report.md").is_file()

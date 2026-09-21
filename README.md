@@ -5,7 +5,7 @@ RepoPilot is a repository-aware Python coding agent built on top of
 
 - Python AST indexing and explainable BM25/symbol/dependency retrieval;
 - local Qwen3-0.6B task analysis through SGLang, with deterministic fallback;
-- Gemini 3.8 Flash for repository-level coding and shell tool calls;
+- DeepSeek Flash for repository-level coding and shell tool calls, with Gemini available as an adapter;
 - a disposable, network-disabled, non-root Docker workspace;
 - bounded verification-driven repair retries;
 - baseline-versus-RAG benchmark records with traceable trajectories.
@@ -22,7 +22,7 @@ Issue
   -> Python AST index
   -> BM25 + exact symbol/path boosts + one-hop imports
   -> budgeted, explainable context
-  -> Gemini 3.8 Flash + mini-swe-agent loop
+  -> DeepSeek Flash + mini-swe-agent loop
   -> isolated tests
   -> bounded repair feedback
   -> patch + trajectory + metrics
@@ -50,26 +50,26 @@ The script never installs into or changes the `sglang` environment.
 
 ## Model setup
 
-Start the already validated local model profile in one terminal:
+The one-command experiment script starts the validated local model with proxy variables removed from the SGLang process:
 
 ```bash
-conda activate sglang
-repopilot-local serve
+./scripts/run_controlled_evaluation.sh
 ```
 
-The wrapper uses the local ModelScope snapshot and binds to `127.0.0.1:30000` by default. Check both model listing and
-structured generation with:
+For a manual server, use the local ModelScope snapshot and keep loopback traffic out of the VPN proxy:
 
 ```bash
-conda activate repopilot
+env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u http_proxy -u https_proxy -u all_proxy \
+  NO_PROXY=127.0.0.1,localhost no_proxy=127.0.0.1,localhost \
+  conda run -n sglang repopilot-local serve \
+  --model-path /home/hp/.cache/modelscope/models/Qwen--Qwen3-0.6B/snapshots/master
+```
+
+Export provider keys only in the WSL shell. The canonical controlled evaluation uses `DEEPSEEK_API_KEY`:
+
+```bash
+export DEEPSEEK_API_KEY='your-key'
 repopilot-local health
-```
-
-Rotate any key that has appeared in chat or logs. Export the replacement only in the current WSL shell:
-
-```bash
-export GEMINI_API_KEY='your-new-key'
-make live-gemini
 ```
 
 RepoPilot checks the key before a run but never stores it in model config, trajectories, Docker arguments, or the target
@@ -112,16 +112,23 @@ make test
 ```
 
 Deterministic tests cover local-model parsing/fallbacks, indexing, retrieval evidence, context budgets, credential-safe
-Gemini configuration, Docker command isolation, automatic repair, benchmark aggregation, and an issue-to-code-change fixture.
-The live Gemini and live Docker checks are opt-in so CI never consumes credentials or provider quota.
+provider configuration, Docker command isolation, automatic repair, benchmark aggregation, and issue-to-code-change
+fixtures. Live provider and Docker checks are opt-in so CI never consumes credentials or provider quota.
+
+The checked-in end-to-end pilot compares the same 3 fixture tasks once per variant with DeepSeek Flash. Both baseline and
+enhanced solved 3/3 tasks and passed 9/9 hidden tests. Enhanced achieved **100% Recall@5**, used **7.5% fewer input tokens**
+(5,847 vs 6,320 mean) and **11.8% fewer strong-model calls** (5.00 vs 5.67 mean), while active latency was **7.4% higher**
+(9.04 s vs 8.42 s mean). This is a small descriptive pilot, not a statistically significant solve-rate improvement.
+The aggregate, raw trajectories, patches, and JUnit reports are in
+[`benchmarks/results/e2e-v1-deepseek-flash-r2`](benchmarks/results/e2e-v1-deepseek-flash-r2/).
 
 The checked-in `repopilot-retrieval-v1` result contains 20 labeled tasks: the no-context baseline scores **0% Recall@5**
 and deterministic hybrid retrieval scores **90% Recall@5**. This is a retrieval metric, not an end-to-end bug-fix success
 rate. Raw per-task results, including both misses, are in
 [`docs/repopilot/results/retrieval-v1.json`](docs/repopilot/results/retrieval-v1.json).
 
-Do not put success-rate claims on a resume until both variants have run on the same checked-in benchmark and the generated
-raw results are committed. See [evaluation](docs/repopilot/evaluation.md) and [interview notes](docs/repopilot/interview.md).
+See [evaluation](docs/repopilot/evaluation.md) and [interview notes](docs/repopilot/interview.md) for metric definitions,
+limitations, and resume wording.
 
 ## Attribution
 

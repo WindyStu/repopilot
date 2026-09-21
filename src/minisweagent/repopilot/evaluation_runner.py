@@ -22,6 +22,7 @@ from minisweagent.repopilot.evaluation_dataset import (
     materialize_task,
 )
 from minisweagent.repopilot.evaluation_metrics import extract_trajectory_metrics, recall_at_k
+from minisweagent.repopilot.evaluation_report import build_aggregate, render_markdown
 from minisweagent.repopilot.verification import (
     DockerSafetyConfig,
     HiddenVerificationOutcome,
@@ -390,4 +391,10 @@ def run_paired_evaluation(
         "sessions": records,
     }
     _write_json_atomic(output_dir / "experiment.json", report)
+    aggregate = build_aggregate(report)
+    _write_json_atomic(output_dir / "aggregate.json", aggregate)
+    markdown_path = output_dir / "report.md"
+    temporary_markdown = markdown_path.with_suffix(".md.tmp")
+    temporary_markdown.write_text(render_markdown(aggregate, model="deepseek/deepseek-flash"))
+    temporary_markdown.replace(markdown_path)
     return report

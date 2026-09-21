@@ -1,0 +1,7 @@
+diff --git a/calculator.py b/calculator.py
+index ac23a7b..8b380a1 100644
+--- a/calculator.py
++++ b/calculator.py
+@@ -4 +4 @@ def divide(left: float, right: float) -> float:
+-    return left // right
++    return left / right
