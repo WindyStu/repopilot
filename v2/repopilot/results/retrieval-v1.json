@@ -1,0 +1,357 @@
+{
+  "dataset": "repopilot-retrieval-v1",
+  "task_count": 20,
+  "repository": "repopilot",
+  "variants": {
+    "baseline": {
+      "description": "no retrieved context",
+      "recall_at_5": 0.0
+    },
+    "hybrid": {
+      "description": "BM25 + exact symbol/path + one-hop dependencies",
+      "recall_at_5": 0.9
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "local-json",
+      "issue": "Parse structured JSON from SGLang OpenAI-compatible responses and tolerate markdown fences",
+      "expected_files": [
+        "src/minisweagent/repopilot/local_model.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_local_model.py",
+        "src/minisweagent/repopilot/local_server.py",
+        "src/minisweagent/repopilot/local_model.py",
+        "src/minisweagent/models/utils/actions_toolcall_response.py",
+        "src/minisweagent/models/utils/openai_multimodal.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "local-timeout",
+      "issue": "Map local model connection timeout and truncated output to explicit errors",
+      "expected_files": [
+        "src/minisweagent/repopilot/local_model.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_local_model.py",
+        "tests/agents/test_default.py",
+        "src/minisweagent/repopilot/local_model.py",
+        "src/minisweagent/environments/local.py",
+        "src/minisweagent/models/openrouter_model.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "fallback-traceback",
+      "issue": "Extract Python identifiers file paths and exception names from a traceback fallback",
+      "expected_files": [
+        "src/minisweagent/repopilot/task_analysis.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_retrieval.py",
+        "src/minisweagent/repopilot/task_analysis.py",
+        "tests/repopilot/test_task_analysis.py",
+        "tests/run/test_save.py",
+        "tests/models/test_init.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "fallback-deterministic",
+      "issue": "Make deterministic task analysis query rewriting stable when Qwen is unavailable",
+      "expected_files": [
+        "src/minisweagent/repopilot/task_analysis.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_task_analysis.py",
+        "tests/repopilot/test_retrieval.py",
+        "src/minisweagent/repopilot/agent.py",
+        "src/minisweagent/repopilot/retrieval_benchmark.py",
+        "src/minisweagent/models/test_models.py"
+      ],
+      "hybrid_recall_at_5": 0.0
+    },
+    {
+      "task_id": "ast-symbols",
+      "issue": "Index Python AST functions methods signatures docstrings imports and source spans",
+      "expected_files": [
+        "src/minisweagent/repopilot/index.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "src/minisweagent/repopilot/index.py",
+        "tests/repopilot/test_index.py",
+        "src/minisweagent/repopilot/context.py",
+        "tests/repopilot/test_retrieval.py",
+        "tests/repopilot/test_context.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "index-ignore",
+      "issue": "Honor gitignore exclude env secrets and prevent symlinks escaping the repository",
+      "expected_files": [
+        "src/minisweagent/repopilot/index.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_index.py",
+        "tests/repopilot/test_cli.py",
+        "src/minisweagent/repopilot/index.py",
+        "src/minisweagent/repopilot/cli.py",
+        "src/minisweagent/repopilot/agent.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "index-cache",
+      "issue": "Reuse unchanged file records by content hash and rebuild a corrupt index cache",
+      "expected_files": [
+        "src/minisweagent/repopilot/index.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_index.py",
+        "src/minisweagent/repopilot/index.py",
+        "tests/repopilot/test_context.py",
+        "src/minisweagent/models/utils/cache_control.py",
+        "tests/models/test_cache_control.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "bm25-symbol",
+      "issue": "Rank exact identifiers above incidental comments using explainable BM25 symbol boosts",
+      "expected_files": [
+        "src/minisweagent/repopilot/retrieval.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_retrieval.py",
+        "src/minisweagent/repopilot/retrieval.py",
+        "src/minisweagent/repopilot/retrieval_benchmark.py",
+        "tests/repopilot/test_context.py",
+        "examples/calculator_bug/test_calculator.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "dependency-hop",
+      "issue": "Expand direct imported modules one hop without traversing dependency cycles",
+      "expected_files": [
+        "src/minisweagent/repopilot/retrieval.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_retrieval.py",
+        "src/minisweagent/repopilot/retrieval.py",
+        "tests/agents/test_multimodal.py",
+        "src/minisweagent/models/utils/actions_text.py",
+        "src/minisweagent/repopilot/retrieval_benchmark.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "score-breakdown",
+      "issue": "Expose lexical exact path exact symbol and dependency score contributions",
+      "expected_files": [
+        "src/minisweagent/repopilot/retrieval.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "src/minisweagent/repopilot/retrieval.py",
+        "tests/repopilot/test_retrieval.py",
+        "tests/repopilot/test_context.py",
+        "src/minisweagent/repopilot/context.py",
+        "src/minisweagent/repopilot/retrieval_benchmark.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "whole-symbol",
+      "issue": "Pack complete code symbol spans with file paths and line numbers",
+      "expected_files": [
+        "src/minisweagent/repopilot/context.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "src/minisweagent/repopilot/context.py",
+        "tests/repopilot/test_context.py",
+        "tests/repopilot/test_retrieval.py",
+        "src/minisweagent/repopilot/retrieval.py",
+        "tests/repopilot/test_task_analysis.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "context-budget",
+      "issue": "Merge overlapping excerpts and stay under the deterministic context character budget",
+      "expected_files": [
+        "src/minisweagent/repopilot/context.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "src/minisweagent/repopilot/context.py",
+        "tests/repopilot/test_context.py",
+        "src/minisweagent/repopilot/retrieval_benchmark.py",
+        "src/minisweagent/repopilot/agent.py",
+        "tests/repopilot/test_agent.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "agent-context",
+      "issue": "Inject retrieved repository context before the first strong model call",
+      "expected_files": [
+        "src/minisweagent/repopilot/agent.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_agent.py",
+        "src/minisweagent/repopilot/retrieval_benchmark.py",
+        "src/minisweagent/repopilot/agent.py",
+        "src/minisweagent/repopilot/cli.py",
+        "tests/repopilot/test_benchmark.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "agent-baseline",
+      "issue": "Disable retrieval in baseline mode while preserving upstream initial messages",
+      "expected_files": [
+        "src/minisweagent/repopilot/agent.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_agent.py",
+        "src/minisweagent/repopilot/retrieval_benchmark.py",
+        "tests/repopilot/test_retrieval_benchmark.py",
+        "src/minisweagent/repopilot/cli.py",
+        "src/minisweagent/repopilot/benchmark.py"
+      ],
+      "hybrid_recall_at_5": 0.0
+    },
+    {
+      "task_id": "gemini-secret",
+      "issue": "Build Gemini 3.8 Flash without serializing GEMINI_API_KEY into trajectories",
+      "expected_files": [
+        "src/minisweagent/repopilot/strong_model.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_strong_model.py",
+        "src/minisweagent/repopilot/strong_model.py",
+        "tests/live/test_gemini_repopilot.py",
+        "tests/live/test_docker_repopilot.py",
+        "tests/repopilot/test_cli.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "docker-isolation",
+      "issue": "Run verification in a non-root network-disabled Docker container without credentials",
+      "expected_files": [
+        "src/minisweagent/repopilot/verification.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_verification.py",
+        "src/minisweagent/repopilot/verification.py",
+        "tests/repopilot/test_cli.py",
+        "tests/run/test_programbench.py",
+        "tests/live/test_docker_repopilot.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "output-bounds",
+      "issue": "Bound oversized verification output while retaining useful head and tail evidence",
+      "expected_files": [
+        "src/minisweagent/repopilot/verification.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "src/minisweagent/repopilot/verification.py",
+        "tests/repopilot/test_verification.py",
+        "tests/config/test_swebench_template.py",
+        "src/minisweagent/repopilot/workflow.py",
+        "src/minisweagent/repopilot/cli.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "repair-retry",
+      "issue": "Feed failed test evidence into a bounded automatic repair retry and retain the final patch",
+      "expected_files": [
+        "src/minisweagent/repopilot/workflow.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "src/minisweagent/repopilot/workflow.py",
+        "tests/repopilot/test_workflow.py",
+        "tests/repopilot/test_workflow_e2e.py",
+        "src/minisweagent/repopilot/cli.py",
+        "src/minisweagent/repopilot/verification.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "benchmark-denominator",
+      "issue": "Keep failed and skipped tasks in benchmark success rate denominator and compare variants",
+      "expected_files": [
+        "src/minisweagent/repopilot/benchmark.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_benchmark.py",
+        "src/minisweagent/repopilot/benchmark.py",
+        "src/minisweagent/repopilot/cli.py",
+        "tests/repopilot/test_retrieval_benchmark.py",
+        "src/minisweagent/repopilot/retrieval_benchmark.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    },
+    {
+      "task_id": "safe-copy",
+      "issue": "Create a filtered workspace copy that excludes git env service accounts and agent artifacts",
+      "expected_files": [
+        "src/minisweagent/repopilot/cli.py"
+      ],
+      "baseline_top_5": [],
+      "baseline_recall_at_5": 0.0,
+      "hybrid_top_5": [
+        "tests/repopilot/test_cli.py",
+        "src/minisweagent/repopilot/cli.py",
+        "tests/run/test_programbench.py",
+        "src/minisweagent/run/benchmarks/programbench.py",
+        "tests/environments/extra/test_contree.py"
+      ],
+      "hybrid_recall_at_5": 1.0
+    }
+  ]
+}
