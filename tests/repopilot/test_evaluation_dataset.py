@@ -103,6 +103,8 @@ def test_audit_workspace_accepts_non_empty_patch_limited_to_allowed_files(tmp_pa
     (workspace / "calculator.py").write_text("VALUE = 1\n")
     snapshot(workspace)
     (workspace / "calculator.py").write_text("VALUE = 2\n")
+    (workspace / ".repopilot").mkdir()
+    (workspace / ".repopilot/index.json").write_text("{}\n")
 
     audit = audit_workspace(workspace, ("calculator.py",))
 
@@ -110,6 +112,7 @@ def test_audit_workspace_accepts_non_empty_patch_limited_to_allowed_files(tmp_pa
     assert audit.changed_paths == ("calculator.py",)
     assert audit.forbidden_paths == ()
     assert "VALUE = 2" in audit.patch
+    assert ".repopilot" not in audit.patch
 
 
 def test_audit_workspace_rejects_test_edits_and_untracked_files(tmp_path):

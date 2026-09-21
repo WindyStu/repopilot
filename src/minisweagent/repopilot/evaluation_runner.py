@@ -209,6 +209,7 @@ def run_evaluation_session(
                 repository_path=workspace,
                 retrieval_enabled=variant == "enhanced",
                 local_analysis_enabled=variant == "enhanced",
+                local_model_timeout=30,
                 context_budget_chars=12_000,
                 step_limit=remaining_calls,
                 cost_limit=0,

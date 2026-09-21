@@ -149,10 +149,14 @@ def audit_workspace(workspace: Path, allowed_changes: tuple[str, ...]) -> Worksp
     )
     assert isinstance(tracked_raw, bytes)
     assert isinstance(untracked_raw, bytes)
-    untracked = _split_nul_paths(untracked_raw)
+    def is_system_cache(path: str) -> bool:
+        return path == ".repopilot" or path.startswith(".repopilot/")
+
+    tracked = tuple(path for path in _split_nul_paths(tracked_raw) if not is_system_cache(path))
+    untracked = tuple(path for path in _split_nul_paths(untracked_raw) if not is_system_cache(path))
     if untracked:
         _git(workspace, "add", "-N", "--", *untracked)
-    changed = tuple(sorted(set(_split_nul_paths(tracked_raw)) | set(untracked)))
+    changed = tuple(sorted(set(tracked) | set(untracked)))
     patch = _git(workspace, "diff", "--binary", "--no-ext-diff", "HEAD", "--")
     assert isinstance(patch, str)
     forbidden = tuple(path for path in changed if path not in allowed)

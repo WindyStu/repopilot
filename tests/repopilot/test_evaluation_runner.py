@@ -137,6 +137,7 @@ def test_session_materializes_runs_verifies_audits_and_records_metrics(tmp_path,
             self.workspace = Path(kwargs["repository_path"])
             self.output_path = Path(kwargs["output_path"])
             self.retrieval_enabled = kwargs["retrieval_enabled"]
+            assert kwargs["local_model_timeout"] == 30
 
         def run(self, prompt):
             (self.workspace / "source.py").write_text("VALUE = 2\n")

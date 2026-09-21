@@ -19,6 +19,7 @@ from minisweagent.repopilot.agent import RepoPilotAgent
 from minisweagent.repopilot.deepseek_provider import BudgetGuard, build_deepseek_model, fetch_cny_balance
 from minisweagent.repopilot.evaluation_dataset import load_dataset
 from minisweagent.repopilot.evaluation_runner import run_paired_evaluation
+from minisweagent.repopilot.local_server import check_sglang
 from minisweagent.repopilot.retrieval_benchmark import run_retrieval_benchmark
 from minisweagent.repopilot.strong_model import build_gemini_model
 from minisweagent.repopilot.verification import VerificationResult, bound_output
@@ -180,6 +181,7 @@ def evaluate(
         output_dir
         or Path("benchmark-results/e2e") / datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     ).resolve()
+    check_sglang("http://127.0.0.1:30000/v1", timeout=30)
     starting_balance = fetch_cny_balance()
     first_query = True
 
