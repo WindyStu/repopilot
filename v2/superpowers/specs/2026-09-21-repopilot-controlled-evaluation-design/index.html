@@ -5,7 +5,7 @@
       
       
       
-        <link rel="canonical" href="https://mini-swe-agent.com/latest/repopilot/evaluation/">
+        <link rel="canonical" href="https://mini-swe-agent.com/latest/superpowers/specs/2026-09-21-repopilot-controlled-evaluation-design/">
       
       
       
@@ -13,19 +13,19 @@
         
       
       
-      <link rel="icon" href="../../assets/mini_square.svg">
+      <link rel="icon" href="../../../assets/mini_square.svg">
       <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-9.7.7">
     
     
       
-        <title>Evaluation protocol - mini-SWE-agent documentation</title>
+        <title>RepoPilot Controlled Baseline Evaluation Design - mini-SWE-agent documentation</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -50,23 +50,23 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+      <link rel="stylesheet" href="../../../assets/_mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../assets/custom.css">
+      <link rel="stylesheet" href="../../../assets/custom.css">
     
-      <link rel="stylesheet" href="../../assets/gif-controls.css">
+      <link rel="stylesheet" href="../../../assets/gif-controls.css">
     
-      <link rel="stylesheet" href="../../assets/mkdocstrings.css">
+      <link rel="stylesheet" href="../../../assets/mkdocstrings.css">
     
-      <link rel="stylesheet" href="../../assets/image_theme.css">
+      <link rel="stylesheet" href="../../../assets/image_theme.css">
     
-      <link rel="stylesheet" href="../../assets/bubbles.css">
+      <link rel="stylesheet" href="../../../assets/bubbles.css">
     
-      <link rel="stylesheet" href="../../assets/navigation_cards.css">
+      <link rel="stylesheet" href="../../../assets/navigation_cards.css">
     
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -82,7 +82,7 @@
 
     
     
-  <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
+  <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"><script src="../../../assets/javascripts/glightbox.min.js"></script><style id="glightbox-style">
             html.glightbox-open { overflow: initial; height: 100%; }
             .gslide-title { margin-top: 0px; user-select: text; }
             .gslide-desc { color: #666; user-select: text; }
@@ -111,7 +111,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#evaluation-protocol" class="md-skip">
+        <a href="#repopilot-controlled-baseline-evaluation-design" class="md-skip">
           Skip to content
         </a>
       
@@ -127,7 +127,7 @@
               </button>
             
             
-<a href="../../usage/programbench/">
+<a href="../../../usage/programbench/">
   🎉 Run mini-swe-agent on our new &amp; extremely challenging benchmark, ProgramBench
 </a>
 
@@ -150,9 +150,9 @@
 
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="mini-SWE-agent documentation" class="md-header__button md-logo" aria-label="mini-SWE-agent documentation" data-md-component="logo">
+    <a href="../../.." title="mini-SWE-agent documentation" class="md-header__button md-logo" aria-label="mini-SWE-agent documentation" data-md-component="logo">
       
-  <img src="../../assets/mini_square.svg" alt="logo">
+  <img src="../../../assets/mini_square.svg" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -169,7 +169,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Evaluation protocol
+              RepoPilot Controlled Baseline Evaluation Design
             
           </span>
         </div>
@@ -286,7 +286,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../.." class="md-tabs__link">
+        <a href="../../.." class="md-tabs__link">
           
   
   
@@ -308,7 +308,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../reference/" class="md-tabs__link">
+        <a href="../../../reference/" class="md-tabs__link">
           
   
   
@@ -388,9 +388,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="mini-SWE-agent documentation" class="md-nav__button md-logo" aria-label="mini-SWE-agent documentation" data-md-component="logo">
+    <a href="../../.." title="mini-SWE-agent documentation" class="md-nav__button md-logo" aria-label="mini-SWE-agent documentation" data-md-component="logo">
       
-  <img src="../../assets/mini_square.svg" alt="logo">
+  <img src="../../../assets/mini_square.svg" alt="logo">
 
     </a>
     mini-SWE-agent documentation
@@ -452,7 +452,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href="../../.." class="md-nav__link ">
               
   
   
@@ -496,7 +496,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../quickstart/" class="md-nav__link">
+      <a href="../../../quickstart/" class="md-nav__link">
         
   
   
@@ -588,7 +588,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/mini/" class="md-nav__link">
+      <a href="../../../usage/mini/" class="md-nav__link">
         
   
   
@@ -616,7 +616,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/config/" class="md-nav__link">
+      <a href="../../../usage/config/" class="md-nav__link">
         
   
   
@@ -644,7 +644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/swebench/" class="md-nav__link">
+      <a href="../../../usage/swebench/" class="md-nav__link">
         
   
   
@@ -672,7 +672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/programbench/" class="md-nav__link">
+      <a href="../../../usage/programbench/" class="md-nav__link">
         
   
   
@@ -700,7 +700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/inspector/" class="md-nav__link">
+      <a href="../../../usage/inspector/" class="md-nav__link">
         
   
   
@@ -728,7 +728,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/output_files/" class="md-nav__link">
+      <a href="../../../usage/output_files/" class="md-nav__link">
         
   
   
@@ -822,7 +822,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../models/quickstart/" class="md-nav__link">
+      <a href="../../../models/quickstart/" class="md-nav__link">
         
   
   
@@ -850,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../models/local_models/" class="md-nav__link">
+      <a href="../../../models/local_models/" class="md-nav__link">
         
   
   
@@ -878,7 +878,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../models/troubleshooting/" class="md-nav__link">
+      <a href="../../../models/troubleshooting/" class="md-nav__link">
         
   
   
@@ -970,7 +970,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/global_configuration/" class="md-nav__link">
+      <a href="../../../advanced/global_configuration/" class="md-nav__link">
         
   
   
@@ -998,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/yaml_configuration/" class="md-nav__link">
+      <a href="../../../advanced/yaml_configuration/" class="md-nav__link">
         
   
   
@@ -1096,7 +1096,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../usage/python_bindings/" class="md-nav__link">
+      <a href="../../../usage/python_bindings/" class="md-nav__link">
         
   
   
@@ -1124,7 +1124,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/control_flow/" class="md-nav__link">
+      <a href="../../../advanced/control_flow/" class="md-nav__link">
         
   
   
@@ -1152,7 +1152,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/cookbook/" class="md-nav__link">
+      <a href="../../../advanced/cookbook/" class="md-nav__link">
         
   
   
@@ -1180,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/environments/" class="md-nav__link">
+      <a href="../../../advanced/environments/" class="md-nav__link">
         
   
   
@@ -1208,7 +1208,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced/v2_migration/" class="md-nav__link">
+      <a href="../../../advanced/v2_migration/" class="md-nav__link">
         
   
   
@@ -1244,7 +1244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../faq/" class="md-nav__link">
+      <a href="../../../faq/" class="md-nav__link">
         
   
   
@@ -1272,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../contributing/" class="md-nav__link">
+      <a href="../../../contributing/" class="md-nav__link">
         
   
   
@@ -1336,7 +1336,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../reference/" class="md-nav__link ">
+            <a href="../../../reference/" class="md-nav__link ">
               
   
   
@@ -1436,7 +1436,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/agents/default/" class="md-nav__link">
+      <a href="../../../reference/agents/default/" class="md-nav__link">
         
   
   
@@ -1464,7 +1464,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/agents/interactive/" class="md-nav__link">
+      <a href="../../../reference/agents/interactive/" class="md-nav__link">
         
   
   
@@ -1572,7 +1572,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/overview/" class="md-nav__link">
+      <a href="../../../reference/models/overview/" class="md-nav__link">
         
   
   
@@ -1600,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/litellm/" class="md-nav__link">
+      <a href="../../../reference/models/litellm/" class="md-nav__link">
         
   
   
@@ -1628,7 +1628,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/litellm_response_toolcall/" class="md-nav__link">
+      <a href="../../../reference/models/litellm_response_toolcall/" class="md-nav__link">
         
   
   
@@ -1656,7 +1656,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/openrouter/" class="md-nav__link">
+      <a href="../../../reference/models/openrouter/" class="md-nav__link">
         
   
   
@@ -1684,7 +1684,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/requesty/" class="md-nav__link">
+      <a href="../../../reference/models/requesty/" class="md-nav__link">
         
   
   
@@ -1712,7 +1712,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/portkey/" class="md-nav__link">
+      <a href="../../../reference/models/portkey/" class="md-nav__link">
         
   
   
@@ -1740,7 +1740,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/portkey_response/" class="md-nav__link">
+      <a href="../../../reference/models/portkey_response/" class="md-nav__link">
         
   
   
@@ -1768,7 +1768,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/test_models/" class="md-nav__link">
+      <a href="../../../reference/models/test_models/" class="md-nav__link">
         
   
   
@@ -1796,7 +1796,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/extra/" class="md-nav__link">
+      <a href="../../../reference/models/extra/" class="md-nav__link">
         
   
   
@@ -1824,7 +1824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/models/utils/" class="md-nav__link">
+      <a href="../../../reference/models/utils/" class="md-nav__link">
         
   
   
@@ -1926,7 +1926,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/environments/local/" class="md-nav__link">
+      <a href="../../../reference/environments/local/" class="md-nav__link">
         
   
   
@@ -1954,7 +1954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/environments/docker/" class="md-nav__link">
+      <a href="../../../reference/environments/docker/" class="md-nav__link">
         
   
   
@@ -1982,7 +1982,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/environments/singularity/" class="md-nav__link">
+      <a href="../../../reference/environments/singularity/" class="md-nav__link">
         
   
   
@@ -2010,7 +2010,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/environments/swerex_docker/" class="md-nav__link">
+      <a href="../../../reference/environments/swerex_docker/" class="md-nav__link">
         
   
   
@@ -2038,7 +2038,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/environments/bubblewrap/" class="md-nav__link">
+      <a href="../../../reference/environments/bubblewrap/" class="md-nav__link">
         
   
   
@@ -2066,7 +2066,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/environments/contree/" class="md-nav__link">
+      <a href="../../../reference/environments/contree/" class="md-nav__link">
         
   
   
@@ -2094,7 +2094,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/environments/swerex_modal/" class="md-nav__link">
+      <a href="../../../reference/environments/swerex_modal/" class="md-nav__link">
         
   
   
@@ -2198,7 +2198,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/run/hello_world/" class="md-nav__link">
+      <a href="../../../reference/run/hello_world/" class="md-nav__link">
         
   
   
@@ -2226,7 +2226,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/run/mini/" class="md-nav__link">
+      <a href="../../../reference/run/mini/" class="md-nav__link">
         
   
   
@@ -2254,7 +2254,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/run/mini_extra/" class="md-nav__link">
+      <a href="../../../reference/run/mini_extra/" class="md-nav__link">
         
   
   
@@ -2282,7 +2282,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/run/config/" class="md-nav__link">
+      <a href="../../../reference/run/config/" class="md-nav__link">
         
   
   
@@ -2310,7 +2310,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/run/inspector/" class="md-nav__link">
+      <a href="../../../reference/run/inspector/" class="md-nav__link">
         
   
   
@@ -2338,7 +2338,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/run/swebench/" class="md-nav__link">
+      <a href="../../../reference/run/swebench/" class="md-nav__link">
         
   
   
@@ -2366,7 +2366,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/run/swebench_single/" class="md-nav__link">
+      <a href="../../../reference/run/swebench_single/" class="md-nav__link">
         
   
   
@@ -2394,7 +2394,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../reference/run/programbench/" class="md-nav__link">
+      <a href="../../../reference/run/programbench/" class="md-nav__link">
         
   
   
@@ -2511,10 +2511,198 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#current-checked-in-result" class="md-nav__link">
+  <a href="#objective" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current checked-in result
+        Objective
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#budget-and-scheduling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Budget and scheduling
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variants" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variants
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variants">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#baseline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Baseline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enhanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhanced
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#task-dataset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task dataset
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#execution-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metric-definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Metric definitions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Metric definitions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-success-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Task Success Rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#retrieval-recall5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Retrieval Recall@5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-input-tokens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Average input tokens
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#strong-model-calls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Strong-model calls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Average time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-change-test-pass-rate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-change test pass rate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reporting-and-statistical-limits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reporting and statistical limits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resume-update-gate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resume update gate
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-implementation-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected implementation boundaries
       
     </span>
   </a>
@@ -2539,7 +2727,7 @@
 
 
   
-    <a href="https://github.com/SWE-agent/mini-SWE-agent/edit/main/docs/repopilot/evaluation.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/SWE-agent/mini-SWE-agent/edit/main/docs/superpowers/specs/2026-09-21-repopilot-controlled-evaluation-design.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
     </a>
@@ -2547,34 +2735,131 @@
   
 
 
-<h1 id="evaluation-protocol">Evaluation protocol</h1>
-<p>Compare <code>baseline</code> and <code>enhanced</code> on exactly the same task IDs, DeepSeek endpoint, temperature/settings, repair budget, Docker
-image, and test commands. The baseline disables retrieval and local analysis; enhanced enables deterministic hybrid
-retrieval plus Qwen analysis.</p>
-<p>Each raw task record contains task ID, variant, success, test status, expected and retrieved files, strong-model calls,
-input tokens when the provider reports them, wall time, failure class, and trajectory path. <code>compare_variants</code> refuses to
-compare different task-ID sets. Failed and skipped tasks remain in the denominator.</p>
-<p>Report these metrics:</p>
+<h1 id="repopilot-controlled-baseline-evaluation-design">RepoPilot Controlled Baseline Evaluation Design</h1>
+<p>Date: 2026-09-21</p>
+<h2 id="objective">Objective</h2>
+<p>Measure whether the complete RepoPilot retrieval-assisted workflow improves a minimal shell-exploration baseline under a
+strict paired experiment. The experiment must collect raw evidence for task success, retrieval quality, strong-model input
+tokens and calls, active wall time, and post-change hidden-test pass rate. Resume claims may be updated only from committed
+raw results produced by this protocol.</p>
+<p>The canonical strong model is DeepSeek <code>deepseek-flash</code>. Every paired comparison uses the same provider model, model
+parameters, task revision, Docker image, call/step limits, retry policy, and verification commands. Gemma 4 31B is outside
+the primary aggregate and may be evaluated later as a separately reported robustness experiment.</p>
+<h2 id="budget-and-scheduling">Budget and scheduling</h2>
+<p>The account has approximately CNY 10 available. The harness records the starting DeepSeek CNY balance using
+<code>GET /user/balance</code> and enforces a maximum measured spend of CNY 8, preserving about CNY 2 as a safety reserve.</p>
+<p>The first phase runs three paired tasks. After each complete pair, the harness records the balance delta and forecasts the
+number of additional pairs affordable within the remaining experiment budget. It then continues to at most 20 task pairs.
+A pair is indivisible: the scheduler never starts a pair unless the estimated remaining budget can cover both variants.</p>
+<p>Runs are sequential. The order alternates by task (<code>baseline -&gt; enhanced</code>, then <code>enhanced -&gt; baseline</code>) to reduce temporal
+provider bias. Provider throttling and backoff waiting are measured separately from active task time. A <code>429</code>, <code>408</code>, or
+<code>5xx</code> response receives bounded exponential backoff with jitter and is classified as infrastructure failure only after the
+retry budget is exhausted.</p>
+<p>Each agent session has these hard limits:</p>
 <ul>
-<li>task success rate and test pass rate;</li>
-<li>retrieval Recall@5 (only for tasks with labeled relevant files);</li>
-<li>total/mean strong-model calls and input tokens;</li>
-<li>wall time and failure-class counts;</li>
-<li>raw task-level outcomes, not only aggregates.</li>
+<li>at most 8 strong-model calls;</li>
+<li>at most 2,048 output tokens per strong-model response;</li>
+<li>at most 12,000 characters of retrieved code context;</li>
+<li>one initial attempt plus at most one verification-driven repair;</li>
+<li>at most 15 minutes active wall time;</li>
+<li>existing Docker CPU, memory, PID, network, credential, and output limits.</li>
 </ul>
-<p>The canonical end-to-end result is <code>repopilot-e2e-v1</code> with DeepSeek Flash and one run for each of 3 paired tasks. Both
-variants solved 3/3 tasks and passed 9/9 hidden tests. Enhanced retrieval reached 100% Recall@5, reduced mean input tokens
-from 6,320.33 to 5,847.33 (7.5%), and reduced mean strong-model calls from 5.67 to 5.00 (11.8%). Mean active wall time
-increased from 8.42 to 9.04 seconds (7.4%) because local analysis adds latency. These are descriptive pilot results and do
-not establish statistical significance or a solve-rate improvement. Raw evidence is checked in under
-<code>benchmarks/results/e2e-v1-deepseek-flash-r2/</code>.</p>
-<h2 id="current-checked-in-result">Current checked-in result</h2>
-<p><code>repopilot-retrieval-v1</code> labels 20 issue queries against expected RepoPilot source files. The empty-context baseline has
-0% Recall@5 and deterministic hybrid retrieval has 90% Recall@5 (18/20 tasks fully recalled). The two misses remain in the
-raw report. This benchmark isolates retrieval quality; it does not measure patch correctness or claim a 90% solve rate.</p>
-<p>An earlier pilot replicate is excluded from the primary aggregate because SGLang inherited VPN proxy variables and killed
-itself when its localhost warmup was proxied. The harness now bypasses proxies for loopback requests, gates paid evaluation
-on a real structured Qwen generation, and marks any fallback enhanced run ineligible rather than silently counting it.</p>
+<h2 id="variants">Variants</h2>
+<h3 id="baseline">Baseline</h3>
+<p>The upstream-style mini-swe-agent shell loop receives the issue and repository but no precomputed repository context.
+RepoPilot retrieval and local Qwen analysis are disabled. Docker execution, prompts unrelated to retrieved context, strong
+model, limits, verification, artifacts, and retry policy remain identical to the enhanced variant.</p>
+<h3 id="enhanced">Enhanced</h3>
+<p>The same loop receives RepoPilot's Python AST index, BM25 ranking, exact symbol/path boosts, one-hop dependency expansion,
+bounded context pack, and local Qwen3-0.6B task analysis. The Qwen health check must pass before an enhanced run. A fallback
+during a measured run is recorded and makes that run ineligible for the primary full-system comparison; it remains in raw
+results as an infrastructure/fallback outcome.</p>
+<p>The comparison therefore estimates the effect of the complete RepoPilot retrieval and local-analysis layer, not the effect
+of any one retrieval component in isolation.</p>
+<h2 id="task-dataset">Task dataset</h2>
+<p>The dataset contains up to 20 small, independent Python fixture repositories. It does not use RepoPilot's own source tree.
+Each task includes:</p>
+<ul>
+<li>a frozen buggy repository template;</li>
+<li>an issue statement that does not reveal the patch;</li>
+<li>one or more manually labeled relevant source files;</li>
+<li>optional public tests available to the agent;</li>
+<li>hidden acceptance and regression tests stored outside the writable workspace;</li>
+<li>an allowed source-file change set;</li>
+<li>a deterministic test command and dataset version.</li>
+</ul>
+<p>Tasks cover arithmetic and boundary conditions, parsing, state mutation, path handling, configuration defaults, exceptions,
+cross-file imports, collections, serialization, and async behavior. Before the experiment, every fixture must fail at least
+one hidden test in its buggy state and pass all hidden tests after applying its reference patch.</p>
+<p>The agent cannot read or modify hidden tests. Modifying public tests, generated benchmark metadata, or files outside the
+allowed source set makes the task unsuccessful even if tests pass.</p>
+<h2 id="execution-flow">Execution flow</h2>
+<ol>
+<li>Validate the DeepSeek key with a one-call Bash tool-use smoke test without logging the key.</li>
+<li>Query and record only numeric/currency balance fields; never persist credentials or authorization headers.</li>
+<li>Validate Docker isolation, the runner image digest, Qwen health, dataset integrity, and the clean Git revision.</li>
+<li>Materialize a fresh writable repository copy for one <code>(task, variant)</code> session.</li>
+<li>Run the agent and retain every trajectory and provider usage record.</li>
+<li>Run hidden tests from a read-only external mount and emit JUnit XML into the run artifact directory.</li>
+<li>Validate changed paths, capture a binary patch, and classify the outcome.</li>
+<li>Finish the other half of the pair before aggregating or checking the budget for another pair.</li>
+<li>Persist the pair atomically, update the resumable run state, and query the new balance.</li>
+<li>After three pilot pairs, forecast affordable scope and continue without exceeding 20 pairs or the CNY 8 spend cap.</li>
+<li>Recalculate all aggregate reports from immutable raw records.</li>
+</ol>
+<p>An interrupted experiment resumes only missing sessions. Completed session directories are immutable; reruns use a new
+replicate identifier rather than overwriting data.</p>
+<h2 id="metric-definitions">Metric definitions</h2>
+<h3 id="task-success-rate">Task Success Rate</h3>
+<p>A task succeeds only when a non-empty patch changes only allowed source files, all hidden acceptance/regression tests pass,
+the agent terminates normally, and no infrastructure or policy violation occurs. The denominator includes every scheduled
+task, including provider failures and exhausted retries; infrastructure failures are also reported separately.</p>
+<h3 id="retrieval-recall5">Retrieval Recall@5</h3>
+<p>For enhanced runs, Recall@5 is the fraction of manually labeled relevant files appearing in the first five retrieved file
+paths. It is averaged across tasks with labels. Baseline retrieval Recall@5 is reported as <code>N/A</code>, not zero.</p>
+<h3 id="average-input-tokens">Average input tokens</h3>
+<p>Sum provider-reported strong-model input tokens across all calls in a session, then report the arithmetic mean per task for
+each variant. Cache-hit and cache-miss input tokens are retained separately when the provider supplies them. Qwen tokens are
+not included in this metric and are reported separately if available.</p>
+<h3 id="strong-model-calls">Strong-model calls</h3>
+<p>Report total calls, mean calls per task, and the distribution per task. Failed billable calls remain included when usage is
+available. Balance queries and Qwen requests are excluded.</p>
+<h3 id="average-time">Average time</h3>
+<p>Primary latency is active wall time from agent start through final verification, excluding deliberate scheduler sleeps and
+provider rate-limit backoff. Also report end-to-end elapsed time including waiting so operational cost remains visible.</p>
+<h3 id="post-change-test-pass-rate">Post-change test pass rate</h3>
+<p>Parse JUnit XML and compute total hidden test cases passed divided by total hidden test cases executed. This differs from
+Task Success Rate: a partially correct patch can pass some tests but still fail the task.</p>
+<h2 id="reporting-and-statistical-limits">Reporting and statistical limits</h2>
+<p>Produce JSONL session records, a machine-readable aggregate JSON report, a Markdown comparison, patches, JUnit files, and
+model trajectories. The aggregate contains paired per-task deltas and raw numerator/denominator counts. With one replicate
+per task, claims are descriptive and include task-level outcomes; they do not claim statistical significance. If budget
+later permits repeated runs, repeats are appended as a new replicate and confidence intervals are computed without changing
+the original records.</p>
+<p>The report distinguishes model failure, rate limiting, network failure, Docker/infrastructure failure, invalid patch,
+forbidden modification, test failure, step/time limit, and successful completion.</p>
+<h2 id="resume-update-gate">Resume update gate</h2>
+<p>Resume and README metrics are updated only if:</p>
+<ul>
+<li>at least three complete pairs exist;</li>
+<li>both variants have identical task IDs and replicate IDs;</li>
+<li>raw records, trajectories, patches, and tests are traceable from the report;</li>
+<li>the report is reproducible from raw records;</li>
+<li>no credentials or user-specific secret values appear in artifacts;</li>
+<li>wording states the exact dataset size, model, and single-run limitation.</li>
+</ul>
+<p>The existing 20-task self-retrieval smoke benchmark remains labeled as an internal deterministic check and is not combined
+with this end-to-end result.</p>
+<h2 id="expected-implementation-boundaries">Expected implementation boundaries</h2>
+<ul>
+<li>provider configuration and credential-safe DeepSeek smoke/balance client;</li>
+<li>immutable fixture dataset and hidden-test validator;</li>
+<li>paired, resumable, budget-aware scheduler;</li>
+<li>session metric extractor for LiteLLM trajectories and JUnit;</li>
+<li>deterministic report generator;</li>
+<li>tests using fake provider/balance responses before any live experiment;</li>
+<li>opt-in live qualification and experiment commands.</li>
+</ul>
 
 
 
@@ -2664,14 +2949,14 @@ on a real structured Qwen generation, and marks any fallback enhanced run inelig
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.indexes", "navigation.top", "content.action.edit", "navigation.footer", "content.code.copy", "content.footnote.tooltips", "header.autohide", "announce.dismiss", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.indexes", "navigation.top", "content.action.edit", "navigation.footer", "content.code.copy", "content.footnote.tooltips", "header.autohide", "announce.dismiss", "content.code.annotate", "navigation.tabs", "navigation.tabs.sticky"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="../../assets/js/sh-annotation.js"></script>
+        <script src="../../../assets/js/sh-annotation.js"></script>
       
-        <script src="../../assets/js/gif-controls.js"></script>
+        <script src="../../../assets/js/gif-controls.js"></script>
       
     
   
