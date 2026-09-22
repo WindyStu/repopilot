@@ -20,9 +20,10 @@ from minisweagent.repopilot.deepseek_provider import BudgetGuard, build_deepseek
 from minisweagent.repopilot.evaluation_dataset import load_dataset
 from minisweagent.repopilot.evaluation_runner import run_paired_evaluation
 from minisweagent.repopilot.local_server import check_sglang
+from minisweagent.repopilot.qualification import qualify_and_freeze
 from minisweagent.repopilot.retrieval_benchmark import run_retrieval_benchmark
 from minisweagent.repopilot.strong_model import build_gemini_model
-from minisweagent.repopilot.verification import VerificationResult, bound_output
+from minisweagent.repopilot.verification import DockerSafetyConfig, VerificationResult, bound_output
 from minisweagent.repopilot.workflow import run_repair_loop
 
 app = typer.Typer(no_args_is_help=True, add_completion=False)
@@ -157,6 +158,31 @@ def benchmark_retrieval(
     baseline = report["variants"]["baseline"]["recall_at_5"]
     hybrid = report["variants"]["hybrid"]["recall_at_5"]
     console.print(f"Retrieval benchmark: baseline={baseline:.1%}, hybrid={hybrid:.1%}, report={output}")
+
+
+@app.command()
+def qualify_dataset(
+    manifest: Path = typer.Option(
+        Path("benchmarks/e2e-v2/manifest.json"),
+        "--manifest",
+        exists=True,
+        dir_okay=False,
+        resolve_path=True,
+    ),
+    output_dir: Path = typer.Option(Path("benchmarks/e2e-v2/freeze"), "--output-dir"),
+    image: str = typer.Option("repopilot-runner:py312", "--image"),
+) -> None:
+    """Qualify every task twice in Docker and atomically freeze the dataset."""
+
+    dataset = load_dataset(manifest)
+    payload = qualify_and_freeze(
+        dataset,
+        output_dir,
+        DockerSafetyConfig(image=image, user=f"{os.getuid()}:{os.getgid()}"),
+    )
+    console.print(
+        f"Qualified and froze {payload['task_count']} tasks; artifacts={output_dir.resolve()}"
+    )
 
 
 @app.command()

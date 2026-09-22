@@ -5,6 +5,7 @@ import pytest
 
 from minisweagent.repopilot.evaluation_dataset import (
     audit_workspace,
+    dataset_digest,
     load_dataset,
     materialize_task,
 )
@@ -49,11 +50,118 @@ def test_load_dataset_resolves_repository_and_hidden_tests_under_dataset_root(tm
     task = dataset.tasks[0]
 
     assert dataset.name == "pilot-v1"
+    assert dataset.schema_version == 1
     assert task.repository == (tmp_path / "tasks/divide/repo").resolve()
     assert task.hidden_tests == (tmp_path / "tasks/divide/hidden").resolve()
     assert task.reference_patch == (tmp_path / "tasks/divide/reference.patch").resolve()
     assert task.relevant_files == ("calculator.py",)
     assert task.allowed_changes == ("calculator.py",)
+
+
+def test_v2_manifest_loads_real_origin_difficulty_and_reasoning_metadata(tmp_path):
+    manifest = write_dataset(tmp_path)
+    data = json.loads(manifest.read_text())
+    data["schema_version"] = 2
+    data["tasks"][0].update(
+        {
+            "origin_type": "real",
+            "upstream_repository": "https://github.com/example/calculator",
+            "upstream_revision": "0123456789abcdef0123456789abcdef01234567",
+            "upstream_issue": "https://github.com/example/calculator/issues/12",
+            "license_spdx": "MIT",
+            "difficulty": "medium",
+            "category": "arithmetic-boundary",
+            "cross_file_reasoning": True,
+            "plausible_files": ["calculator.py", "formatting.py", "validation.py"],
+            "adaptations": ["replaced network fixture with deterministic local input"],
+        }
+    )
+    manifest.write_text(json.dumps(data))
+
+    dataset = load_dataset(manifest)
+    task = dataset.tasks[0]
+
+    assert dataset.schema_version == 2
+    assert task.origin_type == "real"
+    assert task.upstream_repository == "https://github.com/example/calculator"
+    assert task.upstream_revision == "0123456789abcdef0123456789abcdef01234567"
+    assert task.upstream_issue.endswith("/issues/12")
+    assert task.license_spdx == "MIT"
+    assert task.difficulty == "medium"
+    assert task.category == "arithmetic-boundary"
+    assert task.cross_file_reasoning is True
+    assert task.plausible_files == ("calculator.py", "formatting.py", "validation.py")
+    assert task.adaptations == ("replaced network fixture with deterministic local input",)
+
+
+def test_v2_real_task_rejects_nonimmutable_revision(tmp_path):
+    manifest = write_dataset(tmp_path)
+    data = json.loads(manifest.read_text())
+    data["schema_version"] = 2
+    data["tasks"][0].update(
+        {
+            "origin_type": "real",
+            "upstream_repository": "https://github.com/example/calculator",
+            "upstream_revision": "main",
+            "upstream_issue": "https://github.com/example/calculator/issues/12",
+            "license_spdx": "MIT",
+            "difficulty": "medium",
+            "category": "arithmetic-boundary",
+            "cross_file_reasoning": True,
+            "plausible_files": ["calculator.py", "formatting.py"],
+            "adaptations": [],
+        }
+    )
+    manifest.write_text(json.dumps(data))
+
+    with pytest.raises(ValueError, match="immutable 40-character commit"):
+        load_dataset(manifest)
+
+
+def test_v2_rejects_license_outside_permissive_allowlist(tmp_path):
+    manifest = write_dataset(tmp_path)
+    data = json.loads(manifest.read_text())
+    data["schema_version"] = 2
+    data["tasks"][0].update(
+        {
+            "origin_type": "authored",
+            "upstream_repository": None,
+            "upstream_revision": None,
+            "upstream_issue": None,
+            "license_spdx": "GPL-3.0-only",
+            "difficulty": "easy",
+            "category": "arithmetic-boundary",
+            "cross_file_reasoning": False,
+            "plausible_files": ["calculator.py"],
+            "adaptations": [],
+        }
+    )
+    manifest.write_text(json.dumps(data))
+
+    with pytest.raises(ValueError, match="Unsupported task license"):
+        load_dataset(manifest)
+
+
+def test_dataset_digest_is_stable_across_reloads(tmp_path):
+    manifest = write_dataset(tmp_path)
+
+    first = dataset_digest(load_dataset(manifest))
+    second = dataset_digest(load_dataset(manifest))
+
+    assert first == second
+    assert len(first) == 64
+
+
+def test_dataset_digest_changes_when_hidden_test_content_changes(tmp_path):
+    manifest = write_dataset(tmp_path)
+    before = dataset_digest(load_dataset(manifest))
+
+    hidden_test = tmp_path / "tasks/divide/hidden/test_hidden.py"
+    hidden_test.write_text(hidden_test.read_text() + "\ndef test_zero():\n assert divide(0, 2) == 0\n")
+
+    after = dataset_digest(load_dataset(manifest))
+
+    assert after != before
 
 
 def test_load_dataset_rejects_paths_that_escape_dataset_root(tmp_path):

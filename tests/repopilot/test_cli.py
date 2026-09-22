@@ -7,6 +7,7 @@ def test_cli_exposes_explicit_run_subcommand():
     root = CliRunner().invoke(app, ["--help"])
     result = CliRunner().invoke(app, ["run", "--help"])
     evaluation = CliRunner().invoke(app, ["evaluate", "--help"])
+    qualification = CliRunner().invoke(app, ["qualify-dataset", "--help"])
 
     assert root.exit_code == 0
     assert "Commands" in root.stdout
@@ -16,6 +17,10 @@ def test_cli_exposes_explicit_run_subcommand():
     assert evaluation.exit_code == 0
     assert "--manifest" in evaluation.stdout
     assert "--output-dir" in evaluation.stdout
+    assert qualification.exit_code == 0
+    assert "--manifest" in qualification.stdout
+    assert "--output-dir" in qualification.stdout
+    assert "--image" in qualification.stdout
 
 
 def test_prepare_workspace_copies_source_but_excludes_git_secrets_and_agent_artifacts(tmp_path):
