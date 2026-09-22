@@ -1,0 +1,19 @@
+diff --git a/safearchive/validation.py b/safearchive/validation.py
+--- a/safearchive/validation.py
++++ b/safearchive/validation.py
+@@ -1,9 +1,12 @@
+-from pathlib import Path
++from pathlib import Path, PurePosixPath
+ 
+ 
+ def destination_for(root: Path, member_name: str) -> Path:
+     root = root.resolve()
+-    candidate = (root / member_name).resolve()
+-    if not str(candidate).startswith(str(root)):
++    member = PurePosixPath(member_name.replace("\\", "/"))
++    if member.is_absolute() or ".." in member.parts:
++        raise ValueError(f"archive member escapes destination: {member_name}")
++    candidate = root.joinpath(*member.parts).resolve()
++    if not candidate.is_relative_to(root):
+         raise ValueError(f"archive member escapes destination: {member_name}")
+     return candidate

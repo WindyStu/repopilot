@@ -1,0 +1,12 @@
+diff --git a/retrykit/runner.py b/retrykit/runner.py
+--- a/retrykit/runner.py
++++ b/retrykit/runner.py
+@@ -20,6 +20,8 @@ async def run_with_retry(
+             return await operation()
+         except Exception as error:
+             last_error = error
++            if attempt + 1 == policy.max_attempts:
++                raise
+             await sleep(policy.delay_for(attempt))
+     assert last_error is not None
+     raise last_error

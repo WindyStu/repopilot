@@ -1,0 +1,10 @@
+diff --git a/usercodec/serialization.py b/usercodec/serialization.py
+--- a/usercodec/serialization.py
++++ b/usercodec/serialization.py
+@@ -22,4 +22,6 @@ def loads_user(raw: str) -> User:
+         return User(first_name=first_name, last_name=last_name, address=address, **payload)
+     if version != CURRENT_VERSION:
+         raise ValueError(f"unsupported user schema version: {version}")
++    address_data = payload.pop("address")
++    payload["address"] = Address(**address_data)
+     return User(**payload)
