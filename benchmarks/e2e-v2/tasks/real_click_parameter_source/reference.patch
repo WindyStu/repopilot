@@ -1,0 +1,12 @@
+diff --git a/click/core.py b/click/core.py
+--- a/click/core.py
++++ b/click/core.py
+@@ -32,7 +32,7 @@ class Parameter:
+         return value
+ 
+     def handle_parse_result(self, ctx, value, source):
+-        value = self.process_value(ctx, value)
+         ctx.set_parameter_source(self.name, source)
++        value = self.process_value(ctx, value)
+         ctx.params[self.name] = value
+         return value

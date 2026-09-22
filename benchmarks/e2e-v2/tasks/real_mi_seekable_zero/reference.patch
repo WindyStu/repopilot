@@ -1,0 +1,14 @@
+diff --git a/more_itertools/more.py b/more_itertools/more.py
+--- a/more_itertools/more.py
++++ b/more_itertools/more.py
+@@ -36,6 +36,10 @@ class seekable:
+             if default is _marker:
+                 raise
+             return default
++        if isinstance(self._cache, deque) and self._cache.maxlen == 0:
++            self._source = chain((peeked,), self._source)
++            self._index = None
++            return peeked
+         if self._index is None:
+             self._index = len(self._cache)
+         self._index -= 1

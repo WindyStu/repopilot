@@ -1,0 +1,27 @@
+{
+  "dataset": "repopilot-e2e-v2",
+  "schema_version": 2,
+  "dataset_sha256": "8a4648ad3a457c7862191489843acbc16a31b343fd5f7367937dac1326fe528f",
+  "task_sha256": {
+    "authored_async_retry": "2b0c2a0ca2c44b4aa654d0fa8195596b8d9840243b04d0e5cc00521bf9e7a003",
+    "authored_cache_invalidation": "6142a63a8dc6ef477d649fca0842c8c56ddf9775ed60c1b35dab8845cd42487c",
+    "authored_state_rollback": "7d55080d42abd98b91404478e7be47cfabd86d1bbdc55bef8d774187cf8e6af3",
+    "authored_versioned_json": "9badd26046aa3f9682e01983d66420ef0aafdf6377794a0f175b1c16f1105b8e",
+    "authored_safe_archive": "32b588f57be79218d2752c50382f475fc5d1f5f7249ed507587e393ae1095b74",
+    "real_mi_one_falsy": "6ffd88e29659a67740a542814b03c5a602627fdd645b39662aaa82d5d6a564c5",
+    "real_mi_constrained_batches": "1b3bd33d908c18e144609b3702ae165132d1f80ce43eb7e7b20d104b5062b0f9",
+    "real_mi_seekable_zero": "9dc6f6e96970e8736feb01c451d6d0b63f836b73b6fdf652aedb490b23bd338d",
+    "real_mi_running_extrema": "0b222cac4f8fab214fa3fc42e06d3a32aff66f979c2e117557adc6e1bc67370e",
+    "real_mi_interleave_empty": "d76e8517a4bd0bb85aa0bab3bee4b17bc80ed67011290f42d1fd1948e24d913d",
+    "real_mi_reverse_empty": "8448f7f4c49a5dd1b13a3dfadc61b54e7005538c332eac9ee4c3a377a922021b",
+    "real_mi_negative_slice": "fbc8daf077049d6422f5cf2575e14203f4edeab6aaefc58fa6263fe4f38746ac",
+    "real_click_short_help": "0f0f691982a2758e94ab50fae4588866cfd162a6e26f7c83f597d707b5e86dc6",
+    "real_click_color_zero": "5891ecfeed659d3696d530d3e7f85d1a6f2c11dfa7248bf2e2edc8bee8417cc8",
+    "real_click_choice_metavar": "b84ffce6c68283a4c5a7db12e244dd40246d56b531c6a226ec74d0a9a3218c06",
+    "real_click_parameter_source": "f7298aa0659deb07c13f8a9b97eb05f31c02e65ee4b23c1745d23aedcf8fefac",
+    "real_click_empty_usage": "30f0ae7267f94564fbf36af941d63b580823bc7dd7b04574e61ce774906e627d",
+    "real_attrs_nested_disabled": "0259df28179909ac15ed2380b28e00ebe84ee63af30ab1dba7162483b3233aa6",
+    "real_attrs_frozen_error": "f9c230f575eb056672de7d170d7f76d29fbc60803f871e22245f0bd5491d32e7",
+    "real_attrs_deep_mapping": "83e5822d775856dc1d04660d24ea6e4422e784edff963836fc5ae78208e1ecc5"
+  }
+}

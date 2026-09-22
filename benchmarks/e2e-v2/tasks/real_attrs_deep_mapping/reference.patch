@@ -1,0 +1,34 @@
+diff --git a/attr/validators.py b/attr/validators.py
+--- a/attr/validators.py
++++ b/attr/validators.py
+@@ -12,7 +12,9 @@ def instance_of(expected_type):
+ 
+ class _DeepMapping:
+-    def __init__(self, key_validator, value_validator, mapping_validator=None):
+-        if not callable(key_validator) or not callable(value_validator):
+-            raise TypeError("key and value validators must be callable")
++    def __init__(self, key_validator=None, value_validator=None, mapping_validator=None):
++        if key_validator is not None and not callable(key_validator):
++            raise TypeError("key validator must be callable")
++        if value_validator is not None and not callable(value_validator):
++            raise TypeError("value validator must be callable")
+         if mapping_validator is not None and not callable(mapping_validator):
+             raise TypeError("mapping validator must be callable")
+@@ -25,8 +27,14 @@ class _DeepMapping:
+             self.mapping_validator(instance, attribute, value)
+         for key in value:
+-            self.key_validator(instance, attribute, key)
+-            self.value_validator(instance, attribute, value[key])
++            if self.key_validator is not None:
++                self.key_validator(instance, attribute, key)
++            if self.value_validator is not None:
++                self.value_validator(instance, attribute, value[key])
+ 
+ 
+-def deep_mapping(key_validator, value_validator, mapping_validator=None):
++def deep_mapping(key_validator=None, value_validator=None, mapping_validator=None):
++    if key_validator is None and value_validator is None:
++        raise ValueError(
++            "At least one of key_validator or value_validator must be provided"
++        )
+     return _DeepMapping(key_validator, value_validator, mapping_validator)

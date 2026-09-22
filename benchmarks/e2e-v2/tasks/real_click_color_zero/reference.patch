@@ -1,0 +1,59 @@
+diff --git a/click/termui.py b/click/termui.py
+--- a/click/termui.py
++++ b/click/termui.py
+@@ -1,35 +1,41 @@
+ _ansi_colors = {
+     "black": 30,
+     "red": 31,
+     "green": 32,
+     "blue": 34,
+     "white": 37,
+     "reset": 39,
+ }
+ 
+ 
+ def _interpret_color(color, offset=0):
+-    if isinstance(color, int):
+-        return f"{38 + offset};5;{color:d}"
+-    if isinstance(color, (tuple, list)):
++    if isinstance(color, str) and color in _ansi_colors:
++        return str(_ansi_colors[color] + offset)
++    if isinstance(color, int) and not isinstance(color, bool):
++        if 0 <= color <= 255:
++            return f"{38 + offset};5;{color:d}"
++    if (
++        isinstance(color, (tuple, list))
++        and len(color) == 3
++        and all(
++            isinstance(item, int)
++            and not isinstance(item, bool)
++            and 0 <= item <= 255
++            for item in color
++        )
++    ):
+         red, green, blue = color
+         return f"{38 + offset};2;{red:d};{green:d};{blue:d}"
+-    return str(_ansi_colors[color] + offset)
++    raise ValueError(f"Unknown color {color!r}")
+ 
+ 
+ def style(text, *, fg=None, bg=None, reset=True):
+     bits = []
+-    if fg:
+-        try:
+-            bits.append(f"\033[{_interpret_color(fg)}m")
+-        except KeyError:
+-            raise TypeError(f"Unknown color {fg!r}") from None
+-    if bg:
+-        try:
+-            bits.append(f"\033[{_interpret_color(bg, 10)}m")
+-        except KeyError:
+-            raise TypeError(f"Unknown color {bg!r}") from None
++    if fg is not None:
++        bits.append(f"\033[{_interpret_color(fg)}m")
++    if bg is not None:
++        bits.append(f"\033[{_interpret_color(bg, 10)}m")
+     bits.append(str(text))
+     if reset:
+         bits.append("\033[0m")
+     return "".join(bits)

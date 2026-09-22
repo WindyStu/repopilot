@@ -1,0 +1,12 @@
+diff --git a/click/formatting.py b/click/formatting.py
+--- a/click/formatting.py
++++ b/click/formatting.py
+@@ -18,6 +18,7 @@ class HelpFormatter:
+             prefix = "Usage: "
+         usage_prefix = f"{prefix:>{self.current_indent}}{prog} "
+         if not args:
+-            self.write("\n")
++            self.write(usage_prefix.rstrip(" "))
++            self.write("\n")
+             return
+         self.write(f"{usage_prefix}{args}\n")
