@@ -115,12 +115,25 @@ Deterministic tests cover local-model parsing/fallbacks, indexing, retrieval evi
 provider configuration, Docker command isolation, automatic repair, benchmark aggregation, and issue-to-code-change
 fixtures. Live provider and Docker checks are opt-in so CI never consumes credentials or provider quota.
 
-The checked-in end-to-end pilot compares the same 3 fixture tasks once per variant with DeepSeek Flash. Both baseline and
-enhanced solved 3/3 tasks and passed 9/9 hidden tests. Enhanced achieved **100% Recall@5**, used **7.5% fewer input tokens**
-(5,847 vs 6,320 mean) and **11.8% fewer strong-model calls** (5.00 vs 5.67 mean), while active latency was **7.4% higher**
-(9.04 s vs 8.42 s mean). This is a small descriptive pilot, not a statistically significant solve-rate improvement.
-The aggregate, raw trajectories, patches, and JUnit reports are in
-[`benchmarks/results/e2e-v1-deepseek-flash-r2`](benchmarks/results/e2e-v1-deepseek-flash-r2/).
+The primary checked-in evaluation contains **20 paired tasks / 40 DeepSeek Flash sessions**: 5 authored fixtures and 15
+immutable real-project snapshots from more-itertools, Click, and attrs, split into 5 easy, 10 medium, and 5 hard tasks.
+Compared with the no-retrieval baseline, the enhanced workflow improved:
+
+- **Task Success Rate:** 20.0% (4/20) -> **45.0% (9/20)**, +25.0 percentage points;
+- **hidden-test case pass rate:** 52.2% (36/69) -> **63.8% (44/69)**, +11.6 percentage points;
+- **Retrieval Recall@5:** **92.5%** for the enhanced workflow;
+- **mean strong-model calls:** 7.95 -> **7.20**, a 9.4% reduction.
+
+The improvement trades extra context and local analysis for fewer strong-model calls: mean provider-reported input tokens
+rose from 15,321 to 24,098 (+57.3%), and mean active time rose from 24.98 s to 27.98 s (+12.0%). Six tasks were solved only
+by enhanced, one only by baseline, three by both, and ten by neither. Since each task was run once, these are descriptive
+results rather than a statistical-significance claim. The aggregate, all task IDs, raw trajectories, patches, and JUnit
+reports are in
+[`benchmarks/results/e2e-v2-deepseek-flash-20task`](benchmarks/results/e2e-v2-deepseek-flash-20task/).
+
+The earlier 3-fixture pilot remains available as historical evidence under
+[`benchmarks/results/e2e-v1-deepseek-flash-r2`](benchmarks/results/e2e-v1-deepseek-flash-r2/); it is not mixed into the
+20-task aggregate.
 
 The checked-in `repopilot-retrieval-v1` result contains 20 labeled tasks: the no-context baseline scores **0% Recall@5**
 and deterministic hybrid retrieval scores **90% Recall@5**. This is a retrieval metric, not an end-to-end bug-fix success

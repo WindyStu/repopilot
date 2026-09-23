@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="0.027" timestamp="2026-09-22T13:45:34.176859+00:00" hostname="8f4dfad7eeaf"><testcase classname="test_one_hidden" name="test_one_raises_falsy_too_short_instance" time="0.000"><failure message="ValueError: too few items in iterable (expected 1)">def test_one_raises_falsy_too_short_instance():
+        error = FalsyError("too few")
+        with pytest.raises(FalsyError) as caught:
+&gt;           one([], too_short=error)
+
+/repopilot-hidden/test_one_hidden.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+iterable = [], too_short = FalsyError('too few'), too_long = None
+
+    def one(iterable, too_short=None, too_long=None):
+        iterator = iter(iterable)
+        for first in iterator:
+            for second in iterator:
+                msg = (
+                    f"Expected exactly one item in iterable, but got {first!r}, "
+                    f"{second!r}, and perhaps more."
+                )
+                raise too_long or ValueError(msg)
+            return first
+&gt;       raise too_short or ValueError("too few items in iterable (expected 1)")
+E       ValueError: too few items in iterable (expected 1)
+
+more_itertools/more.py:11: ValueError</failure></testcase><testcase classname="test_one_hidden" name="test_one_raises_falsy_too_long_instance" time="0.000"><failure message="ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.">def test_one_raises_falsy_too_long_instance():
+        error = FalsyError("too many")
+        with pytest.raises(FalsyError) as caught:
+&gt;           one([1, 2], too_long=error)
+
+/repopilot-hidden/test_one_hidden.py:21: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+iterable = [1, 2], too_short = None, too_long = FalsyError('too many')
+
+    def one(iterable, too_short=None, too_long=None):
+        iterator = iter(iterable)
+        for first in iterator:
+            for second in iterator:
+                msg = (
+                    f"Expected exactly one item in iterable, but got {first!r}, "
+                    f"{second!r}, and perhaps more."
+                )
+&gt;               raise too_long or ValueError(msg)
+E               ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.
+
+more_itertools/more.py:9: ValueError</failure></testcase><testcase classname="test_one_hidden" name="test_only_raises_falsy_too_long_instance" time="0.000"><failure message="ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.">def test_only_raises_falsy_too_long_instance():
+        error = FalsyError("too many")
+        with pytest.raises(FalsyError) as caught:
+&gt;           only([1, 2], too_long=error)
+
+/repopilot-hidden/test_one_hidden.py:28: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+iterable = [1, 2], default = None, too_long = FalsyError('too many')
+
+    def only(iterable, default=None, too_long=None):
+        iterator = iter(iterable)
+        for first in iterator:
+            for second in iterator:
+                msg = (
+                    f"Expected exactly one item in iterable, but got {first!r}, "
+                    f"{second!r}, and perhaps more."
+                )
+&gt;               raise too_long or ValueError(msg)
+E               ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.
+
+more_itertools/more.py:22: ValueError</failure></testcase><testcase classname="test_one_hidden" name="test_custom_exception_does_not_evaluate_item_repr" time="0.000"><failure message="RuntimeError: repr should not be called">def test_custom_exception_does_not_evaluate_item_repr():
+        class NoRepr:
+            def __repr__(self):
+                raise RuntimeError("repr should not be called")
+    
+        with pytest.raises(OverflowError):
+&gt;           one([NoRepr(), NoRepr()], too_long=OverflowError("many"))
+
+/repopilot-hidden/test_one_hidden.py:38: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+more_itertools/more.py:6: in one
+    f"Expected exactly one item in iterable, but got {first!r}, "
+                                                     ^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;[RuntimeError('repr should not be called') raised in repr()] NoRepr object at 0x7a1fd0306b10&gt;
+
+    def __repr__(self):
+&gt;       raise RuntimeError("repr should not be called")
+E       RuntimeError: repr should not be called
+
+/repopilot-hidden/test_one_hidden.py:35: RuntimeError</failure></testcase></testsuite></testsuites>

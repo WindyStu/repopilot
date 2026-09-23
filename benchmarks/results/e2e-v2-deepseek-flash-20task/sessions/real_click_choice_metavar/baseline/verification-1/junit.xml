@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.024" timestamp="2026-09-22T13:53:44.515002+00:00" hostname="18e2559a9e1f"><testcase classname="test_metavar_hidden" name="test_optional_choice_does_not_get_double_brackets" time="0.001"><failure message="AssertionError: assert '[[foo|bar]]' == '[foo|bar]'&#10;  &#10;  - [foo|bar]&#10;  + [[foo|bar]]&#10;  ? +         +">def test_optional_choice_does_not_get_double_brackets():
+        argument = Argument("method", type=Choice(["foo", "bar"]), required=False)
+&gt;       assert argument.make_metavar() == "[foo|bar]"
+E       AssertionError: assert '[[foo|bar]]' == '[foo|bar]'
+E         
+E         - [foo|bar]
+E         + [[foo|bar]]
+E         ? +         +
+
+/repopilot-hidden/test_metavar_hidden.py:6: AssertionError</failure></testcase><testcase classname="test_metavar_hidden" name="test_variadic_choice_reuses_choice_brackets" time="0.001"><failure message="AssertionError: assert '[[foo|bar]]...' == '[foo|bar]...'&#10;  &#10;  - [foo|bar]...&#10;  + [[foo|bar]]...&#10;  ? +         +">def test_variadic_choice_reuses_choice_brackets():
+        argument = Argument("method", type=Choice(["foo", "bar"]), required=False, nargs=-1)
+&gt;       assert argument.make_metavar() == "[foo|bar]..."
+E       AssertionError: assert '[[foo|bar]]...' == '[foo|bar]...'
+E         
+E         - [foo|bar]...
+E         + [[foo|bar]]...
+E         ? +         +
+
+/repopilot-hidden/test_metavar_hidden.py:11: AssertionError</failure></testcase><testcase classname="test_metavar_hidden" name="test_optional_datetime_does_not_get_double_brackets" time="0.000"><failure message="AssertionError: assert '[[%Y-%m-%d]]' == '[%Y-%m-%d]'&#10;  &#10;  - [%Y-%m-%d]&#10;  + [[%Y-%m-%d]]&#10;  ? +          +">def test_optional_datetime_does_not_get_double_brackets():
+        argument = Argument("when", type=DateTime(["%Y-%m-%d"]), required=False)
+&gt;       assert argument.make_metavar() == "[%Y-%m-%d]"
+E       AssertionError: assert '[[%Y-%m-%d]]' == '[%Y-%m-%d]'
+E         
+E         - [%Y-%m-%d]
+E         + [[%Y-%m-%d]]
+E         ? +          +
+
+/repopilot-hidden/test_metavar_hidden.py:16: AssertionError</failure></testcase></testsuite></testsuites>

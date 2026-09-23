@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.024" timestamp="2026-09-22T13:56:23.391062+00:00" hostname="d452bba386db"><testcase classname="test_usage_hidden" name="test_empty_args_preserve_default_prefix_and_program" time="0.001"><failure message="AssertionError: assert '\n' == 'Usage: Program\n'&#10;  &#10;  Strings contain only whitespace, escaping them using repr()&#10;  - 'Usage: Program\n'&#10;  + '\n'">def test_empty_args_preserve_default_prefix_and_program():
+        formatter = HelpFormatter()
+        formatter.write_usage("Program")
+&gt;       assert formatter.getvalue() == "Usage: Program\n"
+E       AssertionError: assert '\n' == 'Usage: Program\n'
+E         
+E         Strings contain only whitespace, escaping them using repr()
+E         - 'Usage: Program\n'
+E         + '\n'
+
+/repopilot-hidden/test_usage_hidden.py:7: AssertionError</failure></testcase><testcase classname="test_usage_hidden" name="test_empty_args_preserve_custom_prefix" time="0.001"><failure message="AssertionError: assert '\n' == 'Run: Program\n'&#10;  &#10;  Strings contain only whitespace, escaping them using repr()&#10;  - 'Run: Program\n'&#10;  + '\n'">def test_empty_args_preserve_custom_prefix():
+        formatter = HelpFormatter()
+        formatter.write_usage("Program", prefix="Run: ")
+&gt;       assert formatter.getvalue() == "Run: Program\n"
+E       AssertionError: assert '\n' == 'Run: Program\n'
+E         
+E         Strings contain only whitespace, escaping them using repr()
+E         - 'Run: Program\n'
+E         + '\n'
+
+/repopilot-hidden/test_usage_hidden.py:13: AssertionError</failure></testcase><testcase classname="test_usage_hidden" name="test_empty_args_do_not_leave_trailing_space" time="0.000"><failure message="AssertionError: assert '\n' == 'Usage: VeryLongProgramName\n'&#10;  &#10;  Strings contain only whitespace, escaping them using repr()&#10;  - 'Usage: VeryLongProgramName\n'&#10;  + '\n'">def test_empty_args_do_not_leave_trailing_space():
+        formatter = HelpFormatter(width=20)
+        formatter.write_usage("VeryLongProgramName")
+&gt;       assert formatter.getvalue() == "Usage: VeryLongProgramName\n"
+E       AssertionError: assert '\n' == 'Usage: VeryLongProgramName\n'
+E         
+E         Strings contain only whitespace, escaping them using repr()
+E         - 'Usage: VeryLongProgramName\n'
+E         + '\n'
+
+/repopilot-hidden/test_usage_hidden.py:19: AssertionError</failure></testcase></testsuite></testsuites>

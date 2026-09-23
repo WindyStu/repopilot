@@ -1,0 +1,13 @@
+diff --git a/more_itertools/more.py b/more_itertools/more.py
+index 965e5b0..81aec22 100644
+--- a/more_itertools/more.py
++++ b/more_itertools/more.py
+@@ -1,6 +1,8 @@
+ def constrained_batches(iterable, max_size, max_count=None, get_len=len, strict=True):
+     if max_size <= 0:
+         raise ValueError("maximum size must be greater than zero")
++    if max_count is not None and max_count <= 0:
++        raise ValueError("maximum count must be greater than zero")
+ 
+     batch = []
+     batch_size = 0

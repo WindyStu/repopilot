@@ -1,0 +1,59 @@
+{
+  "task_id": "real_attrs_deep_mapping",
+  "variant": "enhanced",
+  "success": false,
+  "failure_class": "empty_patch",
+  "exit_status": "LimitsExceeded",
+  "infrastructure_error": "",
+  "attempts": [
+    {
+      "number": 1,
+      "exit_status": "LimitsExceeded",
+      "trajectory": "attempt-1.traj.json",
+      "strong_model_calls": 8,
+      "input_tokens": 29621,
+      "output_tokens": 7794,
+      "analysis_source": "local_model",
+      "hidden_verification": {
+        "result": {
+          "success": false,
+          "output": "FFFF                                                                     [100%]\n=================================== FAILURES ===================================\n______________________ test_key_validator_can_be_omitted _______________________\n\n    def test_key_validator_can_be_omitted():\n>       validator = deep_mapping(value_validator=instance_of(int))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:7: TypeError\n_____________________ test_value_validator_can_be_omitted ______________________\n\n    def test_value_validator_can_be_omitted():\n>       validator = deep_mapping(key_validator=instance_of(str))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: deep_mapping() missing 1 required positional argument: 'value_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:12: TypeError\n_______________ test_neither_key_nor_value_validator_is_rejected _______________\n\n    def test_neither_key_nor_value_validator_is_rejected():\n        with pytest.raises(ValueError, match=\"At least one\"):\n>           deep_mapping()\nE           TypeError: deep_mapping() missing 2 required positional arguments: 'key_validator' and 'value_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:18: TypeError\n______________________ test_present_validator_still_runs _______________________\n\n    def test_present_validator_still_runs():\n>       validator = deep_mapping(value_validator=instance_of(int))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:22: TypeError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-qdgh3aq7'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-x9jyg65r'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_key_validator_can_be_omitted\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_value_validator_can_be_omitted\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_neither_key_nor_value_validator_is_rejected\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_present_validator_still_runs\n4 failed, 2 warnings in 0.02s\n",
+          "command": "pytest -q /repopilot-hidden"
+        },
+        "counts": {
+          "total": 4,
+          "passed": 0,
+          "failed": 4,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "changed_paths": [],
+  "forbidden_paths": [],
+  "strong_model_calls": 8,
+  "input_tokens": 29621,
+  "output_tokens": 7794,
+  "cache_hit_input_tokens": 24832,
+  "cache_miss_input_tokens": 4789,
+  "retrieved_files": [
+    "attr/validators.py",
+    "attr/__init__.py",
+    "tests/test_mapping.py"
+  ],
+  "retrieval_recall_at_5": 0.5,
+  "analysis_sources": [
+    "local_model"
+  ],
+  "hidden_test_counts": {
+    "total": 4,
+    "passed": 0,
+    "failed": 4,
+    "errors": 0,
+    "skipped": 0
+  },
+  "active_wall_seconds": 46.645138001000305,
+  "model": "deepseek/deepseek-flash",
+  "image": "repopilot-runner:py312"
+}

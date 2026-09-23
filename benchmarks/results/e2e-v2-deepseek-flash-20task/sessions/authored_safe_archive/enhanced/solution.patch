@@ -1,0 +1,27 @@
+diff --git a/safearchive/validation.py b/safearchive/validation.py
+index 83b4168..c371c8a 100644
+--- a/safearchive/validation.py
++++ b/safearchive/validation.py
+@@ -3,7 +3,19 @@ from pathlib import Path
+ 
+ def destination_for(root: Path, member_name: str) -> Path:
+     root = root.resolve()
+-    candidate = (root / member_name).resolve()
+-    if not str(candidate).startswith(str(root)):
+-        raise ValueError(f"archive member escapes destination: {member_name}")
++    # Archive member names are POSIX-style, but attackers often smuggle
++    # traversal through Windows-style separators (e.g. ``..\..\evil``).
++    # Normalize them so the containment check cannot be bypassed on any
++    # platform.
++    normalized = member_name.replace("\\", "/")
++    candidate = (root / normalized).resolve()
++    # ``relative_to`` compares path components, so a sibling directory that
++    # merely shares a string prefix with ``root`` (e.g. ``/tmp/dest_evil``)
++    # is correctly rejected.  A plain ``startswith`` check would let it pass.
++    try:
++        candidate.relative_to(root)
++    except ValueError:
++        raise ValueError(
++            f"archive member escapes destination: {member_name}"
++        ) from None
+     return candidate

@@ -1,0 +1,36 @@
+diff --git a/usercodec/serialization.py b/usercodec/serialization.py
+index 85b06d9..f2dc6d6 100644
+--- a/usercodec/serialization.py
++++ b/usercodec/serialization.py
+@@ -2,6 +2,7 @@ import json
+ from dataclasses import asdict
+ 
+ from usercodec.models import Address, User
++from usercodec.schema import REQUIRED_V2_FIELDS
+ 
+ CURRENT_VERSION = 2
+ 
+@@ -12,6 +13,14 @@ def dumps_user(user: User) -> str:
+     return json.dumps(payload, sort_keys=True)
+ 
+ 
++def _decode_address(value) -> Address:
++    if isinstance(value, Address):
++        return value
++    if not isinstance(value, dict):
++        raise ValueError("address must be a mapping")
++    return Address(**value)
++
++
+ def loads_user(raw: str) -> User:
+     payload = json.loads(raw)
+     version = payload.pop("version", 1)
+@@ -22,4 +31,8 @@ def loads_user(raw: str) -> User:
+         return User(first_name=first_name, last_name=last_name, address=address, **payload)
+     if version != CURRENT_VERSION:
+         raise ValueError(f"unsupported user schema version: {version}")
++    missing = REQUIRED_V2_FIELDS - payload.keys()
++    if missing:
++        raise ValueError(f"missing required user fields: {sorted(missing)}")
++    payload["address"] = _decode_address(payload["address"])
+     return User(**payload)

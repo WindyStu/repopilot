@@ -1,0 +1,55 @@
+{
+  "task_id": "real_attrs_nested_disabled",
+  "variant": "baseline",
+  "success": false,
+  "failure_class": "step_limit",
+  "exit_status": "LimitsExceeded",
+  "infrastructure_error": "",
+  "attempts": [
+    {
+      "number": 1,
+      "exit_status": "LimitsExceeded",
+      "trajectory": "attempt-1.traj.json",
+      "strong_model_calls": 8,
+      "input_tokens": 8413,
+      "output_tokens": 863,
+      "analysis_source": null,
+      "hidden_verification": {
+        "result": {
+          "success": true,
+          "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-p6fx3pek'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+          "command": "pytest -q /repopilot-hidden"
+        },
+        "counts": {
+          "total": 3,
+          "passed": 3,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "changed_paths": [
+    "attr/validators.py"
+  ],
+  "forbidden_paths": [],
+  "strong_model_calls": 8,
+  "input_tokens": 8413,
+  "output_tokens": 863,
+  "cache_hit_input_tokens": 6784,
+  "cache_miss_input_tokens": 1629,
+  "retrieved_files": [],
+  "retrieval_recall_at_5": null,
+  "analysis_sources": [],
+  "hidden_test_counts": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "active_wall_seconds": 8.732279511001252,
+  "model": "deepseek/deepseek-flash",
+  "image": "repopilot-runner:py312"
+}

@@ -1,0 +1,21 @@
+diff --git a/retrykit/runner.py b/retrykit/runner.py
+index 517340d..9afb9c3 100644
+--- a/retrykit/runner.py
++++ b/retrykit/runner.py
+@@ -17,8 +17,15 @@ async def run_with_retry(
+     for attempt in range(policy.max_attempts):
+         try:
+             return await operation()
++        except asyncio.CancelledError:
++            # Task cancellation is not a transient failure: propagate it
++            # immediately without counting it as a retryable attempt.
++            raise
+         except Exception as error:
+             last_error = error
+-            await sleep(policy.delay_for(attempt))
++            # Only back off when another attempt remains; waiting after the
++            # final failed attempt would delay the error unnecessarily.
++            if attempt + 1 < policy.max_attempts:
++                await sleep(policy.delay_for(attempt))
+     assert last_error is not None
+     raise last_error

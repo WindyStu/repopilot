@@ -16,14 +16,30 @@ Report these metrics:
 - wall time and failure-class counts;
 - raw task-level outcomes, not only aggregates.
 
-The canonical end-to-end result is `repopilot-e2e-v1` with DeepSeek Flash and one run for each of 3 paired tasks. Both
-variants solved 3/3 tasks and passed 9/9 hidden tests. Enhanced retrieval reached 100% Recall@5, reduced mean input tokens
-from 6,320.33 to 5,847.33 (7.5%), and reduced mean strong-model calls from 5.67 to 5.00 (11.8%). Mean active wall time
-increased from 8.42 to 9.04 seconds (7.4%) because local analysis adds latency. These are descriptive pilot results and do
-not establish statistical significance or a solve-rate improvement. Raw evidence is checked in under
-`benchmarks/results/e2e-v1-deepseek-flash-r2/`.
+The canonical end-to-end result is `repopilot-e2e-v2`: one baseline and one enhanced DeepSeek Flash run for each of 20
+tasks (40 sessions total). The frozen set contains 5 authored tasks and 15 immutable real-project snapshots, with 5 easy,
+10 medium, and 5 hard tasks. All tasks passed two-run Docker qualification before the paid experiment.
 
-## Current checked-in result
+| Metric | Baseline | Enhanced | Delta |
+|---|---:|---:|---:|
+| Task Success Rate | 4/20 (20.0%) | 9/20 (45.0%) | +25.0 pp |
+| Hidden-test case pass rate | 36/69 (52.2%) | 44/69 (63.8%) | +11.6 pp |
+| Retrieval Recall@5 | N/A | 92.5% | N/A |
+| Mean input tokens | 15,321.10 | 24,098.30 | +57.3% |
+| Mean strong-model calls | 7.95 | 7.20 | -9.4% |
+| Mean active wall time | 24.98 s | 27.98 s | +12.0% |
+
+The paired outcomes were 6 enhanced-only wins, 1 baseline-only win, 3 tasks solved by both, and 10 solved by neither.
+Enhanced success was 4/5 on authored and 5/15 on real-project tasks, versus 2/5 and 2/15 for baseline. Failure classes and
+unsuccessful tasks remain in the report rather than being filtered out. Raw evidence is checked in under
+`benchmarks/results/e2e-v2-deepseek-flash-20task/`.
+
+This is a single run per task, so the result is descriptive and does not establish statistical significance. It shows a
+higher observed solve rate and fewer strong-model calls, with the explicit trade-off of more input context and active time.
+The earlier 3-task `repopilot-e2e-v1` pilot remains under
+`benchmarks/results/e2e-v1-deepseek-flash-r2/` and is excluded from the v2 aggregate.
+
+## Retrieval-only smoke result
 
 `repopilot-retrieval-v1` labels 20 issue queries against expected RepoPilot source files. The empty-context baseline has
 0% Recall@5 and deterministic hybrid retrieval has 90% Recall@5 (18/20 tasks fully recalled). The two misses remain in the

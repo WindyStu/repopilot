@@ -1,0 +1,2359 @@
+{
+  "dataset": "repopilot-e2e-v2",
+  "completed_pairs": 20,
+  "starting_balance_cny": "9.04",
+  "ending_balance_cny": "8.50",
+  "measured_spend_cny": "0.54",
+  "balance_history_cny": [
+    "9.04",
+    "9.04",
+    "9.04",
+    "9.04",
+    "9.04",
+    "9.04",
+    "8.99",
+    "8.95",
+    "8.87",
+    "8.87",
+    "8.87",
+    "8.87",
+    "8.84",
+    "8.73",
+    "8.69",
+    "8.64",
+    "8.59",
+    "8.55",
+    "8.55",
+    "8.50",
+    "8.50"
+  ],
+  "sessions": [
+    {
+      "task_id": "authored_async_retry",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 16864,
+          "output_tokens": 2003,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-bvszcu0r'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.09s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "retrykit/runner.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 16864,
+      "output_tokens": 2003,
+      "cache_hit_input_tokens": 14464,
+      "cache_miss_input_tokens": 2400,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 15.715873901999657,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "authored_async_retry",
+      "variant": "enhanced",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 6,
+          "input_tokens": 25590,
+          "output_tokens": 1991,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-27r_3o72'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.08s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "retrykit/runner.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 6,
+      "input_tokens": 25590,
+      "output_tokens": 1991,
+      "cache_hit_input_tokens": 20608,
+      "cache_miss_input_tokens": 4982,
+      "retrieved_files": [
+        "retrykit/runner.py",
+        "tests/test_retry.py",
+        "retrykit/__init__.py",
+        "retrykit/policy.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 15.020664087000114,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "authored_cache_invalidation",
+      "variant": "enhanced",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 7,
+          "input_tokens": 24360,
+          "output_tokens": 1307,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ea6058pf'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "inventory/service.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 7,
+      "input_tokens": 24360,
+      "output_tokens": 1307,
+      "cache_hit_input_tokens": 19968,
+      "cache_miss_input_tokens": 4392,
+      "retrieved_files": [
+        "inventory/service.py",
+        "inventory/__init__.py",
+        "tests/test_inventory.py",
+        "inventory/models.py",
+        "inventory/repository.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 13.402964627999609,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "authored_cache_invalidation",
+      "variant": "baseline",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 16386,
+          "output_tokens": 1679,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-f3zzzwo5'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "inventory/service.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 16386,
+      "output_tokens": 1679,
+      "cache_hit_input_tokens": 14080,
+      "cache_miss_input_tokens": 2306,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 12.585567387000992,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "authored_state_rollback",
+      "variant": "baseline",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 13007,
+          "output_tokens": 1274,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ul0cbcgm'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "workflow/transition.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 13007,
+      "output_tokens": 1274,
+      "cache_hit_input_tokens": 10496,
+      "cache_miss_input_tokens": 2511,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 9.917259339001248,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "authored_state_rollback",
+      "variant": "enhanced",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 6,
+          "input_tokens": 16118,
+          "output_tokens": 859,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-eayamdav'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "workflow/transition.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 6,
+      "input_tokens": 16118,
+      "output_tokens": 859,
+      "cache_hit_input_tokens": 12672,
+      "cache_miss_input_tokens": 3446,
+      "retrieved_files": [
+        "workflow/rules.py",
+        "workflow/models.py",
+        "workflow/transition.py",
+        "workflow/audit.py",
+        "workflow/__init__.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 10.12673674600046,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "authored_versioned_json",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 32323,
+          "output_tokens": 2119,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "....                                                                     [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-8ridg0wl'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n4 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 4,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "usercodec/serialization.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 32323,
+      "output_tokens": 2119,
+      "cache_hit_input_tokens": 27520,
+      "cache_miss_input_tokens": 4803,
+      "retrieved_files": [
+        "tests/test_serialization.py",
+        "usercodec/serialization.py",
+        "usercodec/models.py",
+        "usercodec/__init__.py",
+        "usercodec/schema.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 18.31142789600017,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "authored_versioned_json",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 17182,
+          "output_tokens": 2422,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "....                                                                     [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-rya6o9zl'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n4 passed, 1 warning in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 4,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "usercodec/serialization.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 17182,
+      "output_tokens": 2422,
+      "cache_hit_input_tokens": 14592,
+      "cache_miss_input_tokens": 2590,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 15.355005457999141,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "authored_safe_archive",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 20978,
+          "output_tokens": 5903,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "....                                                                     [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-q5c1tqrh'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n4 passed, 1 warning in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 4,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "safearchive/validation.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 20978,
+      "output_tokens": 5903,
+      "cache_hit_input_tokens": 18688,
+      "cache_miss_input_tokens": 2290,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 33.7417641840002,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "authored_safe_archive",
+      "variant": "enhanced",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 37063,
+          "output_tokens": 3891,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "....                                                                     [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ad_pfbr9'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n4 passed, 1 warning in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 4,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "safearchive/validation.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 37063,
+      "output_tokens": 3891,
+      "cache_hit_input_tokens": 32896,
+      "cache_miss_input_tokens": 4167,
+      "retrieved_files": [
+        "safearchive/validation.py",
+        "tests/test_archive.py",
+        "safearchive/__init__.py",
+        "safearchive/extractor.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 28.652694808000888,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_one_falsy",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 30106,
+          "output_tokens": 3349,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFFF                                                                     [100%]\n=================================== FAILURES ===================================\n___________________ test_one_raises_falsy_too_short_instance ___________________\n\n    def test_one_raises_falsy_too_short_instance():\n        error = FalsyError(\"too few\")\n        with pytest.raises(FalsyError) as caught:\n>           one([], too_short=error)\n\n/repopilot-hidden/test_one_hidden.py:14: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\niterable = [], too_short = FalsyError('too few'), too_long = None\n\n    def one(iterable, too_short=None, too_long=None):\n        iterator = iter(iterable)\n        for first in iterator:\n            for second in iterator:\n                msg = (\n                    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                    f\"{second!r}, and perhaps more.\"\n                )\n                raise too_long or ValueError(msg)\n            return first\n>       raise too_short or ValueError(\"too few items in iterable (expected 1)\")\nE       ValueError: too few items in iterable (expected 1)\n\nmore_itertools/more.py:11: ValueError\n___________________ test_one_raises_falsy_too_long_instance ____________________\n\n    def test_one_raises_falsy_too_long_instance():\n        error = FalsyError(\"too many\")\n        with pytest.raises(FalsyError) as caught:\n>           one([1, 2], too_long=error)\n\n/repopilot-hidden/test_one_hidden.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\niterable = [1, 2], too_short = None, too_long = FalsyError('too many')\n\n    def one(iterable, too_short=None, too_long=None):\n        iterator = iter(iterable)\n        for first in iterator:\n            for second in iterator:\n                msg = (\n                    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                    f\"{second!r}, and perhaps more.\"\n                )\n>               raise too_long or ValueError(msg)\nE               ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.\n\nmore_itertools/more.py:9: ValueError\n___________________ test_only_raises_falsy_too_long_instance ___________________\n\n    def test_only_raises_falsy_too_long_instance():\n        error = FalsyError(\"too many\")\n        with pytest.raises(FalsyError) as caught:\n>           only([1, 2], too_long=error)\n\n/repopilot-hidden/test_one_hidden.py:28: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\niterable = [1, 2], default = None, too_long = FalsyError('too many')\n\n    def only(iterable, default=None, too_long=None):\n        iterator = iter(iterable)\n        for first in iterator:\n            for second in iterator:\n                msg = (\n                    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                    f\"{second!r}, and perhaps more.\"\n                )\n>               raise too_long or ValueError(msg)\nE               ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.\n\nmore_itertools/more.py:22: ValueError\n______________ test_custom_exception_does_not_evaluate_item_repr _______________\n\n    def test_custom_exception_does_not_evaluate_item_repr():\n        class NoRepr:\n            def __repr__(self):\n                raise RuntimeError(\"repr should not be called\")\n    \n        with pytest.raises(OverflowError):\n>           one([NoRepr(), NoRepr()], too_long=OverflowError(\"many\"))\n\n/repopilot-hidden/test_one_hidden.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nmore_itertools/more.py:6: in one\n    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                                                     ^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <[RuntimeError('repr should not be called') raised in repr()] NoRepr object at 0x7c0e65f82f90>\n\n    def __repr__(self):\n>       raise RuntimeError(\"repr should not be called\")\nE       RuntimeError: repr should not be called\n\n/repopilot-hidden/test_one_hidden.py:35: RuntimeError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-rj2v5931'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ca3pl6xz'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_one_hidden.py::test_one_raises_falsy_too_short_instance\nFAILED ../repopilot-hidden/test_one_hidden.py::test_one_raises_falsy_too_long_instance\nFAILED ../repopilot-hidden/test_one_hidden.py::test_only_raises_falsy_too_long_instance\nFAILED ../repopilot-hidden/test_one_hidden.py::test_custom_exception_does_not_evaluate_item_repr\n4 failed, 2 warnings in 0.03s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 0,
+              "failed": 4,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 30106,
+      "output_tokens": 3349,
+      "cache_hit_input_tokens": 25088,
+      "cache_miss_input_tokens": 5018,
+      "retrieved_files": [
+        "more_itertools/more.py",
+        "tests/test_more.py",
+        "more_itertools/__init__.py",
+        "more_itertools/recipes.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 0,
+        "failed": 4,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 31.445847199000127,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_one_falsy",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 9117,
+          "output_tokens": 2372,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFFF                                                                     [100%]\n=================================== FAILURES ===================================\n___________________ test_one_raises_falsy_too_short_instance ___________________\n\n    def test_one_raises_falsy_too_short_instance():\n        error = FalsyError(\"too few\")\n        with pytest.raises(FalsyError) as caught:\n>           one([], too_short=error)\n\n/repopilot-hidden/test_one_hidden.py:14: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\niterable = [], too_short = FalsyError('too few'), too_long = None\n\n    def one(iterable, too_short=None, too_long=None):\n        iterator = iter(iterable)\n        for first in iterator:\n            for second in iterator:\n                msg = (\n                    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                    f\"{second!r}, and perhaps more.\"\n                )\n                raise too_long or ValueError(msg)\n            return first\n>       raise too_short or ValueError(\"too few items in iterable (expected 1)\")\nE       ValueError: too few items in iterable (expected 1)\n\nmore_itertools/more.py:11: ValueError\n___________________ test_one_raises_falsy_too_long_instance ____________________\n\n    def test_one_raises_falsy_too_long_instance():\n        error = FalsyError(\"too many\")\n        with pytest.raises(FalsyError) as caught:\n>           one([1, 2], too_long=error)\n\n/repopilot-hidden/test_one_hidden.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\niterable = [1, 2], too_short = None, too_long = FalsyError('too many')\n\n    def one(iterable, too_short=None, too_long=None):\n        iterator = iter(iterable)\n        for first in iterator:\n            for second in iterator:\n                msg = (\n                    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                    f\"{second!r}, and perhaps more.\"\n                )\n>               raise too_long or ValueError(msg)\nE               ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.\n\nmore_itertools/more.py:9: ValueError\n___________________ test_only_raises_falsy_too_long_instance ___________________\n\n    def test_only_raises_falsy_too_long_instance():\n        error = FalsyError(\"too many\")\n        with pytest.raises(FalsyError) as caught:\n>           only([1, 2], too_long=error)\n\n/repopilot-hidden/test_one_hidden.py:28: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\niterable = [1, 2], default = None, too_long = FalsyError('too many')\n\n    def only(iterable, default=None, too_long=None):\n        iterator = iter(iterable)\n        for first in iterator:\n            for second in iterator:\n                msg = (\n                    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                    f\"{second!r}, and perhaps more.\"\n                )\n>               raise too_long or ValueError(msg)\nE               ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.\n\nmore_itertools/more.py:22: ValueError\n______________ test_custom_exception_does_not_evaluate_item_repr _______________\n\n    def test_custom_exception_does_not_evaluate_item_repr():\n        class NoRepr:\n            def __repr__(self):\n                raise RuntimeError(\"repr should not be called\")\n    \n        with pytest.raises(OverflowError):\n>           one([NoRepr(), NoRepr()], too_long=OverflowError(\"many\"))\n\n/repopilot-hidden/test_one_hidden.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nmore_itertools/more.py:6: in one\n    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                                                     ^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <[RuntimeError('repr should not be called') raised in repr()] NoRepr object at 0x7a1fd0306b10>\n\n    def __repr__(self):\n>       raise RuntimeError(\"repr should not be called\")\nE       RuntimeError: repr should not be called\n\n/repopilot-hidden/test_one_hidden.py:35: RuntimeError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-001kag3d'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-xinaiz52'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_one_hidden.py::test_one_raises_falsy_too_short_instance\nFAILED ../repopilot-hidden/test_one_hidden.py::test_one_raises_falsy_too_long_instance\nFAILED ../repopilot-hidden/test_one_hidden.py::test_only_raises_falsy_too_long_instance\nFAILED ../repopilot-hidden/test_one_hidden.py::test_custom_exception_does_not_evaluate_item_repr\n4 failed, 2 warnings in 0.03s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 0,
+              "failed": 4,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 9117,
+      "output_tokens": 2372,
+      "cache_hit_input_tokens": 7296,
+      "cache_miss_input_tokens": 1821,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 0,
+        "failed": 4,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 22.435395975000574,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_constrained_batches",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 14095,
+          "output_tokens": 1638,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-dm50v_12'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "more_itertools/more.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 14095,
+      "output_tokens": 1638,
+      "cache_hit_input_tokens": 11904,
+      "cache_miss_input_tokens": 2191,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 109.65038358699894,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_constrained_batches",
+      "variant": "enhanced",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 5,
+          "input_tokens": 8152,
+          "output_tokens": 1067,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-2n5jonx7'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "more_itertools/more.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 5,
+      "input_tokens": 8152,
+      "output_tokens": 1067,
+      "cache_hit_input_tokens": 6528,
+      "cache_miss_input_tokens": 1624,
+      "retrieved_files": [
+        "more_itertools/more.py",
+        "more_itertools/__init__.py",
+        "tests/test_batches.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 9.953874225999243,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_seekable_zero",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 30222,
+          "output_tokens": 7499,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFF.                                                                     [100%]\n=================================== FAILURES ===================================\n________________ test_zero_cache_peek_does_not_drop_first_item _________________\n\n    def test_zero_cache_peek_does_not_drop_first_item():\n        values = seekable([10, 20, 30], maxlen=0)\n        assert values.peek() == 10\n>       assert list(values) == [10, 20, 30]\nE       assert [20, 30] == [10, 20, 30]\nE         \nE         At index 0 diff: 20 != 10\nE         Right contains one more item: 30\nE         Use -v to get more diff\n\n/repopilot-hidden/test_seekable_hidden.py:7: AssertionError\n_______________ test_zero_cache_repeated_peek_returns_same_item ________________\n\n    def test_zero_cache_repeated_peek_returns_same_item():\n        values = seekable([10, 20], maxlen=0)\n        assert values.peek() == 10\n>       assert values.peek() == 10\nE       assert 20 == 10\nE        +  where 20 = peek()\nE        +    where peek = <more_itertools.more.seekable object at 0x78d375fcec90>.peek\n\n/repopilot-hidden/test_seekable_hidden.py:13: AssertionError\n_________________ test_zero_cache_truth_check_preserves_stream _________________\n\n    def test_zero_cache_truth_check_preserves_stream():\n        values = seekable([10, 20], maxlen=0)\n        assert values\n>       assert list(values) == [10, 20]\nE       assert [20] == [10, 20]\nE         \nE         At index 0 diff: 20 != 10\nE         Right contains one more item: 20\nE         Use -v to get more diff\n\n/repopilot-hidden/test_seekable_hidden.py:20: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-9651mhne'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-pv68_25_'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_seekable_hidden.py::test_zero_cache_peek_does_not_drop_first_item\nFAILED ../repopilot-hidden/test_seekable_hidden.py::test_zero_cache_repeated_peek_returns_same_item\nFAILED ../repopilot-hidden/test_seekable_hidden.py::test_zero_cache_truth_check_preserves_stream\n3 failed, 1 passed, 2 warnings in 0.03s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 1,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 30222,
+      "output_tokens": 7499,
+      "cache_hit_input_tokens": 26624,
+      "cache_miss_input_tokens": 3598,
+      "retrieved_files": [
+        "more_itertools/more.py",
+        "tests/test_seekable.py",
+        "more_itertools/recipes.py",
+        "more_itertools/__init__.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 1,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 48.98207596499924,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_seekable_zero",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 14450,
+          "output_tokens": 2241,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFF.                                                                     [100%]\n=================================== FAILURES ===================================\n________________ test_zero_cache_peek_does_not_drop_first_item _________________\n\n    def test_zero_cache_peek_does_not_drop_first_item():\n        values = seekable([10, 20, 30], maxlen=0)\n        assert values.peek() == 10\n>       assert list(values) == [10, 20, 30]\nE       assert [20, 30] == [10, 20, 30]\nE         \nE         At index 0 diff: 20 != 10\nE         Right contains one more item: 30\nE         Use -v to get more diff\n\n/repopilot-hidden/test_seekable_hidden.py:7: AssertionError\n_______________ test_zero_cache_repeated_peek_returns_same_item ________________\n\n    def test_zero_cache_repeated_peek_returns_same_item():\n        values = seekable([10, 20], maxlen=0)\n        assert values.peek() == 10\n>       assert values.peek() == 10\nE       assert 20 == 10\nE        +  where 20 = peek()\nE        +    where peek = <more_itertools.more.seekable object at 0x77091e0eb350>.peek\n\n/repopilot-hidden/test_seekable_hidden.py:13: AssertionError\n_________________ test_zero_cache_truth_check_preserves_stream _________________\n\n    def test_zero_cache_truth_check_preserves_stream():\n        values = seekable([10, 20], maxlen=0)\n        assert values\n>       assert list(values) == [10, 20]\nE       assert [20] == [10, 20]\nE         \nE         At index 0 diff: 20 != 10\nE         Right contains one more item: 20\nE         Use -v to get more diff\n\n/repopilot-hidden/test_seekable_hidden.py:20: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-8kxtyvrl'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-2ub_r3yn'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_seekable_hidden.py::test_zero_cache_peek_does_not_drop_first_item\nFAILED ../repopilot-hidden/test_seekable_hidden.py::test_zero_cache_repeated_peek_returns_same_item\nFAILED ../repopilot-hidden/test_seekable_hidden.py::test_zero_cache_truth_check_preserves_stream\n3 failed, 1 passed, 2 warnings in 0.03s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 1,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 14450,
+      "output_tokens": 2241,
+      "cache_hit_input_tokens": 12544,
+      "cache_miss_input_tokens": 1906,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 1,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 14.509098105001613,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_running_extrema",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 14628,
+          "output_tokens": 5379,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FF.                                                                      [100%]\n=================================== FAILURES ===================================\n______________ test_running_min_keeps_first_equal_value_in_window ______________\n\n    def test_running_min_keeps_first_equal_value_in_window():\n        data = [0, 0.0, Fraction(0)]\n>       assert list(map(type, running_min(data, maxlen=2))) == [int, int, float]\nE       AssertionError: assert [<class 'int'...ns.Fraction'>] == [<class 'int'...lass 'float'>]\nE         \nE         At index 1 diff: <class 'float'> != <class 'int'>\nE         Use -v to get more diff\n\n/repopilot-hidden/test_running_hidden.py:8: AssertionError\n______________ test_running_max_keeps_first_equal_value_in_window ______________\n\n    def test_running_max_keeps_first_equal_value_in_window():\n        data = [0, 0.0, Fraction(0)]\n>       assert list(map(type, running_max(data, maxlen=2))) == [int, int, float]\nE       AssertionError: assert [<class 'int'...ns.Fraction'>] == [<class 'int'...lass 'float'>]\nE         \nE         At index 1 diff: <class 'float'> != <class 'int'>\nE         Use -v to get more diff\n\n/repopilot-hidden/test_running_hidden.py:13: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-gp16xc1f'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-42ocw3n6'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_running_hidden.py::test_running_min_keeps_first_equal_value_in_window\nFAILED ../repopilot-hidden/test_running_hidden.py::test_running_max_keeps_first_equal_value_in_window\n2 failed, 1 passed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 1,
+              "failed": 2,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 14628,
+      "output_tokens": 5379,
+      "cache_hit_input_tokens": 12288,
+      "cache_miss_input_tokens": 2340,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 1,
+        "failed": 2,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 31.422987600999477,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_running_extrema",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 32187,
+          "output_tokens": 6422,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-js_13pgo'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "more_itertools/recipes.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 32187,
+      "output_tokens": 6422,
+      "cache_hit_input_tokens": 28800,
+      "cache_miss_input_tokens": 3387,
+      "retrieved_files": [
+        "tests/test_running.py",
+        "more_itertools/recipes.py",
+        "more_itertools/__init__.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 35.12837206200129,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_interleave_empty",
+      "variant": "enhanced",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 5,
+          "input_tokens": 14028,
+          "output_tokens": 2076,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-2asy_7gy'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "more_itertools/more.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 5,
+      "input_tokens": 14028,
+      "output_tokens": 2076,
+      "cache_hit_input_tokens": 10880,
+      "cache_miss_input_tokens": 3148,
+      "retrieved_files": [
+        "more_itertools/more.py",
+        "more_itertools/__init__.py",
+        "tests/test_interleave.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 13.968057518999558,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_interleave_empty",
+      "variant": "baseline",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 7,
+          "input_tokens": 9714,
+          "output_tokens": 1370,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ectmyol7'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "more_itertools/more.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 7,
+      "input_tokens": 9714,
+      "output_tokens": 1370,
+      "cache_hit_input_tokens": 7808,
+      "cache_miss_input_tokens": 1906,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 10.216677377000451,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_reverse_empty",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 11886,
+          "output_tokens": 1472,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-wz5v7n7o'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "more_itertools/more.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 11886,
+      "output_tokens": 1472,
+      "cache_hit_input_tokens": 9600,
+      "cache_miss_input_tokens": 2286,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 11.024810598999466,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_reverse_empty",
+      "variant": "enhanced",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 5,
+          "input_tokens": 8745,
+          "output_tokens": 1187,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-1ih94lil'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "more_itertools/more.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 5,
+      "input_tokens": 8745,
+      "output_tokens": 1187,
+      "cache_hit_input_tokens": 6784,
+      "cache_miss_input_tokens": 1961,
+      "retrieved_files": [
+        "more_itertools/more.py",
+        "tests/test_numeric_range.py",
+        "more_itertools/__init__.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 9.961350621000747,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_negative_slice",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "qwen_fallback",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 30920,
+          "output_tokens": 5845,
+          "analysis_source": "fallback",
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FF.F                                                                     [100%]\n=================================== FAILURES ===================================\n___________________________ test_full_reverse_slice ____________________________\n\n    def test_full_reverse_slice():\n>       assert list(numeric_range(6)[::-1]) == [5, 4, 3, 2, 1, 0]\nE       assert [] == [5, 4, 3, 2, 1, 0]\nE         \nE         Right contains 6 more items, first extra item: 5\nE         Use -v to get more diff\n\n/repopilot-hidden/test_slice_hidden.py:5: AssertionError\n________________________ test_open_ended_negative_step _________________________\n\n    def test_open_ended_negative_step():\n>       assert list(numeric_range(10)[8::-2]) == [8, 6, 4, 2, 0]\nE       assert [] == [8, 6, 4, 2, 0]\nE         \nE         Right contains 5 more items, first extra item: 8\nE         Use -v to get more diff\n\n/repopilot-hidden/test_slice_hidden.py:9: AssertionError\n_______________________ test_slice_of_nonunit_base_range _______________________\n\n    def test_slice_of_nonunit_base_range():\n>       assert list(numeric_range(2, 14, 2)[::-2]) == [12, 8, 4]\nE       assert [] == [12, 8, 4]\nE         \nE         Right contains 3 more items, first extra item: 12\nE         Use -v to get more diff\n\n/repopilot-hidden/test_slice_hidden.py:17: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-i24441_d'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-25ao7hxm'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_slice_hidden.py::test_full_reverse_slice - as...\nFAILED ../repopilot-hidden/test_slice_hidden.py::test_open_ended_negative_step\nFAILED ../repopilot-hidden/test_slice_hidden.py::test_slice_of_nonunit_base_range\n3 failed, 1 passed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 1,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 30920,
+      "output_tokens": 5845,
+      "cache_hit_input_tokens": 27008,
+      "cache_miss_input_tokens": 3912,
+      "retrieved_files": [
+        "more_itertools/more.py",
+        "tests/test_numeric_slice.py",
+        "more_itertools/__init__.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "fallback"
+      ],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 1,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 43.280428940001,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_mi_negative_slice",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 12595,
+          "output_tokens": 1843,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FF.F                                                                     [100%]\n=================================== FAILURES ===================================\n___________________________ test_full_reverse_slice ____________________________\n\n    def test_full_reverse_slice():\n>       assert list(numeric_range(6)[::-1]) == [5, 4, 3, 2, 1, 0]\nE       assert [] == [5, 4, 3, 2, 1, 0]\nE         \nE         Right contains 6 more items, first extra item: 5\nE         Use -v to get more diff\n\n/repopilot-hidden/test_slice_hidden.py:5: AssertionError\n________________________ test_open_ended_negative_step _________________________\n\n    def test_open_ended_negative_step():\n>       assert list(numeric_range(10)[8::-2]) == [8, 6, 4, 2, 0]\nE       assert [] == [8, 6, 4, 2, 0]\nE         \nE         Right contains 5 more items, first extra item: 8\nE         Use -v to get more diff\n\n/repopilot-hidden/test_slice_hidden.py:9: AssertionError\n_______________________ test_slice_of_nonunit_base_range _______________________\n\n    def test_slice_of_nonunit_base_range():\n>       assert list(numeric_range(2, 14, 2)[::-2]) == [12, 8, 4]\nE       assert [] == [12, 8, 4]\nE         \nE         Right contains 3 more items, first extra item: 12\nE         Use -v to get more diff\n\n/repopilot-hidden/test_slice_hidden.py:17: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-51izqf04'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-v63fk8em'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_slice_hidden.py::test_full_reverse_slice - as...\nFAILED ../repopilot-hidden/test_slice_hidden.py::test_open_ended_negative_step\nFAILED ../repopilot-hidden/test_slice_hidden.py::test_slice_of_nonunit_base_range\n3 failed, 1 passed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 1,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 12595,
+      "output_tokens": 1843,
+      "cache_hit_input_tokens": 10368,
+      "cache_miss_input_tokens": 2227,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 1,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 12.891800810997665,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_short_help",
+      "variant": "baseline",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 21282,
+          "output_tokens": 4448,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "....                                                                     [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-6b8vby3v'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n4 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 4,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "click/utils.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 21282,
+      "output_tokens": 4448,
+      "cache_hit_input_tokens": 18688,
+      "cache_miss_input_tokens": 2594,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 24.04660541300109,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_short_help",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "RepeatedFormatError",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 5,
+          "input_tokens": 12193,
+          "output_tokens": 6444,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FF.F                                                                     [100%]\n=================================== FAILURES ===================================\n___________________ test_abbreviation_does_not_end_sentence ____________________\n\n    def test_abbreviation_does_not_end_sentence():\n>       assert make_default_short_help(\"Weigh apples vs. pears.\", 30) == \"Weigh apples vs. pears.\"\nE       AssertionError: assert 'Weigh apples vs.' == 'Weigh apples vs. pears.'\nE         \nE         - Weigh apples vs. pears.\nE         ?                 -------\nE         + Weigh apples vs.\n\n/repopilot-hidden/test_short_help_hidden.py:5: AssertionError\n_____________ test_abbreviation_is_kept_when_truncating_later_text _____________\n\n    def test_abbreviation_is_kept_when_truncating_later_text():\n>       assert make_default_short_help(\"Weigh apples vs. pears and plums.\", 20) == \"Weigh apples vs....\"\nE       AssertionError: assert 'Weigh apples vs.' == 'Weigh apples vs....'\nE         \nE         - Weigh apples vs....\nE         ?                 ---\nE         + Weigh apples vs.\n\n/repopilot-hidden/test_short_help_hidden.py:9: AssertionError\n________________ test_lowercase_after_period_continues_sentence ________________\n\n    def test_lowercase_after_period_continues_sentence():\n>       assert make_default_short_help(\"Use config.toml. then continue\", 25) == \"Use config.toml. then...\"\nE       AssertionError: assert 'Use config.toml.' == 'Use config.toml. then...'\nE         \nE         - Use config.toml. then...\nE         ?                 --------\nE         + Use config.toml.\n\n/repopilot-hidden/test_short_help_hidden.py:17: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-hgb8u31n'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-po17w7tb'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_short_help_hidden.py::test_abbreviation_does_not_end_sentence\nFAILED ../repopilot-hidden/test_short_help_hidden.py::test_abbreviation_is_kept_when_truncating_later_text\nFAILED ../repopilot-hidden/test_short_help_hidden.py::test_lowercase_after_period_continues_sentence\n3 failed, 1 passed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 1,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        },
+        {
+          "number": 2,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-2.traj.json",
+          "strong_model_calls": 3,
+          "input_tokens": 6125,
+          "output_tokens": 4169,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FF.F                                                                     [100%]\n=================================== FAILURES ===================================\n___________________ test_abbreviation_does_not_end_sentence ____________________\n\n    def test_abbreviation_does_not_end_sentence():\n>       assert make_default_short_help(\"Weigh apples vs. pears.\", 30) == \"Weigh apples vs. pears.\"\nE       AssertionError: assert 'Weigh apples vs.' == 'Weigh apples vs. pears.'\nE         \nE         - Weigh apples vs. pears.\nE         ?                 -------\nE         + Weigh apples vs.\n\n/repopilot-hidden/test_short_help_hidden.py:5: AssertionError\n_____________ test_abbreviation_is_kept_when_truncating_later_text _____________\n\n    def test_abbreviation_is_kept_when_truncating_later_text():\n>       assert make_default_short_help(\"Weigh apples vs. pears and plums.\", 20) == \"Weigh apples vs....\"\nE       AssertionError: assert 'Weigh apples vs.' == 'Weigh apples vs....'\nE         \nE         - Weigh apples vs....\nE         ?                 ---\nE         + Weigh apples vs.\n\n/repopilot-hidden/test_short_help_hidden.py:9: AssertionError\n________________ test_lowercase_after_period_continues_sentence ________________\n\n    def test_lowercase_after_period_continues_sentence():\n>       assert make_default_short_help(\"Use config.toml. then continue\", 25) == \"Use config.toml. then...\"\nE       AssertionError: assert 'Use config.toml.' == 'Use config.toml. then...'\nE         \nE         - Use config.toml. then...\nE         ?                 --------\nE         + Use config.toml.\n\n/repopilot-hidden/test_short_help_hidden.py:17: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-4fn9ep3l'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-t57r201h'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_short_help_hidden.py::test_abbreviation_does_not_end_sentence\nFAILED ../repopilot-hidden/test_short_help_hidden.py::test_abbreviation_is_kept_when_truncating_later_text\nFAILED ../repopilot-hidden/test_short_help_hidden.py::test_lowercase_after_period_continues_sentence\n3 failed, 1 passed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 1,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 18318,
+      "output_tokens": 10613,
+      "cache_hit_input_tokens": 12928,
+      "cache_miss_input_tokens": 5390,
+      "retrieved_files": [
+        "click/utils.py",
+        "click/__init__.py",
+        "tests/test_short_help.py",
+        "click/core.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model",
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 1,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 56.687970463000966,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_color_zero",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "qwen_fallback",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 28019,
+          "output_tokens": 6820,
+          "analysis_source": "fallback",
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFFFF                                                                    [100%]\n=================================== FAILURES ===================================\n______________ test_zero_foreground_palette_index_is_not_dropped _______________\n\n    def test_zero_foreground_palette_index_is_not_dropped():\n>       assert style(\"x\", fg=0) == \"\\033[38;5;0mx\\033[0m\"\nE       AssertionError: assert 'x\\x1b[0m' == '\\x1b[38;5;0mx\\x1b[0m'\nE         \nE         - \u001b[38;5;0mx\u001b[0m\nE         + x\u001b[0m\n\n/repopilot-hidden/test_style_hidden.py:7: AssertionError\n______________ test_zero_background_palette_index_is_not_dropped _______________\n\n    def test_zero_background_palette_index_is_not_dropped():\n>       assert style(\"x\", bg=0) == \"\\033[48;5;0mx\\033[0m\"\nE       AssertionError: assert 'x\\x1b[0m' == '\\x1b[48;5;0mx\\x1b[0m'\nE         \nE         - \u001b[48;5;0mx\u001b[0m\nE         + x\u001b[0m\n\n/repopilot-hidden/test_style_hidden.py:11: AssertionError\n________________ test_boolean_is_not_accepted_as_palette_index _________________\n\n    def test_boolean_is_not_accepted_as_palette_index():\n>       with pytest.raises(ValueError, match=\"Unknown color\"):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\n/repopilot-hidden/test_style_hidden.py:15: Failed\n_________________ test_out_of_range_palette_index_is_rejected __________________\n\n    def test_out_of_range_palette_index_is_rejected():\n>       with pytest.raises(ValueError, match=\"Unknown color\"):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\n/repopilot-hidden/test_style_hidden.py:20: Failed\n____________________ test_invalid_rgb_component_is_rejected ____________________\n\n    def test_invalid_rgb_component_is_rejected():\n>       with pytest.raises(ValueError, match=\"Unknown color\"):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\n/repopilot-hidden/test_style_hidden.py:25: Failed\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-61qn1ff6'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-0ot_teuk'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_style_hidden.py::test_zero_foreground_palette_index_is_not_dropped\nFAILED ../repopilot-hidden/test_style_hidden.py::test_zero_background_palette_index_is_not_dropped\nFAILED ../repopilot-hidden/test_style_hidden.py::test_boolean_is_not_accepted_as_palette_index\nFAILED ../repopilot-hidden/test_style_hidden.py::test_out_of_range_palette_index_is_rejected\nFAILED ../repopilot-hidden/test_style_hidden.py::test_invalid_rgb_component_is_rejected\n5 failed, 2 warnings in 0.03s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 5,
+              "passed": 0,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 28019,
+      "output_tokens": 6820,
+      "cache_hit_input_tokens": 24320,
+      "cache_miss_input_tokens": 3699,
+      "retrieved_files": [
+        "tests/test_style.py",
+        "click/__init__.py",
+        "click/termui.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "fallback"
+      ],
+      "hidden_test_counts": {
+        "total": 5,
+        "passed": 0,
+        "failed": 5,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 45.25005670099927,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_color_zero",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 19982,
+          "output_tokens": 4314,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFFFF                                                                    [100%]\n=================================== FAILURES ===================================\n______________ test_zero_foreground_palette_index_is_not_dropped _______________\n\n    def test_zero_foreground_palette_index_is_not_dropped():\n>       assert style(\"x\", fg=0) == \"\\033[38;5;0mx\\033[0m\"\nE       AssertionError: assert 'x\\x1b[0m' == '\\x1b[38;5;0mx\\x1b[0m'\nE         \nE         - \u001b[38;5;0mx\u001b[0m\nE         + x\u001b[0m\n\n/repopilot-hidden/test_style_hidden.py:7: AssertionError\n______________ test_zero_background_palette_index_is_not_dropped _______________\n\n    def test_zero_background_palette_index_is_not_dropped():\n>       assert style(\"x\", bg=0) == \"\\033[48;5;0mx\\033[0m\"\nE       AssertionError: assert 'x\\x1b[0m' == '\\x1b[48;5;0mx\\x1b[0m'\nE         \nE         - \u001b[48;5;0mx\u001b[0m\nE         + x\u001b[0m\n\n/repopilot-hidden/test_style_hidden.py:11: AssertionError\n________________ test_boolean_is_not_accepted_as_palette_index _________________\n\n    def test_boolean_is_not_accepted_as_palette_index():\n>       with pytest.raises(ValueError, match=\"Unknown color\"):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\n/repopilot-hidden/test_style_hidden.py:15: Failed\n_________________ test_out_of_range_palette_index_is_rejected __________________\n\n    def test_out_of_range_palette_index_is_rejected():\n>       with pytest.raises(ValueError, match=\"Unknown color\"):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\n/repopilot-hidden/test_style_hidden.py:20: Failed\n____________________ test_invalid_rgb_component_is_rejected ____________________\n\n    def test_invalid_rgb_component_is_rejected():\n>       with pytest.raises(ValueError, match=\"Unknown color\"):\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       Failed: DID NOT RAISE <class 'ValueError'>\n\n/repopilot-hidden/test_style_hidden.py:25: Failed\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-172nepg2'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ygtzjee8'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_style_hidden.py::test_zero_foreground_palette_index_is_not_dropped\nFAILED ../repopilot-hidden/test_style_hidden.py::test_zero_background_palette_index_is_not_dropped\nFAILED ../repopilot-hidden/test_style_hidden.py::test_boolean_is_not_accepted_as_palette_index\nFAILED ../repopilot-hidden/test_style_hidden.py::test_out_of_range_palette_index_is_rejected\nFAILED ../repopilot-hidden/test_style_hidden.py::test_invalid_rgb_component_is_rejected\n5 failed, 2 warnings in 0.03s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 5,
+              "passed": 0,
+              "failed": 5,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 19982,
+      "output_tokens": 4314,
+      "cache_hit_input_tokens": 17024,
+      "cache_miss_input_tokens": 2958,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 5,
+        "passed": 0,
+        "failed": 5,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 32.54403969500345,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_choice_metavar",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 9475,
+          "output_tokens": 1813,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n______________ test_optional_choice_does_not_get_double_brackets _______________\n\n    def test_optional_choice_does_not_get_double_brackets():\n        argument = Argument(\"method\", type=Choice([\"foo\", \"bar\"]), required=False)\n>       assert argument.make_metavar() == \"[foo|bar]\"\nE       AssertionError: assert '[[foo|bar]]' == '[foo|bar]'\nE         \nE         - [foo|bar]\nE         + [[foo|bar]]\nE         ? +         +\n\n/repopilot-hidden/test_metavar_hidden.py:6: AssertionError\n_________________ test_variadic_choice_reuses_choice_brackets __________________\n\n    def test_variadic_choice_reuses_choice_brackets():\n        argument = Argument(\"method\", type=Choice([\"foo\", \"bar\"]), required=False, nargs=-1)\n>       assert argument.make_metavar() == \"[foo|bar]...\"\nE       AssertionError: assert '[[foo|bar]]...' == '[foo|bar]...'\nE         \nE         - [foo|bar]...\nE         + [[foo|bar]]...\nE         ? +         +\n\n/repopilot-hidden/test_metavar_hidden.py:11: AssertionError\n_____________ test_optional_datetime_does_not_get_double_brackets ______________\n\n    def test_optional_datetime_does_not_get_double_brackets():\n        argument = Argument(\"when\", type=DateTime([\"%Y-%m-%d\"]), required=False)\n>       assert argument.make_metavar() == \"[%Y-%m-%d]\"\nE       AssertionError: assert '[[%Y-%m-%d]]' == '[%Y-%m-%d]'\nE         \nE         - [%Y-%m-%d]\nE         + [[%Y-%m-%d]]\nE         ? +          +\n\n/repopilot-hidden/test_metavar_hidden.py:16: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-yqnn1607'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-sl4p74g9'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_metavar_hidden.py::test_optional_choice_does_not_get_double_brackets\nFAILED ../repopilot-hidden/test_metavar_hidden.py::test_variadic_choice_reuses_choice_brackets\nFAILED ../repopilot-hidden/test_metavar_hidden.py::test_optional_datetime_does_not_get_double_brackets\n3 failed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 0,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 9475,
+      "output_tokens": 1813,
+      "cache_hit_input_tokens": 7296,
+      "cache_miss_input_tokens": 2179,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 0,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 20.703714040002524,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_choice_metavar",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 29403,
+          "output_tokens": 7973,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n______________ test_optional_choice_does_not_get_double_brackets _______________\n\n    def test_optional_choice_does_not_get_double_brackets():\n        argument = Argument(\"method\", type=Choice([\"foo\", \"bar\"]), required=False)\n>       assert argument.make_metavar() == \"[foo|bar]\"\nE       AssertionError: assert '[[foo|bar]]' == '[foo|bar]'\nE         \nE         - [foo|bar]\nE         + [[foo|bar]]\nE         ? +         +\n\n/repopilot-hidden/test_metavar_hidden.py:6: AssertionError\n_________________ test_variadic_choice_reuses_choice_brackets __________________\n\n    def test_variadic_choice_reuses_choice_brackets():\n        argument = Argument(\"method\", type=Choice([\"foo\", \"bar\"]), required=False, nargs=-1)\n>       assert argument.make_metavar() == \"[foo|bar]...\"\nE       AssertionError: assert '[[foo|bar]]...' == '[foo|bar]...'\nE         \nE         - [foo|bar]...\nE         + [[foo|bar]]...\nE         ? +         +\n\n/repopilot-hidden/test_metavar_hidden.py:11: AssertionError\n_____________ test_optional_datetime_does_not_get_double_brackets ______________\n\n    def test_optional_datetime_does_not_get_double_brackets():\n        argument = Argument(\"when\", type=DateTime([\"%Y-%m-%d\"]), required=False)\n>       assert argument.make_metavar() == \"[%Y-%m-%d]\"\nE       AssertionError: assert '[[%Y-%m-%d]]' == '[%Y-%m-%d]'\nE         \nE         - [%Y-%m-%d]\nE         + [[%Y-%m-%d]]\nE         ? +          +\n\n/repopilot-hidden/test_metavar_hidden.py:16: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-7css9j6h'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ic1xgma0'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_metavar_hidden.py::test_optional_choice_does_not_get_double_brackets\nFAILED ../repopilot-hidden/test_metavar_hidden.py::test_variadic_choice_reuses_choice_brackets\nFAILED ../repopilot-hidden/test_metavar_hidden.py::test_optional_datetime_does_not_get_double_brackets\n3 failed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 0,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 29403,
+      "output_tokens": 7973,
+      "cache_hit_input_tokens": 25088,
+      "cache_miss_input_tokens": 4315,
+      "retrieved_files": [
+        "tests/test_metavar.py",
+        "click/__init__.py",
+        "click/types.py",
+        "click/core.py",
+        "click/formatting.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 0,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 50.412400293000246,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_parameter_source",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 27630,
+          "output_tokens": 6424,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-2hw3zq23'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "click/core.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 27630,
+      "output_tokens": 6424,
+      "cache_hit_input_tokens": 23296,
+      "cache_miss_input_tokens": 4334,
+      "retrieved_files": [
+        "tests/test_source.py",
+        "click/core.py",
+        "click/types.py",
+        "click/__init__.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 36.32516907700119,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_parameter_source",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 24920,
+          "output_tokens": 7531,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n__________________ test_converter_observes_commandline_source __________________\n\n    def test_converter_observes_commandline_source():\n        context = Context()\n        parameter = Parameter(\"path\", SourceAwareType())\n        value, source = parameter.handle_parse_result(\n            context, \"cli.txt\", ParameterSource.COMMANDLINE\n        )\n        assert value == \"cli.txt\"\n>       assert source is ParameterSource.COMMANDLINE\nE       assert None is <ParameterSource.COMMANDLINE: 1>\nE        +  where <ParameterSource.COMMANDLINE: 1> = ParameterSource.COMMANDLINE\n\n/repopilot-hidden/test_source_hidden.py:11: AssertionError\n____________________ test_converter_observes_default_source ____________________\n\n    def test_converter_observes_default_source():\n        context = Context()\n        parameter = Parameter(\"path\", SourceAwareType())\n        value, source = parameter.handle_parse_result(\n            context, \"default.txt\", ParameterSource.DEFAULT\n        )\n        assert value == \"default.txt\"\n>       assert source is ParameterSource.DEFAULT\nE       assert None is <ParameterSource.DEFAULT: 2>\nE        +  where <ParameterSource.DEFAULT: 2> = ParameterSource.DEFAULT\n\n/repopilot-hidden/test_source_hidden.py:21: AssertionError\n____________ test_eager_callback_observes_source_during_processing _____________\n\n    def test_eager_callback_observes_source_during_processing():\n        observed = []\n    \n        def callback(ctx, param, value):\n            observed.append(ctx.get_parameter_source(param.name))\n            return value\n    \n        context = Context()\n        parameter = Parameter(\"debug\", SourceAwareType(), callback=callback)\n        parameter.handle_parse_result(context, True, ParameterSource.ENVIRONMENT)\n>       assert observed == [ParameterSource.ENVIRONMENT]\nE       assert [None] == [<ParameterSo...VIRONMENT: 3>]\nE         \nE         At index 0 diff: None != <ParameterSource.ENVIRONMENT: 3>\nE         Use -v to get more diff\n\n/repopilot-hidden/test_source_hidden.py:34: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-5_xile28'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-g7pmr6jb'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_source_hidden.py::test_converter_observes_commandline_source\nFAILED ../repopilot-hidden/test_source_hidden.py::test_converter_observes_default_source\nFAILED ../repopilot-hidden/test_source_hidden.py::test_eager_callback_observes_source_during_processing\n3 failed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 0,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 24920,
+      "output_tokens": 7531,
+      "cache_hit_input_tokens": 22144,
+      "cache_miss_input_tokens": 2776,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 0,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 47.20511205100047,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_empty_usage",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 20405,
+          "output_tokens": 5273,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n_____________ test_empty_args_preserve_default_prefix_and_program ______________\n\n    def test_empty_args_preserve_default_prefix_and_program():\n        formatter = HelpFormatter()\n        formatter.write_usage(\"Program\")\n>       assert formatter.getvalue() == \"Usage: Program\\n\"\nE       AssertionError: assert '\\n' == 'Usage: Program\\n'\nE         \nE         Strings contain only whitespace, escaping them using repr()\nE         - 'Usage: Program\\n'\nE         + '\\n'\n\n/repopilot-hidden/test_usage_hidden.py:7: AssertionError\n____________________ test_empty_args_preserve_custom_prefix ____________________\n\n    def test_empty_args_preserve_custom_prefix():\n        formatter = HelpFormatter()\n        formatter.write_usage(\"Program\", prefix=\"Run: \")\n>       assert formatter.getvalue() == \"Run: Program\\n\"\nE       AssertionError: assert '\\n' == 'Run: Program\\n'\nE         \nE         Strings contain only whitespace, escaping them using repr()\nE         - 'Run: Program\\n'\nE         + '\\n'\n\n/repopilot-hidden/test_usage_hidden.py:13: AssertionError\n_________________ test_empty_args_do_not_leave_trailing_space __________________\n\n    def test_empty_args_do_not_leave_trailing_space():\n        formatter = HelpFormatter(width=20)\n        formatter.write_usage(\"VeryLongProgramName\")\n>       assert formatter.getvalue() == \"Usage: VeryLongProgramName\\n\"\nE       AssertionError: assert '\\n' == 'Usage: VeryLongProgramName\\n'\nE         \nE         Strings contain only whitespace, escaping them using repr()\nE         - 'Usage: VeryLongProgramName\\n'\nE         + '\\n'\n\n/repopilot-hidden/test_usage_hidden.py:19: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-b4fcpo04'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-m3hou2uv'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_usage_hidden.py::test_empty_args_preserve_default_prefix_and_program\nFAILED ../repopilot-hidden/test_usage_hidden.py::test_empty_args_preserve_custom_prefix\nFAILED ../repopilot-hidden/test_usage_hidden.py::test_empty_args_do_not_leave_trailing_space\n3 failed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 0,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 20405,
+      "output_tokens": 5273,
+      "cache_hit_input_tokens": 17280,
+      "cache_miss_input_tokens": 3125,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 0,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 36.17909924900232,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_click_empty_usage",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 26183,
+          "output_tokens": 2040,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-sx2alw61'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "click/formatting.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 26183,
+      "output_tokens": 2040,
+      "cache_hit_input_tokens": 22528,
+      "cache_miss_input_tokens": 3655,
+      "retrieved_files": [
+        "tests/test_usage.py",
+        "click/formatting.py",
+        "click/__init__.py"
+      ],
+      "retrieval_recall_at_5": 0.5,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 16.953101137001795,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_attrs_nested_disabled",
+      "variant": "enhanced",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 6,
+          "input_tokens": 17648,
+          "output_tokens": 1684,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-tjruw845'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "attr/validators.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 6,
+      "input_tokens": 17648,
+      "output_tokens": 1684,
+      "cache_hit_input_tokens": 14208,
+      "cache_miss_input_tokens": 3440,
+      "retrieved_files": [
+        "attr/validators.py",
+        "attr/__init__.py",
+        "attr/_config.py",
+        "tests/test_validators.py"
+      ],
+      "retrieval_recall_at_5": 1.0,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 13.596511165000265,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_attrs_nested_disabled",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 8413,
+          "output_tokens": 863,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-p6fx3pek'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "attr/validators.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 8413,
+      "output_tokens": 863,
+      "cache_hit_input_tokens": 6784,
+      "cache_miss_input_tokens": 1629,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 8.732279511001252,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_attrs_frozen_error",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 12330,
+          "output_tokens": 2136,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n____________ test_base_error_carries_message_in_base_exception_args ____________\n\n    def test_base_error_carries_message_in_base_exception_args():\n        error = FrozenError()\n>       assert str(error) == \"can't set attribute\"\nE       assert '' == \"can't set attribute\"\nE         \nE         - can't set attribute\n\n/repopilot-hidden/test_frozen_hidden.py:6: AssertionError\n_____________________ test_instance_error_carries_message ______________________\n\n    def test_instance_error_carries_message():\n        error = FrozenInstanceError()\n        assert error.msg == error.args[0] == \"can't set attribute\"\n>       assert str(error) == \"can't set attribute\"\nE       assert '' == \"can't set attribute\"\nE         \nE         - can't set attribute\n\n/repopilot-hidden/test_frozen_hidden.py:13: AssertionError\n_____________________ test_attribute_error_carries_message _____________________\n\n    def test_attribute_error_carries_message():\n        error = FrozenAttributeError()\n        assert error.msg == error.args[0] == \"can't set attribute\"\n>       assert str(error) == \"can't set attribute\"\nE       assert '' == \"can't set attribute\"\nE         \nE         - can't set attribute\n\n/repopilot-hidden/test_frozen_hidden.py:19: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-em7l6i14'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-5c6cbqfa'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_frozen_hidden.py::test_base_error_carries_message_in_base_exception_args\nFAILED ../repopilot-hidden/test_frozen_hidden.py::test_instance_error_carries_message\nFAILED ../repopilot-hidden/test_frozen_hidden.py::test_attribute_error_carries_message\n3 failed, 2 warnings in 0.03s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 0,
+              "failed": 3,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 12330,
+      "output_tokens": 2136,
+      "cache_hit_input_tokens": 10368,
+      "cache_miss_input_tokens": 1962,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 0,
+        "failed": 3,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 15.538408390002587,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_attrs_frozen_error",
+      "variant": "enhanced",
+      "success": true,
+      "failure_class": "",
+      "exit_status": "Submitted",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "Submitted",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 15330,
+          "output_tokens": 1786,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": true,
+              "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ctp2uhts'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 3,
+              "passed": 3,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "attr/exceptions.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 15330,
+      "output_tokens": 1786,
+      "cache_hit_input_tokens": 13568,
+      "cache_miss_input_tokens": 1762,
+      "retrieved_files": [
+        "attr/exceptions.py",
+        "attr/__init__.py",
+        "tests/test_exceptions.py"
+      ],
+      "retrieval_recall_at_5": 0.5,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 15.43380122400049,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_attrs_deep_mapping",
+      "variant": "enhanced",
+      "success": false,
+      "failure_class": "empty_patch",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 29621,
+          "output_tokens": 7794,
+          "analysis_source": "local_model",
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFFF                                                                     [100%]\n=================================== FAILURES ===================================\n______________________ test_key_validator_can_be_omitted _______________________\n\n    def test_key_validator_can_be_omitted():\n>       validator = deep_mapping(value_validator=instance_of(int))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:7: TypeError\n_____________________ test_value_validator_can_be_omitted ______________________\n\n    def test_value_validator_can_be_omitted():\n>       validator = deep_mapping(key_validator=instance_of(str))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: deep_mapping() missing 1 required positional argument: 'value_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:12: TypeError\n_______________ test_neither_key_nor_value_validator_is_rejected _______________\n\n    def test_neither_key_nor_value_validator_is_rejected():\n        with pytest.raises(ValueError, match=\"At least one\"):\n>           deep_mapping()\nE           TypeError: deep_mapping() missing 2 required positional arguments: 'key_validator' and 'value_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:18: TypeError\n______________________ test_present_validator_still_runs _______________________\n\n    def test_present_validator_still_runs():\n>       validator = deep_mapping(value_validator=instance_of(int))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:22: TypeError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-qdgh3aq7'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-x9jyg65r'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_key_validator_can_be_omitted\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_value_validator_can_be_omitted\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_neither_key_nor_value_validator_is_rejected\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_present_validator_still_runs\n4 failed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 0,
+              "failed": 4,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 29621,
+      "output_tokens": 7794,
+      "cache_hit_input_tokens": 24832,
+      "cache_miss_input_tokens": 4789,
+      "retrieved_files": [
+        "attr/validators.py",
+        "attr/__init__.py",
+        "tests/test_mapping.py"
+      ],
+      "retrieval_recall_at_5": 0.5,
+      "analysis_sources": [
+        "local_model"
+      ],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 0,
+        "failed": 4,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 46.645138001000305,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    },
+    {
+      "task_id": "real_attrs_deep_mapping",
+      "variant": "baseline",
+      "success": false,
+      "failure_class": "step_limit",
+      "exit_status": "LimitsExceeded",
+      "infrastructure_error": "",
+      "attempts": [
+        {
+          "number": 1,
+          "exit_status": "LimitsExceeded",
+          "trajectory": "attempt-1.traj.json",
+          "strong_model_calls": 8,
+          "input_tokens": 18713,
+          "output_tokens": 2631,
+          "analysis_source": null,
+          "hidden_verification": {
+            "result": {
+              "success": false,
+              "output": "FFFF                                                                     [100%]\n=================================== FAILURES ===================================\n______________________ test_key_validator_can_be_omitted _______________________\n\n    def test_key_validator_can_be_omitted():\n>       validator = deep_mapping(value_validator=instance_of(int))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:7: TypeError\n_____________________ test_value_validator_can_be_omitted ______________________\n\n    def test_value_validator_can_be_omitted():\n>       validator = deep_mapping(key_validator=instance_of(str))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: deep_mapping() missing 1 required positional argument: 'value_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:12: TypeError\n_______________ test_neither_key_nor_value_validator_is_rejected _______________\n\n    def test_neither_key_nor_value_validator_is_rejected():\n        with pytest.raises(ValueError, match=\"At least one\"):\n>           deep_mapping()\nE           TypeError: deep_mapping() missing 2 required positional arguments: 'key_validator' and 'value_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:18: TypeError\n______________________ test_present_validator_still_runs _______________________\n\n    def test_present_validator_still_runs():\n>       validator = deep_mapping(value_validator=instance_of(int))\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'\n\n/repopilot-hidden/test_mapping_hidden.py:22: TypeError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-zzky_25u'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-nupd0bbw'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_key_validator_can_be_omitted\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_value_validator_can_be_omitted\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_neither_key_nor_value_validator_is_rejected\nFAILED ../repopilot-hidden/test_mapping_hidden.py::test_present_validator_still_runs\n4 failed, 2 warnings in 0.02s\n",
+              "command": "pytest -q /repopilot-hidden"
+            },
+            "counts": {
+              "total": 4,
+              "passed": 0,
+              "failed": 4,
+              "errors": 0,
+              "skipped": 0
+            }
+          }
+        }
+      ],
+      "changed_paths": [
+        "attr/validators.py"
+      ],
+      "forbidden_paths": [],
+      "strong_model_calls": 8,
+      "input_tokens": 18713,
+      "output_tokens": 2631,
+      "cache_hit_input_tokens": 16512,
+      "cache_miss_input_tokens": 2201,
+      "retrieved_files": [],
+      "retrieval_recall_at_5": null,
+      "analysis_sources": [],
+      "hidden_test_counts": {
+        "total": 4,
+        "passed": 0,
+        "failed": 4,
+        "errors": 0,
+        "skipped": 0
+      },
+      "active_wall_seconds": 15.206294055999024,
+      "model": "deepseek/deepseek-flash",
+      "image": "repopilot-runner:py312"
+    }
+  ]
+}

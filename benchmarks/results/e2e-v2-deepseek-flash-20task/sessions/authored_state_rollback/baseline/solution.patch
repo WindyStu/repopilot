@@ -1,0 +1,19 @@
+diff --git a/workflow/transition.py b/workflow/transition.py
+index 3109a2b..f5aa3c4 100644
+--- a/workflow/transition.py
++++ b/workflow/transition.py
+@@ -7,6 +7,13 @@ from workflow.rules import can_transition
+ def advance(job: Job, target: State, persist: Callable[[Job], None]) -> Job:
+     if not can_transition(job.state, target):
+         raise ValueError(f"invalid transition: {job.state.value} -> {target.value}")
++
++    previous = job.state
+     job.state = target
+-    persist(job)
++    try:
++        persist(job)
++    except Exception:
++        job.state = previous
++        raise
++
+     return job

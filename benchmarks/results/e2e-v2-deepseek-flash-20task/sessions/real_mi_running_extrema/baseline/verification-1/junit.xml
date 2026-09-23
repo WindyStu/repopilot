@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="2" skipped="0" tests="3" time="0.024" timestamp="2026-09-22T13:48:53.182245+00:00" hostname="8430546f8917"><testcase classname="test_running_hidden" name="test_running_min_keeps_first_equal_value_in_window" time="0.001"><failure message="AssertionError: assert [&lt;class 'int'...ns.Fraction'&gt;] == [&lt;class 'int'...lass 'float'&gt;]&#10;  &#10;  At index 1 diff: &lt;class 'float'&gt; != &lt;class 'int'&gt;&#10;  Use -v to get more diff">def test_running_min_keeps_first_equal_value_in_window():
+        data = [0, 0.0, Fraction(0)]
+&gt;       assert list(map(type, running_min(data, maxlen=2))) == [int, int, float]
+E       AssertionError: assert [&lt;class 'int'...ns.Fraction'&gt;] == [&lt;class 'int'...lass 'float'&gt;]
+E         
+E         At index 1 diff: &lt;class 'float'&gt; != &lt;class 'int'&gt;
+E         Use -v to get more diff
+
+/repopilot-hidden/test_running_hidden.py:8: AssertionError</failure></testcase><testcase classname="test_running_hidden" name="test_running_max_keeps_first_equal_value_in_window" time="0.000"><failure message="AssertionError: assert [&lt;class 'int'...ns.Fraction'&gt;] == [&lt;class 'int'...lass 'float'&gt;]&#10;  &#10;  At index 1 diff: &lt;class 'float'&gt; != &lt;class 'int'&gt;&#10;  Use -v to get more diff">def test_running_max_keeps_first_equal_value_in_window():
+        data = [0, 0.0, Fraction(0)]
+&gt;       assert list(map(type, running_max(data, maxlen=2))) == [int, int, float]
+E       AssertionError: assert [&lt;class 'int'...ns.Fraction'&gt;] == [&lt;class 'int'...lass 'float'&gt;]
+E         
+E         At index 1 diff: &lt;class 'float'&gt; != &lt;class 'int'&gt;
+E         Use -v to get more diff
+
+/repopilot-hidden/test_running_hidden.py:13: AssertionError</failure></testcase><testcase classname="test_running_hidden" name="test_distinct_values_remain_numerically_correct" time="0.000" /></testsuite></testsuites>

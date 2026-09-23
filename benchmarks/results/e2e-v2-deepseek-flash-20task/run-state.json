@@ -1,0 +1,29 @@
+{
+  "dataset": "repopilot-e2e-v2",
+  "completed_pairs": 20,
+  "completed_task_ids": [
+    "authored_async_retry",
+    "authored_cache_invalidation",
+    "authored_state_rollback",
+    "authored_versioned_json",
+    "authored_safe_archive",
+    "real_mi_one_falsy",
+    "real_mi_constrained_batches",
+    "real_mi_seekable_zero",
+    "real_mi_running_extrema",
+    "real_mi_interleave_empty",
+    "real_mi_reverse_empty",
+    "real_mi_negative_slice",
+    "real_click_short_help",
+    "real_click_color_zero",
+    "real_click_choice_metavar",
+    "real_click_parameter_source",
+    "real_click_empty_usage",
+    "real_attrs_nested_disabled",
+    "real_attrs_frozen_error",
+    "real_attrs_deep_mapping"
+  ],
+  "starting_balance_cny": "9.04",
+  "current_balance_cny": "8.50",
+  "measured_spend_cny": "0.54"
+}

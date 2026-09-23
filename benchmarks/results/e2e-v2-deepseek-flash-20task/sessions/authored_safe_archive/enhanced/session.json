@@ -1,0 +1,62 @@
+{
+  "task_id": "authored_safe_archive",
+  "variant": "enhanced",
+  "success": true,
+  "failure_class": "",
+  "exit_status": "Submitted",
+  "infrastructure_error": "",
+  "attempts": [
+    {
+      "number": 1,
+      "exit_status": "Submitted",
+      "trajectory": "attempt-1.traj.json",
+      "strong_model_calls": 8,
+      "input_tokens": 37063,
+      "output_tokens": 3891,
+      "analysis_source": "local_model",
+      "hidden_verification": {
+        "result": {
+          "success": true,
+          "output": "....                                                                     [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ad_pfbr9'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n4 passed, 1 warning in 0.02s\n",
+          "command": "pytest -q /repopilot-hidden"
+        },
+        "counts": {
+          "total": 4,
+          "passed": 4,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "changed_paths": [
+    "safearchive/validation.py"
+  ],
+  "forbidden_paths": [],
+  "strong_model_calls": 8,
+  "input_tokens": 37063,
+  "output_tokens": 3891,
+  "cache_hit_input_tokens": 32896,
+  "cache_miss_input_tokens": 4167,
+  "retrieved_files": [
+    "safearchive/validation.py",
+    "tests/test_archive.py",
+    "safearchive/__init__.py",
+    "safearchive/extractor.py"
+  ],
+  "retrieval_recall_at_5": 1.0,
+  "analysis_sources": [
+    "local_model"
+  ],
+  "hidden_test_counts": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "active_wall_seconds": 28.652694808000888,
+  "model": "deepseek/deepseek-flash",
+  "image": "repopilot-runner:py312"
+}

@@ -1,0 +1,15 @@
+diff --git a/attr/validators.py b/attr/validators.py
+index 3b56156..c0ea919 100644
+--- a/attr/validators.py
++++ b/attr/validators.py
+@@ -5,8 +5,9 @@ from attr._config import get_run_validators, set_run_validators
+ 
+ @contextmanager
+ def disabled():
++    prev = get_run_validators()
+     set_run_validators(False)
+     try:
+         yield
+     finally:
+-        set_run_validators(True)
++        set_run_validators(prev)

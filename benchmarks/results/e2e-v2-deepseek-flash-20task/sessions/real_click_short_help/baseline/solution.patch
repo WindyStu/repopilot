@@ -1,0 +1,15 @@
+diff --git a/click/utils.py b/click/utils.py
+index 62a6b2d..663beb2 100644
+--- a/click/utils.py
++++ b/click/utils.py
+@@ -14,7 +14,9 @@ def make_default_short_help(help_text: str, max_length: int = 45) -> str:
+         total_length += len(word) + (index > 0)
+         if total_length > max_length:
+             break
+-        if word[-1] == ".":
++        if word[-1] == "." and (
++            index == last_index or not words[index + 1][0].islower()
++        ):
+             return " ".join(words[: index + 1])
+         if total_length == max_length and index != last_index:
+             break

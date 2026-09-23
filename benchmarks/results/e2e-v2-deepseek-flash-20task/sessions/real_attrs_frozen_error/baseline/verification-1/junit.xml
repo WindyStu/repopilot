@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="3" time="0.028" timestamp="2026-09-22T13:57:13.914048+00:00" hostname="4686151e412d"><testcase classname="test_frozen_hidden" name="test_base_error_carries_message_in_base_exception_args" time="0.001"><failure message="assert '' == &quot;can't set attribute&quot;&#10;  &#10;  - can't set attribute">def test_base_error_carries_message_in_base_exception_args():
+        error = FrozenError()
+&gt;       assert str(error) == "can't set attribute"
+E       assert '' == "can't set attribute"
+E         
+E         - can't set attribute
+
+/repopilot-hidden/test_frozen_hidden.py:6: AssertionError</failure></testcase><testcase classname="test_frozen_hidden" name="test_instance_error_carries_message" time="0.001"><failure message="assert '' == &quot;can't set attribute&quot;&#10;  &#10;  - can't set attribute">def test_instance_error_carries_message():
+        error = FrozenInstanceError()
+        assert error.msg == error.args[0] == "can't set attribute"
+&gt;       assert str(error) == "can't set attribute"
+E       assert '' == "can't set attribute"
+E         
+E         - can't set attribute
+
+/repopilot-hidden/test_frozen_hidden.py:13: AssertionError</failure></testcase><testcase classname="test_frozen_hidden" name="test_attribute_error_carries_message" time="0.000"><failure message="assert '' == &quot;can't set attribute&quot;&#10;  &#10;  - can't set attribute">def test_attribute_error_carries_message():
+        error = FrozenAttributeError()
+        assert error.msg == error.args[0] == "can't set attribute"
+&gt;       assert str(error) == "can't set attribute"
+E       assert '' == "can't set attribute"
+E         
+E         - can't set attribute
+
+/repopilot-hidden/test_frozen_hidden.py:19: AssertionError</failure></testcase></testsuite></testsuites>

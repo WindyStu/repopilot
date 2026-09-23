@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="4" skipped="0" tests="4" time="0.021" timestamp="2026-09-22T13:58:11.683038+00:00" hostname="faa1bdc3e38a"><testcase classname="test_mapping_hidden" name="test_key_validator_can_be_omitted" time="0.000"><failure message="TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'">def test_key_validator_can_be_omitted():
+&gt;       validator = deep_mapping(value_validator=instance_of(int))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'
+
+/repopilot-hidden/test_mapping_hidden.py:7: TypeError</failure></testcase><testcase classname="test_mapping_hidden" name="test_value_validator_can_be_omitted" time="0.000"><failure message="TypeError: deep_mapping() missing 1 required positional argument: 'value_validator'">def test_value_validator_can_be_omitted():
+&gt;       validator = deep_mapping(key_validator=instance_of(str))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: deep_mapping() missing 1 required positional argument: 'value_validator'
+
+/repopilot-hidden/test_mapping_hidden.py:12: TypeError</failure></testcase><testcase classname="test_mapping_hidden" name="test_neither_key_nor_value_validator_is_rejected" time="0.000"><failure message="TypeError: deep_mapping() missing 2 required positional arguments: 'key_validator' and 'value_validator'">def test_neither_key_nor_value_validator_is_rejected():
+        with pytest.raises(ValueError, match="At least one"):
+&gt;           deep_mapping()
+E           TypeError: deep_mapping() missing 2 required positional arguments: 'key_validator' and 'value_validator'
+
+/repopilot-hidden/test_mapping_hidden.py:18: TypeError</failure></testcase><testcase classname="test_mapping_hidden" name="test_present_validator_still_runs" time="0.000"><failure message="TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'">def test_present_validator_still_runs():
+&gt;       validator = deep_mapping(value_validator=instance_of(int))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: deep_mapping() missing 1 required positional argument: 'key_validator'
+
+/repopilot-hidden/test_mapping_hidden.py:22: TypeError</failure></testcase></testsuite></testsuites>

@@ -1,0 +1,61 @@
+{
+  "task_id": "real_click_choice_metavar",
+  "variant": "enhanced",
+  "success": false,
+  "failure_class": "empty_patch",
+  "exit_status": "LimitsExceeded",
+  "infrastructure_error": "",
+  "attempts": [
+    {
+      "number": 1,
+      "exit_status": "LimitsExceeded",
+      "trajectory": "attempt-1.traj.json",
+      "strong_model_calls": 8,
+      "input_tokens": 29403,
+      "output_tokens": 7973,
+      "analysis_source": "local_model",
+      "hidden_verification": {
+        "result": {
+          "success": false,
+          "output": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n______________ test_optional_choice_does_not_get_double_brackets _______________\n\n    def test_optional_choice_does_not_get_double_brackets():\n        argument = Argument(\"method\", type=Choice([\"foo\", \"bar\"]), required=False)\n>       assert argument.make_metavar() == \"[foo|bar]\"\nE       AssertionError: assert '[[foo|bar]]' == '[foo|bar]'\nE         \nE         - [foo|bar]\nE         + [[foo|bar]]\nE         ? +         +\n\n/repopilot-hidden/test_metavar_hidden.py:6: AssertionError\n_________________ test_variadic_choice_reuses_choice_brackets __________________\n\n    def test_variadic_choice_reuses_choice_brackets():\n        argument = Argument(\"method\", type=Choice([\"foo\", \"bar\"]), required=False, nargs=-1)\n>       assert argument.make_metavar() == \"[foo|bar]...\"\nE       AssertionError: assert '[[foo|bar]]...' == '[foo|bar]...'\nE         \nE         - [foo|bar]...\nE         + [[foo|bar]]...\nE         ? +         +\n\n/repopilot-hidden/test_metavar_hidden.py:11: AssertionError\n_____________ test_optional_datetime_does_not_get_double_brackets ______________\n\n    def test_optional_datetime_does_not_get_double_brackets():\n        argument = Argument(\"when\", type=DateTime([\"%Y-%m-%d\"]), required=False)\n>       assert argument.make_metavar() == \"[%Y-%m-%d]\"\nE       AssertionError: assert '[[%Y-%m-%d]]' == '[%Y-%m-%d]'\nE         \nE         - [%Y-%m-%d]\nE         + [[%Y-%m-%d]]\nE         ? +          +\n\n/repopilot-hidden/test_metavar_hidden.py:16: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-7css9j6h'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ic1xgma0'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_metavar_hidden.py::test_optional_choice_does_not_get_double_brackets\nFAILED ../repopilot-hidden/test_metavar_hidden.py::test_variadic_choice_reuses_choice_brackets\nFAILED ../repopilot-hidden/test_metavar_hidden.py::test_optional_datetime_does_not_get_double_brackets\n3 failed, 2 warnings in 0.02s\n",
+          "command": "pytest -q /repopilot-hidden"
+        },
+        "counts": {
+          "total": 3,
+          "passed": 0,
+          "failed": 3,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "changed_paths": [],
+  "forbidden_paths": [],
+  "strong_model_calls": 8,
+  "input_tokens": 29403,
+  "output_tokens": 7973,
+  "cache_hit_input_tokens": 25088,
+  "cache_miss_input_tokens": 4315,
+  "retrieved_files": [
+    "tests/test_metavar.py",
+    "click/__init__.py",
+    "click/types.py",
+    "click/core.py",
+    "click/formatting.py"
+  ],
+  "retrieval_recall_at_5": 1.0,
+  "analysis_sources": [
+    "local_model"
+  ],
+  "hidden_test_counts": {
+    "total": 3,
+    "passed": 0,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0
+  },
+  "active_wall_seconds": 50.412400293000246,
+  "model": "deepseek/deepseek-flash",
+  "image": "repopilot-runner:py312"
+}

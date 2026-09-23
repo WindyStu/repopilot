@@ -1,0 +1,28 @@
+diff --git a/more_itertools/recipes.py b/more_itertools/recipes.py
+index 73e33d2..9faa2e1 100644
+--- a/more_itertools/recipes.py
++++ b/more_itertools/recipes.py
+@@ -5,9 +5,9 @@ from itertools import accumulate
+ def _windowed_running_min(iterator, maxlen):
+     candidates = deque()
+     for index, value in enumerate(iterator):
+-        if candidates and candidates[0][0] == index - maxlen:
++        if candidates and candidates[0][0] <= index - maxlen:
+             candidates.popleft()
+-        while candidates and not candidates[-1][1] < value:
++        while candidates and candidates[-1][1] > value:
+             candidates.pop()
+         candidates.append((index, value))
+         yield candidates[0][1]
+@@ -23,9 +23,9 @@ def running_min(iterable, *, maxlen=None):
+ def _windowed_running_max(iterator, maxlen):
+     candidates = deque()
+     for index, value in enumerate(iterator):
+-        if candidates and candidates[0][0] == index - maxlen:
++        if candidates and candidates[0][0] <= index - maxlen:
+             candidates.popleft()
+-        while candidates and not candidates[-1][1] > value:
++        while candidates and candidates[-1][1] < value:
+             candidates.pop()
+         candidates.append((index, value))
+         yield candidates[0][1]

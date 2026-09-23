@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="4" time="0.022" timestamp="2026-09-22T13:51:50.283410+00:00" hostname="c1b48b8a1aa4"><testcase classname="test_short_help_hidden" name="test_abbreviation_does_not_end_sentence" time="0.001"><failure message="AssertionError: assert 'Weigh apples vs.' == 'Weigh apples vs. pears.'&#10;  &#10;  - Weigh apples vs. pears.&#10;  ?                 -------&#10;  + Weigh apples vs.">def test_abbreviation_does_not_end_sentence():
+&gt;       assert make_default_short_help("Weigh apples vs. pears.", 30) == "Weigh apples vs. pears."
+E       AssertionError: assert 'Weigh apples vs.' == 'Weigh apples vs. pears.'
+E         
+E         - Weigh apples vs. pears.
+E         ?                 -------
+E         + Weigh apples vs.
+
+/repopilot-hidden/test_short_help_hidden.py:5: AssertionError</failure></testcase><testcase classname="test_short_help_hidden" name="test_abbreviation_is_kept_when_truncating_later_text" time="0.000"><failure message="AssertionError: assert 'Weigh apples vs.' == 'Weigh apples vs....'&#10;  &#10;  - Weigh apples vs....&#10;  ?                 ---&#10;  + Weigh apples vs.">def test_abbreviation_is_kept_when_truncating_later_text():
+&gt;       assert make_default_short_help("Weigh apples vs. pears and plums.", 20) == "Weigh apples vs...."
+E       AssertionError: assert 'Weigh apples vs.' == 'Weigh apples vs....'
+E         
+E         - Weigh apples vs....
+E         ?                 ---
+E         + Weigh apples vs.
+
+/repopilot-hidden/test_short_help_hidden.py:9: AssertionError</failure></testcase><testcase classname="test_short_help_hidden" name="test_period_before_uppercase_still_ends_sentence" time="0.000" /><testcase classname="test_short_help_hidden" name="test_lowercase_after_period_continues_sentence" time="0.000"><failure message="AssertionError: assert 'Use config.toml.' == 'Use config.toml. then...'&#10;  &#10;  - Use config.toml. then...&#10;  ?                 --------&#10;  + Use config.toml.">def test_lowercase_after_period_continues_sentence():
+&gt;       assert make_default_short_help("Use config.toml. then continue", 25) == "Use config.toml. then..."
+E       AssertionError: assert 'Use config.toml.' == 'Use config.toml. then...'
+E         
+E         - Use config.toml. then...
+E         ?                 --------
+E         + Use config.toml.
+
+/repopilot-hidden/test_short_help_hidden.py:17: AssertionError</failure></testcase></testsuite></testsuites>

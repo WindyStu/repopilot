@@ -1,0 +1,55 @@
+{
+  "task_id": "real_mi_interleave_empty",
+  "variant": "baseline",
+  "success": true,
+  "failure_class": "",
+  "exit_status": "Submitted",
+  "infrastructure_error": "",
+  "attempts": [
+    {
+      "number": 1,
+      "exit_status": "Submitted",
+      "trajectory": "attempt-1.traj.json",
+      "strong_model_calls": 7,
+      "input_tokens": 9714,
+      "output_tokens": 1370,
+      "analysis_source": null,
+      "hidden_verification": {
+        "result": {
+          "success": true,
+          "output": "...                                                                      [100%]\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-ectmyol7'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n3 passed, 1 warning in 0.01s\n",
+          "command": "pytest -q /repopilot-hidden"
+        },
+        "counts": {
+          "total": 3,
+          "passed": 3,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "changed_paths": [
+    "more_itertools/more.py"
+  ],
+  "forbidden_paths": [],
+  "strong_model_calls": 7,
+  "input_tokens": 9714,
+  "output_tokens": 1370,
+  "cache_hit_input_tokens": 7808,
+  "cache_miss_input_tokens": 1906,
+  "retrieved_files": [],
+  "retrieval_recall_at_5": null,
+  "analysis_sources": [],
+  "hidden_test_counts": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "active_wall_seconds": 10.216677377000451,
+  "model": "deepseek/deepseek-flash",
+  "image": "repopilot-runner:py312"
+}

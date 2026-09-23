@@ -1,0 +1,17 @@
+diff --git a/attr/exceptions.py b/attr/exceptions.py
+index 1b5967d..be39fe0 100644
+--- a/attr/exceptions.py
++++ b/attr/exceptions.py
+@@ -1,9 +1,8 @@
+-from typing import ClassVar
+-
+-
+ class FrozenError(AttributeError):
+     msg = "can't set attribute"
+-    args: ClassVar[tuple[str]] = [msg]
++
++    def __init__(self) -> None:
++        super().__init__(self.msg)
+ 
+ 
+ class FrozenInstanceError(FrozenError):

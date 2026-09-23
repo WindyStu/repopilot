@@ -1,0 +1,62 @@
+{
+  "dataset": "repopilot-e2e-v2",
+  "paired_tasks": 20,
+  "variants": {
+    "baseline": {
+      "tasks": 20,
+      "task_success": {
+        "passed": 4,
+        "total": 20,
+        "rate": 0.2
+      },
+      "hidden_tests": {
+        "passed": 36,
+        "total": 69,
+        "rate": 0.5217391304347826
+      },
+      "retrieval_recall_at_5": null,
+      "total_input_tokens": 306422,
+      "mean_input_tokens": 15321.1,
+      "total_strong_model_calls": 159,
+      "mean_strong_model_calls": 7.95,
+      "total_active_wall_seconds": 499.62217673001214,
+      "mean_active_wall_seconds": 24.981108836500606,
+      "failure_classes": {
+        "empty_patch": 9,
+        "step_limit": 7
+      }
+    },
+    "enhanced": {
+      "tasks": 20,
+      "task_success": {
+        "passed": 9,
+        "total": 20,
+        "rate": 0.45
+      },
+      "hidden_tests": {
+        "passed": 44,
+        "total": 69,
+        "rate": 0.6376811594202898
+      },
+      "retrieval_recall_at_5": 0.925,
+      "total_input_tokens": 481966,
+      "mean_input_tokens": 24098.3,
+      "total_strong_model_calls": 144,
+      "mean_strong_model_calls": 7.2,
+      "total_active_wall_seconds": 559.538642758007,
+      "mean_active_wall_seconds": 27.97693213790035,
+      "failure_classes": {
+        "empty_patch": 5,
+        "qwen_fallback": 2,
+        "step_limit": 4
+      }
+    }
+  },
+  "paired_deltas": {
+    "task_success_rate": 0.25,
+    "hidden_test_pass_rate": 0.1159420289855072,
+    "mean_input_tokens": 8777.199999999999,
+    "mean_strong_model_calls": -0.75,
+    "mean_active_wall_seconds": 2.995823301399742
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "task_id": "real_click_empty_usage",
+  "variant": "baseline",
+  "success": false,
+  "failure_class": "empty_patch",
+  "exit_status": "LimitsExceeded",
+  "infrastructure_error": "",
+  "attempts": [
+    {
+      "number": 1,
+      "exit_status": "LimitsExceeded",
+      "trajectory": "attempt-1.traj.json",
+      "strong_model_calls": 8,
+      "input_tokens": 20405,
+      "output_tokens": 5273,
+      "analysis_source": null,
+      "hidden_verification": {
+        "result": {
+          "success": false,
+          "output": "FFF                                                                      [100%]\n=================================== FAILURES ===================================\n_____________ test_empty_args_preserve_default_prefix_and_program ______________\n\n    def test_empty_args_preserve_default_prefix_and_program():\n        formatter = HelpFormatter()\n        formatter.write_usage(\"Program\")\n>       assert formatter.getvalue() == \"Usage: Program\\n\"\nE       AssertionError: assert '\\n' == 'Usage: Program\\n'\nE         \nE         Strings contain only whitespace, escaping them using repr()\nE         - 'Usage: Program\\n'\nE         + '\\n'\n\n/repopilot-hidden/test_usage_hidden.py:7: AssertionError\n____________________ test_empty_args_preserve_custom_prefix ____________________\n\n    def test_empty_args_preserve_custom_prefix():\n        formatter = HelpFormatter()\n        formatter.write_usage(\"Program\", prefix=\"Run: \")\n>       assert formatter.getvalue() == \"Run: Program\\n\"\nE       AssertionError: assert '\\n' == 'Run: Program\\n'\nE         \nE         Strings contain only whitespace, escaping them using repr()\nE         - 'Run: Program\\n'\nE         + '\\n'\n\n/repopilot-hidden/test_usage_hidden.py:13: AssertionError\n_________________ test_empty_args_do_not_leave_trailing_space __________________\n\n    def test_empty_args_do_not_leave_trailing_space():\n        formatter = HelpFormatter(width=20)\n        formatter.write_usage(\"VeryLongProgramName\")\n>       assert formatter.getvalue() == \"Usage: VeryLongProgramName\\n\"\nE       AssertionError: assert '\\n' == 'Usage: VeryLongProgramName\\n'\nE         \nE         Strings contain only whitespace, escaping them using repr()\nE         - 'Usage: VeryLongProgramName\\n'\nE         + '\\n'\n\n/repopilot-hidden/test_usage_hidden.py:19: AssertionError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-b4fcpo04'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-m3hou2uv'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_usage_hidden.py::test_empty_args_preserve_default_prefix_and_program\nFAILED ../repopilot-hidden/test_usage_hidden.py::test_empty_args_preserve_custom_prefix\nFAILED ../repopilot-hidden/test_usage_hidden.py::test_empty_args_do_not_leave_trailing_space\n3 failed, 2 warnings in 0.02s\n",
+          "command": "pytest -q /repopilot-hidden"
+        },
+        "counts": {
+          "total": 3,
+          "passed": 0,
+          "failed": 3,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "changed_paths": [],
+  "forbidden_paths": [],
+  "strong_model_calls": 8,
+  "input_tokens": 20405,
+  "output_tokens": 5273,
+  "cache_hit_input_tokens": 17280,
+  "cache_miss_input_tokens": 3125,
+  "retrieved_files": [],
+  "retrieval_recall_at_5": null,
+  "analysis_sources": [],
+  "hidden_test_counts": {
+    "total": 3,
+    "passed": 0,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0
+  },
+  "active_wall_seconds": 36.17909924900232,
+  "model": "deepseek/deepseek-flash",
+  "image": "repopilot-runner:py312"
+}

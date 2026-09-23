@@ -1,0 +1,12 @@
+diff --git a/inventory/service.py b/inventory/service.py
+index 9864fe6..8ade70c 100644
+--- a/inventory/service.py
++++ b/inventory/service.py
+@@ -15,4 +15,6 @@ class InventoryService:
+         return self._cache[sku]
+ 
+     def update_price(self, sku: str, price: Decimal) -> Product:
+-        return self._repository.update_price(sku, price)
++        product = self._repository.update_price(sku, price)
++        self._cache.pop(sku, None)
++        return product

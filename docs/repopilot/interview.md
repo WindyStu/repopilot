@@ -33,23 +33,27 @@ API quotas, and the small benchmark's uncertainty.
 
 ## Measured result and trade-off
 
-On the checked-in 3-task, single-run paired pilot, both variants solved 3/3 tasks and passed 9/9 hidden tests. Enhanced
-retrieval reached 100% Recall@5, reduced average input tokens by 7.5% and strong-model calls by 11.8%, but increased active
-latency by 7.4%. The correct conclusion is efficiency improved on this pilot; solve rate did not.
+On the checked-in 20-task paired evaluation, the enhanced workflow improved Task Success Rate from 20.0% (4/20) to 45.0%
+(9/20), and hidden-test case pass rate from 52.2% (36/69) to 63.8% (44/69). Retrieval Recall@5 was 92.5%, while mean
+strong-model calls fell from 7.95 to 7.20 (-9.4%). The trade-off is important: mean input tokens increased 57.3% and mean
+active time increased 12.0%. Six tasks were enhanced-only wins, one was a baseline-only win, three were solved by both, and
+ten by neither. With one run per task, describe this as a measured result, not a statistically significant claim.
 
 ## Resume wording
 
 Chinese:
 
-“基于 mini-swe-agent 开发 RepoPilot：实现 Python AST/BM25/符号与依赖混合检索、本地 Qwen3-0.6B 路由、无网络非 root
-Docker 沙箱及失败自动修复；在 DeepSeek Flash 的 3 题同任务配对实验中，完整系统保持 100% 任务/隐藏测试通过率，
-Recall@5 达 100%，平均输入 Token 降低 7.5%、强模型调用降低 11.8%（单次小样本实验）。”
+“基于 mini-swe-agent 开发 RepoPilot 编码 Agent：实现 Python AST + BM25 + 符号/依赖混合 RAG、本地
+Qwen3-0.6B 任务路由、无网络非 root Docker 沙箱及隐藏测试驱动的自动修复；构建 20 题混合基准并完成 40 次
+DeepSeek Flash 配对实验，使任务成功率由 20% 提升至 45%（+25 个百分点）、隐藏测试通过率提升 11.6 个百分点，
+Recall@5 达 92.5%，强模型平均调用次数降低 9.4%。”
 
 English:
 
-“Built RepoPilot on mini-swe-agent with explainable Python retrieval, local Qwen3-0.6B routing, credential-isolated Docker
-execution, and bounded repair; on a checked-in 3-task paired DeepSeek Flash pilot, maintained 100% task/hidden-test pass
-rates with 100% Recall@5 while reducing mean input tokens 7.5% and strong-model calls 11.8% (single-run pilot).”
+“Built RepoPilot on mini-swe-agent with explainable AST/BM25/symbol/dependency RAG, local Qwen3-0.6B routing,
+network-disabled non-root Docker execution, and hidden-test-driven repair; created a 20-task mixed benchmark and ran 40
+paired DeepSeek Flash sessions, improving task success from 20% to 45% (+25 pp) and hidden-test pass rate by 11.6 pp, with
+92.5% Recall@5 and 9.4% fewer strong-model calls.”
 
-For the separate 20-task smoke check, always call 90% a retrieval-only Recall@5 result. Never describe it as a 90% bug-fix
-success rate. For the end-to-end pilot, always state the 3-task and single-run limitations.
+Keep the separate 90% result labeled as a retrieval-only smoke check; never describe it as a bug-fix success rate. For the
+end-to-end v2 result, state that it is 20 tasks with one run per variant and avoid statistical-significance language.

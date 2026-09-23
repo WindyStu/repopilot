@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="4" time="0.023" timestamp="2026-09-22T13:50:58.664090+00:00" hostname="fddc1ddd7792"><testcase classname="test_slice_hidden" name="test_full_reverse_slice" time="0.001"><failure message="assert [] == [5, 4, 3, 2, 1, 0]&#10;  &#10;  Right contains 6 more items, first extra item: 5&#10;  Use -v to get more diff">def test_full_reverse_slice():
+&gt;       assert list(numeric_range(6)[::-1]) == [5, 4, 3, 2, 1, 0]
+E       assert [] == [5, 4, 3, 2, 1, 0]
+E         
+E         Right contains 6 more items, first extra item: 5
+E         Use -v to get more diff
+
+/repopilot-hidden/test_slice_hidden.py:5: AssertionError</failure></testcase><testcase classname="test_slice_hidden" name="test_open_ended_negative_step" time="0.000"><failure message="assert [] == [8, 6, 4, 2, 0]&#10;  &#10;  Right contains 5 more items, first extra item: 8&#10;  Use -v to get more diff">def test_open_ended_negative_step():
+&gt;       assert list(numeric_range(10)[8::-2]) == [8, 6, 4, 2, 0]
+E       assert [] == [8, 6, 4, 2, 0]
+E         
+E         Right contains 5 more items, first extra item: 8
+E         Use -v to get more diff
+
+/repopilot-hidden/test_slice_hidden.py:9: AssertionError</failure></testcase><testcase classname="test_slice_hidden" name="test_bounded_negative_step" time="0.000" /><testcase classname="test_slice_hidden" name="test_slice_of_nonunit_base_range" time="0.000"><failure message="assert [] == [12, 8, 4]&#10;  &#10;  Right contains 3 more items, first extra item: 12&#10;  Use -v to get more diff">def test_slice_of_nonunit_base_range():
+&gt;       assert list(numeric_range(2, 14, 2)[::-2]) == [12, 8, 4]
+E       assert [] == [12, 8, 4]
+E         
+E         Right contains 3 more items, first extra item: 12
+E         Use -v to get more diff
+
+/repopilot-hidden/test_slice_hidden.py:17: AssertionError</failure></testcase></testsuite></testsuites>

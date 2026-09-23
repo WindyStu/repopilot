@@ -1,0 +1,53 @@
+{
+  "task_id": "real_mi_one_falsy",
+  "variant": "baseline",
+  "success": false,
+  "failure_class": "empty_patch",
+  "exit_status": "LimitsExceeded",
+  "infrastructure_error": "",
+  "attempts": [
+    {
+      "number": 1,
+      "exit_status": "LimitsExceeded",
+      "trajectory": "attempt-1.traj.json",
+      "strong_model_calls": 8,
+      "input_tokens": 9117,
+      "output_tokens": 2372,
+      "analysis_source": null,
+      "hidden_verification": {
+        "result": {
+          "success": false,
+          "output": "FFFF                                                                     [100%]\n=================================== FAILURES ===================================\n___________________ test_one_raises_falsy_too_short_instance ___________________\n\n    def test_one_raises_falsy_too_short_instance():\n        error = FalsyError(\"too few\")\n        with pytest.raises(FalsyError) as caught:\n>           one([], too_short=error)\n\n/repopilot-hidden/test_one_hidden.py:14: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\niterable = [], too_short = FalsyError('too few'), too_long = None\n\n    def one(iterable, too_short=None, too_long=None):\n        iterator = iter(iterable)\n        for first in iterator:\n            for second in iterator:\n                msg = (\n                    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                    f\"{second!r}, and perhaps more.\"\n                )\n                raise too_long or ValueError(msg)\n            return first\n>       raise too_short or ValueError(\"too few items in iterable (expected 1)\")\nE       ValueError: too few items in iterable (expected 1)\n\nmore_itertools/more.py:11: ValueError\n___________________ test_one_raises_falsy_too_long_instance ____________________\n\n    def test_one_raises_falsy_too_long_instance():\n        error = FalsyError(\"too many\")\n        with pytest.raises(FalsyError) as caught:\n>           one([1, 2], too_long=error)\n\n/repopilot-hidden/test_one_hidden.py:21: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\niterable = [1, 2], too_short = None, too_long = FalsyError('too many')\n\n    def one(iterable, too_short=None, too_long=None):\n        iterator = iter(iterable)\n        for first in iterator:\n            for second in iterator:\n                msg = (\n                    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                    f\"{second!r}, and perhaps more.\"\n                )\n>               raise too_long or ValueError(msg)\nE               ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.\n\nmore_itertools/more.py:9: ValueError\n___________________ test_only_raises_falsy_too_long_instance ___________________\n\n    def test_only_raises_falsy_too_long_instance():\n        error = FalsyError(\"too many\")\n        with pytest.raises(FalsyError) as caught:\n>           only([1, 2], too_long=error)\n\n/repopilot-hidden/test_one_hidden.py:28: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\niterable = [1, 2], default = None, too_long = FalsyError('too many')\n\n    def only(iterable, default=None, too_long=None):\n        iterator = iter(iterable)\n        for first in iterator:\n            for second in iterator:\n                msg = (\n                    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                    f\"{second!r}, and perhaps more.\"\n                )\n>               raise too_long or ValueError(msg)\nE               ValueError: Expected exactly one item in iterable, but got 1, 2, and perhaps more.\n\nmore_itertools/more.py:22: ValueError\n______________ test_custom_exception_does_not_evaluate_item_repr _______________\n\n    def test_custom_exception_does_not_evaluate_item_repr():\n        class NoRepr:\n            def __repr__(self):\n                raise RuntimeError(\"repr should not be called\")\n    \n        with pytest.raises(OverflowError):\n>           one([NoRepr(), NoRepr()], too_long=OverflowError(\"many\"))\n\n/repopilot-hidden/test_one_hidden.py:38: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \nmore_itertools/more.py:6: in one\n    f\"Expected exactly one item in iterable, but got {first!r}, \"\n                                                     ^^^^^^^^^\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <[RuntimeError('repr should not be called') raised in repr()] NoRepr object at 0x7a1fd0306b10>\n\n    def __repr__(self):\n>       raise RuntimeError(\"repr should not be called\")\nE       RuntimeError: repr should not be called\n\n/repopilot-hidden/test_one_hidden.py:35: RuntimeError\n=============================== warnings summary ===============================\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:475: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/nodeids: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-001kag3d'\n    config.cache.set(\"cache/nodeids\", sorted(self.cached_nodeids))\n\n../usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429\n  /usr/local/lib/python3.12/site-packages/_pytest/cacheprovider.py:429: PytestCacheWarning: could not create cache path /repopilot-hidden/.pytest_cache/v/cache/lastfailed: [Errno 30] Read-only file system: '/repopilot-hidden/pytest-cache-files-xinaiz52'\n    config.cache.set(\"cache/lastfailed\", self.lastfailed)\n\n-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html\n-------------- generated xml file: /repopilot-artifacts/junit.xml --------------\n=========================== short test summary info ============================\nFAILED ../repopilot-hidden/test_one_hidden.py::test_one_raises_falsy_too_short_instance\nFAILED ../repopilot-hidden/test_one_hidden.py::test_one_raises_falsy_too_long_instance\nFAILED ../repopilot-hidden/test_one_hidden.py::test_only_raises_falsy_too_long_instance\nFAILED ../repopilot-hidden/test_one_hidden.py::test_custom_exception_does_not_evaluate_item_repr\n4 failed, 2 warnings in 0.03s\n",
+          "command": "pytest -q /repopilot-hidden"
+        },
+        "counts": {
+          "total": 4,
+          "passed": 0,
+          "failed": 4,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    }
+  ],
+  "changed_paths": [],
+  "forbidden_paths": [],
+  "strong_model_calls": 8,
+  "input_tokens": 9117,
+  "output_tokens": 2372,
+  "cache_hit_input_tokens": 7296,
+  "cache_miss_input_tokens": 1821,
+  "retrieved_files": [],
+  "retrieval_recall_at_5": null,
+  "analysis_sources": [],
+  "hidden_test_counts": {
+    "total": 4,
+    "passed": 0,
+    "failed": 4,
+    "errors": 0,
+    "skipped": 0
+  },
+  "active_wall_seconds": 22.435395975000574,
+  "model": "deepseek/deepseek-flash",
+  "image": "repopilot-runner:py312"
+}

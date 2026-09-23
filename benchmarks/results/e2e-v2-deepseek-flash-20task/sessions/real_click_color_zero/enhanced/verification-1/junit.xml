@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="5" time="0.027" timestamp="2026-09-22T13:52:55.692539+00:00" hostname="54826864bd36"><testcase classname="test_style_hidden" name="test_zero_foreground_palette_index_is_not_dropped" time="0.001"><failure message="AssertionError: assert 'x\x1b[0m' == '\x1b[38;5;0mx\x1b[0m'&#10;  &#10;  - #x1B[38;5;0mx#x1B[0m&#10;  + x#x1B[0m">def test_zero_foreground_palette_index_is_not_dropped():
+&gt;       assert style("x", fg=0) == "\033[38;5;0mx\033[0m"
+E       AssertionError: assert 'x\x1b[0m' == '\x1b[38;5;0mx\x1b[0m'
+E         
+E         - #x1B[38;5;0mx#x1B[0m
+E         + x#x1B[0m
+
+/repopilot-hidden/test_style_hidden.py:7: AssertionError</failure></testcase><testcase classname="test_style_hidden" name="test_zero_background_palette_index_is_not_dropped" time="0.000"><failure message="AssertionError: assert 'x\x1b[0m' == '\x1b[48;5;0mx\x1b[0m'&#10;  &#10;  - #x1B[48;5;0mx#x1B[0m&#10;  + x#x1B[0m">def test_zero_background_palette_index_is_not_dropped():
+&gt;       assert style("x", bg=0) == "\033[48;5;0mx\033[0m"
+E       AssertionError: assert 'x\x1b[0m' == '\x1b[48;5;0mx\x1b[0m'
+E         
+E         - #x1B[48;5;0mx#x1B[0m
+E         + x#x1B[0m
+
+/repopilot-hidden/test_style_hidden.py:11: AssertionError</failure></testcase><testcase classname="test_style_hidden" name="test_boolean_is_not_accepted_as_palette_index" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">def test_boolean_is_not_accepted_as_palette_index():
+&gt;       with pytest.raises(ValueError, match="Unknown color"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+/repopilot-hidden/test_style_hidden.py:15: Failed</failure></testcase><testcase classname="test_style_hidden" name="test_out_of_range_palette_index_is_rejected" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">def test_out_of_range_palette_index_is_rejected():
+&gt;       with pytest.raises(ValueError, match="Unknown color"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+/repopilot-hidden/test_style_hidden.py:20: Failed</failure></testcase><testcase classname="test_style_hidden" name="test_invalid_rgb_component_is_rejected" time="0.000"><failure message="Failed: DID NOT RAISE &lt;class 'ValueError'&gt;">def test_invalid_rgb_component_is_rejected():
+&gt;       with pytest.raises(ValueError, match="Unknown color"):
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       Failed: DID NOT RAISE &lt;class 'ValueError'&gt;
+
+/repopilot-hidden/test_style_hidden.py:25: Failed</failure></testcase></testsuite></testsuites>
