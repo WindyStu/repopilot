@@ -2511,10 +2511,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
       
         <li class="md-nav__item">
-  <a href="#current-checked-in-result" class="md-nav__link">
+  <a href="#retrieval-only-smoke-result" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Current checked-in result
+        Retrieval-only smoke result
       
     </span>
   </a>
@@ -2562,13 +2562,66 @@ compare different task-ID sets. Failed and skipped tasks remain in the denominat
 <li>wall time and failure-class counts;</li>
 <li>raw task-level outcomes, not only aggregates.</li>
 </ul>
-<p>The canonical end-to-end result is <code>repopilot-e2e-v1</code> with DeepSeek Flash and one run for each of 3 paired tasks. Both
-variants solved 3/3 tasks and passed 9/9 hidden tests. Enhanced retrieval reached 100% Recall@5, reduced mean input tokens
-from 6,320.33 to 5,847.33 (7.5%), and reduced mean strong-model calls from 5.67 to 5.00 (11.8%). Mean active wall time
-increased from 8.42 to 9.04 seconds (7.4%) because local analysis adds latency. These are descriptive pilot results and do
-not establish statistical significance or a solve-rate improvement. Raw evidence is checked in under
-<code>benchmarks/results/e2e-v1-deepseek-flash-r2/</code>.</p>
-<h2 id="current-checked-in-result">Current checked-in result</h2>
+<p>The canonical end-to-end result is <code>repopilot-e2e-v2</code>: one baseline and one enhanced DeepSeek Flash run for each of 20
+tasks (40 sessions total). The frozen set contains 5 authored tasks and 15 immutable real-project snapshots, with 5 easy,
+10 medium, and 5 hard tasks. All tasks passed two-run Docker qualification before the paid experiment.</p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th style="text-align: right;">Baseline</th>
+<th style="text-align: right;">Enhanced</th>
+<th style="text-align: right;">Delta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Task Success Rate</td>
+<td style="text-align: right;">4/20 (20.0%)</td>
+<td style="text-align: right;">9/20 (45.0%)</td>
+<td style="text-align: right;">+25.0 pp</td>
+</tr>
+<tr>
+<td>Hidden-test case pass rate</td>
+<td style="text-align: right;">36/69 (52.2%)</td>
+<td style="text-align: right;">44/69 (63.8%)</td>
+<td style="text-align: right;">+11.6 pp</td>
+</tr>
+<tr>
+<td>Retrieval Recall@5</td>
+<td style="text-align: right;">N/A</td>
+<td style="text-align: right;">92.5%</td>
+<td style="text-align: right;">N/A</td>
+</tr>
+<tr>
+<td>Mean input tokens</td>
+<td style="text-align: right;">15,321.10</td>
+<td style="text-align: right;">24,098.30</td>
+<td style="text-align: right;">+57.3%</td>
+</tr>
+<tr>
+<td>Mean strong-model calls</td>
+<td style="text-align: right;">7.95</td>
+<td style="text-align: right;">7.20</td>
+<td style="text-align: right;">-9.4%</td>
+</tr>
+<tr>
+<td>Mean active wall time</td>
+<td style="text-align: right;">24.98 s</td>
+<td style="text-align: right;">27.98 s</td>
+<td style="text-align: right;">+12.0%</td>
+</tr>
+</tbody>
+</table>
+<p>The paired outcomes were 6 enhanced-only wins, 1 baseline-only win, 3 tasks solved by both, and 10 solved by neither.
+Enhanced success was 4/5 on authored and 5/15 on real-project tasks, versus 2/5 and 2/15 for baseline. Failure classes and
+unsuccessful tasks remain in the report rather than being filtered out. Raw evidence is checked in under
+<code>benchmarks/results/e2e-v2-deepseek-flash-20task/</code>.</p>
+<p>This is a single run per task, so the result is descriptive and does not establish statistical significance. It shows a
+higher observed solve rate and fewer strong-model calls, with the explicit trade-off of more input context and active time.
+The earlier 3-task <code>repopilot-e2e-v1</code> pilot remains under
+<code>benchmarks/results/e2e-v1-deepseek-flash-r2/</code> and is excluded from the v2 aggregate.</p>
+<h2 id="retrieval-only-smoke-result">Retrieval-only smoke result</h2>
 <p><code>repopilot-retrieval-v1</code> labels 20 issue queries against expected RepoPilot source files. The empty-context baseline has
 0% Recall@5 and deterministic hybrid retrieval has 90% Recall@5 (18/20 tasks fully recalled). The two misses remain in the
 raw report. This benchmark isolates retrieval quality; it does not measure patch correctness or claim a 90% solve rate.</p>
