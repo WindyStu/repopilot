@@ -1,3 +1,4 @@
+from click import unstyle
 from typer.testing import CliRunner
 
 from minisweagent.repopilot.cli import app, build_safe_run_args, evaluate, prepare_workspace
@@ -9,18 +10,23 @@ def test_cli_exposes_explicit_run_subcommand():
     evaluation = CliRunner().invoke(app, ["evaluate", "--help"])
     qualification = CliRunner().invoke(app, ["qualify-dataset", "--help"])
 
+    root_output = unstyle(root.stdout)
+    run_output = unstyle(result.stdout)
+    evaluation_output = unstyle(evaluation.stdout)
+    qualification_output = unstyle(qualification.stdout)
+
     assert root.exit_code == 0
-    assert "Commands" in root.stdout
-    assert "run" in root.stdout
+    assert "Commands" in root_output
+    assert "run" in root_output
     assert result.exit_code == 0
-    assert "--repo" in result.stdout
+    assert "--repo" in run_output
     assert evaluation.exit_code == 0
-    assert "--manifest" in evaluation.stdout
-    assert "--output-dir" in evaluation.stdout
+    assert "--manifest" in evaluation_output
+    assert "--output-dir" in evaluation_output
     assert qualification.exit_code == 0
-    assert "--manifest" in qualification.stdout
-    assert "--output-dir" in qualification.stdout
-    assert "--image" in qualification.stdout
+    assert "--manifest" in qualification_output
+    assert "--output-dir" in qualification_output
+    assert "--image" in qualification_output
 
 
 def test_prepare_workspace_copies_source_but_excludes_git_secrets_and_agent_artifacts(tmp_path):

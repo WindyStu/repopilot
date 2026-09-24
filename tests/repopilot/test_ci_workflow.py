@@ -11,3 +11,15 @@ def test_pytest_workflow_collects_only_the_maintained_test_suite():
     assert re.search(r"(?:^|\s)tests/?(?:\s|$)", run_step), (
         "The CI pytest command must target tests/ explicitly so benchmark and example fixtures are not collected."
     )
+
+
+def test_pytest_workflow_builds_the_local_runner_before_docker_integration_tests():
+    workflow = (REPOSITORY_ROOT / ".github/workflows/pytest.yaml").read_text()
+
+    build_position = workflow.find("docker build")
+    pytest_position = workflow.find("- name: Run pytest")
+
+    assert build_position >= 0, "CI must build the local repopilot-runner:py312 image used by live Docker tests."
+    assert build_position < pytest_position, "The runner image must exist before pytest starts."
+    assert "repopilot-runner:py312" in workflow[build_position:pytest_position]
+    assert "docker/Dockerfile" in workflow[build_position:pytest_position]

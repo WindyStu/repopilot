@@ -64,6 +64,8 @@ jobs:
       - name: Install dependencies
         run: |
             uv pip install --python ${Python_ROOT_DIR} -e '.[full]'
+      - name: Build RepoPilot runner image
+        run: docker build --tag repopilot-runner:py312 --file docker/Dockerfile .
       - name: Configure mini-swe-agent
         run: |
           mini-extra config set MSWEA_CONFIGURED 'true'
