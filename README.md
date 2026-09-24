@@ -28,8 +28,10 @@ Issue
   -> patch + trajectory + metrics
 ```
 
-The small local model does query understanding and reranking; it is intentionally not the primary code generator. This
-split makes the validated 4 GB RTX 3050 setup useful without pretending a 0.6B model can reliably solve repository bugs.
+The small local model performs structured query understanding and retrieval-term extraction. File ranking remains
+deterministic: BM25-style lexical scoring is combined with exact symbol/path boosts and one-hop import expansion. Qwen is
+intentionally not the primary code generator. This split makes the validated 4 GB RTX 3050 setup useful without pretending
+a 0.6B model can reliably solve repository bugs.
 
 ## Supported environment
 
